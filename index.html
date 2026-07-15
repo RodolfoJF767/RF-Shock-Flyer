@@ -1,4 +1,4 @@
-<!-- Define o documento como HTML5 -->
+<!-- Define o documento como HTML5 moderno -->
 <!DOCTYPE html>
 <!-- Define o idioma oficial como Português do Brasil -->
 <html lang="pt-br">
@@ -17,12 +17,12 @@
     <style>
         /* Variáveis de cores para o tema Neon */
         :root {
-            --vermelho: #ff0000;         
-            --verde-neon: #00ff00;       
-            --amarelo: #ffff00;          
-            --azul-escuro: #000050;      
-            --preto: #000000;            
-            --fundo-card: #0d0d0d;       
+            --vermelho: #ff0000;         /* Cor dos botões de ação */
+            --verde-neon: #00ff00;       /* Cor de preços e abas */
+            --amarelo: #ffff00;          /* Cor de títulos e letras na aba azul */
+            --azul-escuro-marinho: #000050; /* Azul da Aba de Contato */
+            --preto: #000000;            /* Fundo principal */
+            --fundo-card: #0d0d0d;       /* Fundo dos cards */
         }
 
         /* Estilo geral do corpo */
@@ -33,8 +33,8 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            min-width: 1280px; /* Garante os 1280px fixos */
-            padding-bottom: 150px; /* Espaço para o botão gigante não cobrir o rodapé */
+            min-width: 1280px;            /* Fixa a largura em 1280px */
+            padding-bottom: 100px;
         }
 
         /* Cabeçalho */
@@ -72,7 +72,7 @@
             text-transform: uppercase;
         }
 
-        /* Menu de Abas (Navegação) */
+        /* Menu de Abas (Navegação Fixa) */
         .tabs-nav {
             display: flex;
             justify-content: center;
@@ -102,14 +102,14 @@
             box-shadow: 0 0 20px var(--verde-neon);
         }
 
-        /* ABA CONTATO ESPECIAL */
+        /* ABA CONTATO ESPECIAL: Azul Marinho e Letras Amarelas */
         .tab-contact {
-            background-color: var(--azul-escuro) !important;
+            background-color: var(--azul-escuro-marinho) !important;
             color: var(--amarelo) !important;
             border: 2px solid var(--amarelo) !important;
         }
 
-        /* Grade de Produtos */
+        /* Grade de Produtos - 4 Colunas */
         .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -119,10 +119,11 @@
             padding: 10px;
         }
 
+        /* Lógica de exibição */
         .product-card { display: none !important; }
         .product-card.show { display: block !important; }
 
-        /* Card do Produto - APROXIMADO VERTICALMENTE */
+        /* Card do Produto */
         .card {
             background: var(--fundo-card);
             border: 2px solid #222;
@@ -152,7 +153,7 @@
         .card h3 {
             color: var(--amarelo);
             font-size: 17px;
-            margin: 10px 0 2px 0; /* Aproximado */
+            margin: 10px 0 2px 0; 
             height: 40px; 
             display: flex;
             align-items: center;
@@ -162,7 +163,7 @@
         .card .description {
             font-size: 12px;
             color: #aaa;
-            margin: 0 0 8px 0; /* Aproximado */
+            margin: 0 0 8px 0;
             font-family: 'Segoe UI', sans-serif;
             height: 35px;
             overflow: hidden;
@@ -172,10 +173,10 @@
             display: block;
             font-size: 26px;
             color: var(--verde-neon);
-            margin: 0 0 10px 0; /* Aproximado */
+            margin: 0 0 10px 0;
         }
 
-        /* Botões padrão */
+        /* Botões padrão dos produtos */
         .btn-style {
             background: var(--vermelho);
             color: #fff;
@@ -194,28 +195,27 @@
             margin-bottom: 5px;
         }
 
-        /* --- SUPER BOTÃO DO CARRINHO (CENTRALIZADO) --- */
+        /* --- BOTÃO DO CARRINHO GIGANTE NO LADO ESQUERDO --- */
         #cart-icon {
             position: fixed;
-            bottom: 20px;            /* Distância do fundo */
-            left: 50%;               /* Meio da tela */
-            transform: translateX(-50%); /* Ajuste para centralização real */
+            bottom: 30px;            /* Distância do fundo */
+            left: 30px;              /* FIXADO NO LADO ESQUERDO */
             background: var(--verde-neon);
             color: #000;
-            width: 130px;            /* BEM MAIOR */
-            height: 130px;           /* BEM MAIOR */
+            width: 140px;            
+            height: 140px;           
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;         /* Ícone Gigante */
+            font-size: 70px;         
             cursor: pointer;
             z-index: 2500;
-            box-shadow: 0 0 40px var(--verde-neon);
-            border: 5px solid #000;
+            box-shadow: 0 0 50px var(--verde-neon);
+            border: 6px solid #000;
             transition: 0.3s;
         }
-        #cart-icon:hover { transform: translateX(-50%) scale(1.1); }
+        #cart-icon:hover { transform: scale(1.1); }
 
         #cart-count {
             position: absolute;
@@ -234,7 +234,7 @@
             border: 3px solid #000;
         }
 
-        /* Modal do Carrinho */
+        /* Janela do Carrinho */
         #cart-modal {
             display: none;
             position: fixed;
@@ -256,34 +256,59 @@
             padding: 30px;
         }
 
-        /* SEÇÃO CONTATO */
+        /* --- SEÇÃO CONTATO: CENTRALIZAÇÃO TOTAL --- */
         .contato-wrapper.show {
-            grid-column: 1 / 5;
-            display: flex !important;
-            justify-content: center;
+            grid-column: 1 / 5;              
+            display: flex !important;        
+            justify-content: center;         
+            align-items: center;
+            width: 100%;
             padding: 50px 0;
         }
 
         .contact-box-center {
-            width: 1000px;
+            width: 1100px;                   
             background: #0d0d0d;
-            border: 5px solid var(--azul-escuro);
+            border: 5px solid var(--azul-escuro-marinho);
             padding: 60px;
             border-radius: 40px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: column;          
+            align-items: center;             
+            text-align: center;
         }
 
+        /* FOTO ESTILO FOLHA */
         .photo-leaf {
-            width: 400px;
-            height: 400px;
+            width: 450px;
+            height: 450px;
             object-fit: cover;
             border: 8px solid var(--amarelo);
-            border-radius: 40px 200px 40px 200px;
+            border-radius: 40px 220px 40px 220px;
             margin-bottom: 30px;
+            box-shadow: 0 0 50px rgba(0, 0, 80, 0.8);
         }
 
+        .contact-box-center h2 { color: var(--amarelo); font-size: 55px; margin: 10px 0; }
+        .contact-box-center p { font-size: 24px; color: #eee; max-width: 850px; line-height: 1.6; margin-bottom: 40px; }
+
+        /* Botão de Contato Verde Neon com Letras Pretas */
+        .btn-wa-neon-black {
+            background-color: var(--verde-neon);
+            color: #000;
+            padding: 25px 80px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        /* Rodapé */
         footer {
             background: #0a0a0a;
             padding: 40px 20px;
@@ -301,16 +326,17 @@
 </head>
 <body>
 
+    <!-- Link Base do seu GitHub -->
     <script>
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
         let carrinho = [];
 
         const descricoes = {
-            'aero': 'Aeromodelo Pro para manobras 3D.',
-            'drones': 'Drone FPV com câmera estabilizada.',
-            'eletronicos': 'Componentes de alta performance.',
-            'pecas': 'Peças originais de reposição.',
-            'smart': 'Smartwatch com notificações e saúde.'
+            'aero': 'Aeromodelo Pro para manobras 3D e voo acrobático.',
+            'drones': 'Drone FPV com câmera estabilizada de alta resolução.',
+            'eletronicos': 'Componentes eletrônicos de alta performance.',
+            'pecas': 'Peças originais de reposição com máxima durabilidade.',
+            'smart': 'Smartwatch inteligente com monitoramento de saúde.'
         };
     </script>
 
@@ -320,9 +346,10 @@
     </header>
 
     <div class="banner-hero">
-        <h2>🚀 SELECIONE SEUS PRODUTOS ABAIXO 🚀</h2>
+        <h2>🚀 VITRINE VIP - PRODUTOS À PRONTA ENTREGA 🚀</h2>
     </div>
 
+    <!-- Navegação de Abas -->
     <nav class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('aero', this)">Aeromodelos</button>
         <button class="tab-btn" onclick="switchTab('drones', this)">Drones</button>
@@ -332,6 +359,7 @@
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
+    <!-- Área Principal da Loja -->
     <div class="container" id="gridLoja">
         <script>
             const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
@@ -341,7 +369,7 @@
                 for(let i = 1; i <= 15; i++) {
                     let n = i < 10 ? '0' + i : i;
                     let activeClass = cat === 'aero' ? 'show' : '';
-                    let preco = 100 + (i * 12); 
+                    let preco = 120 + (i * 10); 
                     let desc = descricoes[cat];
 
                     let card = `
@@ -351,8 +379,10 @@
                             <h3>Produto ${n} - ${cat.toUpperCase()}</h3>
                             <p class="description">${desc}</p>
                             <span class="price">R$ ${preco},00</span>
-                            <button class="btn-style" onclick="addNoCarrinho('Prod ${n} ${cat}', ${preco})">🛒 ADICIONAR AO CARRINHO</button>
-                            <a href="https://wa.me/5532920006774" target="_blank" class="btn-style" style="background:#25d366; line-height:45px;">💬 DÚVIDAS</a>
+                            <div class="btn-box">
+                                <button class="btn-style" onclick="addNoCarrinho('Prod ${n} ${cat}', ${preco})">🛒 ADICIONAR AO CARRINHO</button>
+                                <a href="https://wa.me/5532920006774" target="_blank" class="btn-style" style="background:#25d366; line-height:45px;">💬 DÚVIDAS</a>
+                            </div>
                         </div>
                     </div>`;
                     gridLoja.innerHTML += card;
@@ -360,29 +390,34 @@
             });
         </script>
 
+        <!-- ABA CONTATO VENDEDOR -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" class="photo-leaf" alt="Vendedor">
                 <h2 style="color: var(--amarelo);">RODOLFO FRANCO</h2>
-                <p>Adicione os itens ao seu carrinho e clique em Finalizar no botão gigante verde. Receberei sua lista no WhatsApp para gerar o link do Mercado Pago.</p>
-                <a href="https://wa.me/5532920006774" target="_blank" class="btn-style" style="background:var(--verde-neon); color:#000; width:450px; font-size:20px; height:60px; line-height:60px;">FALAR COM VENDEDOR</a>
+                <p>Olá! Adicione os itens que deseja ao carrinho e clique em Finalizar no botão gigante no canto da tela. <br>
+                Eu receberei sua lista no WhatsApp e te enviarei o link do Mercado Pago para pagamento seguro!</p>
+                <a href="https://wa.me/5532920006774" target="_blank" class="btn-wa-neon-black">
+                    <i class="fab fa-whatsapp"></i> CHAMAR NO WHATSAPP
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- BOTÃO GIGANTE CENTRALIZADO -->
+    <!-- BOTÃO GIGANTE DE CARRINHO NO LADO ESQUERDO -->
     <div id="cart-icon" onclick="toggleCart()">
-        <i class="fas fa-shopping-basket"></i>
+        <i class="fas fa-shopping-cart"></i>
         <div id="cart-count">0</div>
     </div>
 
+    <!-- MODAL DO CARRINHO -->
     <div id="cart-modal">
         <div class="cart-content">
             <h2 style="color: var(--verde-neon)">CARRINHO DE COMPRAS</h2>
-            <div id="cart-items-list" style="max-height: 350px; overflow-y: auto; text-align: left; margin-bottom: 20px;"></div>
-            <h3 style="font-size: 26px; border-top: 1px solid #333; padding-top: 10px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
+            <div id="cart-items-list" style="max-height: 400px; overflow-y: auto; text-align: left; margin-bottom: 20px;"></div>
+            <h3 style="font-size: 28px; border-top: 1px solid #333; padding-top: 15px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
             <button class="btn-style" style="height: 70px; font-size: 20px; background: var(--verde-neon); color: #000;" onclick="finalizarPedido()">✅ FINALIZAR PEDIDO (WHATSAPP)</button>
-            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">VOLTAR PARA A LOJA</button>
+            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">FECHAR E VOLTAR</button>
         </div>
     </div>
 
@@ -425,7 +460,7 @@
             let total = 0;
             carrinho.forEach((item, index) => {
                 total += item.preco;
-                list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:16px; border-bottom:1px solid #222; padding-bottom:5px;">
+                list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:18px; border-bottom:1px solid #222; padding-bottom:8px;">
                     <span>${item.nome}</span>
                     <span>R$ ${item.preco},00 <i class="fas fa-trash" onclick="removerItem(${index})" style="color:red; margin-left:15px; cursor:pointer"></i></span>
                 </div>`;
@@ -446,13 +481,13 @@
 
         function finalizarPedido() {
             if (carrinho.length === 0) return alert("Adicione produtos primeiro!");
-            let msg = "🚀 *PEDIDO RF SHOCK FLYER* 🚀\n\n";
+            let msg = "🚀 *NOVO PEDIDO - RF SHOCK FLYER* 🚀\n\n";
             let total = 0;
             carrinho.forEach(i => {
                 msg += `- ${i.nome}: R$ ${i.preco},00\n`;
                 total += i.preco;
             });
-            msg += `\n*TOTAL: R$ ${total},00*\n\nMe envie o link do Mercado Pago para pagamento!`;
+            msg += `\n*TOTAL DO PEDIDO: R$ ${total},00*\n\nQuero o link de pagamento do Mercado Pago agora!`;
             window.open(`https://wa.me/5532920006774?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>

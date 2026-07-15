@@ -1,36 +1,36 @@
 <!-- Define o tipo de documento como HTML5 -->
 <!DOCTYPE html>
-<!-- Inicia o HTML e define o idioma como Português do Brasil -->
+<!-- Define o idioma oficial como Português do Brasil -->
 <html lang="pt-br">
 <head>
-    <!-- Define a codificação universal para evitar erros de acentos -->
+    <!-- Define a codificação de caracteres para evitar erros em acentos -->
     <meta charset="UTF-8">
     
-    <!-- FORÇA O MODO DESKTOP: Simula uma tela de computador de 1280px de largura no celular -->
+    <!-- FORÇA O MODO DESKTOP: Simula uma tela de computador com 1280px de largura no celular -->
     <meta name="viewport" content="width=1280, initial-scale=1">
     
-    <!-- Título da página que aparece na aba do navegador -->
+    <!-- Título que aparece na aba do navegador -->
     <title>RF-Shock Flyer | Loja Oficial</title>
     
-    <!-- Link para o Favicon vindo direto do seu repositório GitHub -->
+    <!-- Favicon (ícone da aba) vindo da pasta imagens do seu GitHub -->
     <link rel="icon" href="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/favicon.ico" type="image/x-icon">
     
-    <!-- Importa a biblioteca de ícones FontAwesome (para ícones de WhatsApp e Carrinho) -->
+    <!-- Importa biblioteca de ícones FontAwesome (WhatsApp, Carrinho, etc) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Variáveis de cores para manter o padrão visual em todo o site */
+        /* Variáveis de cores para o tema Neon da loja */
         :root {
-            --vermelho: #ff0000;         /* Cor padrão dos botões de compra */
-            --verde-neon: #00ff00;       /* Cor de preços e bordas neon */
-            --amarelo: #ffff00;          /* Cor de textos de destaque */
-            --azul-escuro: #000066;      /* Fundo do botão da aba de contato */
+            --vermelho: #ff0000;         /* Botões de compra */
+            --verde-neon: #00ff00;       /* Preços e bordas padrão */
+            --amarelo: #ffff00;          /* Títulos e letras na aba azul */
+            --azul-escuro-navy: #000050; /* Azul Escuro Marinho solicitado */
             --verde-whatsapp: #25d366;   /* Verde oficial do botão de contato */
-            --preto: #000000;            /* Fundo total da página */
-            --fundo-card: #0d0d0d;       /* Cor interna das caixas de produtos */
+            --preto: #000000;            /* Fundo total do site */
+            --fundo-card: #0d0d0d;       /* Fundo interno das caixas de produtos */
         }
 
-        /* Estilo geral do corpo do site */
+        /* Estilos gerais do corpo da página */
         body {
             font-family: 'Arial Black', sans-serif; 
             background-color: var(--preto);
@@ -38,23 +38,23 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            min-width: 1280px;            /* Garante que o layout não encolha em telas pequenas */
+            min-width: 1280px;            /* Trava a largura mínima em 1280px */
         }
 
-        /* Cabeçalho superior (Onde fica a logo) */
+        /* Cabeçalho superior (Logo) */
         header {
             background: #000;
             padding: 20px;
             border-bottom: 3px solid var(--vermelho);
         }
 
-        /* Imagem da sua Logomarca */
+        /* Imagem da Logomarca */
         .logo-img {
             width: 150px;
             filter: drop-shadow(0 0 10px var(--verde-neon));
         }
 
-        /* Banner de destaque animado (Topo) */
+        /* Banner Hero largo estilo PC */
         .banner-hero {
             width: 1280px;
             height: 350px;
@@ -68,7 +68,7 @@
             border-bottom: 5px solid var(--amarelo);
         }
 
-        /* Texto de impacto no meio do banner */
+        /* Texto dentro do banner */
         .banner-hero h2 {
             background: rgba(0, 0, 0, 0.8);
             padding: 20px 40px;
@@ -78,7 +78,7 @@
             text-transform: uppercase;
         }
 
-        /* Menu de Navegação por Categorias (Fixado no topo) */
+        /* Menu de Abas (Navegação Fixa) */
         .tabs-nav {
             display: flex;
             justify-content: center;
@@ -103,25 +103,25 @@
             transition: 0.3s;
         }
 
-        /* Efeito de aba selecionada ou mouse em cima (Verde) */
+        /* Efeito ao selecionar aba ou passar mouse */
         .tab-btn.active, .tab-btn:hover {
             background: var(--verde-neon);
             color: #000;
             box-shadow: 0 0 20px var(--verde-neon);
         }
 
-        /* ESTILO EXCLUSIVO: Botão da Aba "Contato Vendedor" (Azul Escuro com Letras Amarelas) */
+        /* ESTILO EXCLUSIVO: Aba "Contato Vendedor" (AZUL ESCURO E AMARELO) */
         .tab-contact {
-            background-color: var(--azul-escuro) !important;
+            background-color: var(--azul-escuro-navy) !important;
             color: var(--amarelo) !important;
             border: 2px solid var(--amarelo) !important;
         }
         .tab-contact.active, .tab-contact:hover {
-            background-color: #0000CC !important; /* Azul mais claro ao clicar */
+            background-color: #000080 !important; /* Azul levemente mais claro no clique */
             box-shadow: 0 0 25px var(--amarelo) !important;
         }
 
-        /* Grade de Produtos (Fixa em 4 colunas como no Computador) */
+        /* Grade de Produtos (Fixa 4 por linha) */
         .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -131,12 +131,14 @@
             padding: 20px;
         }
 
-        /* Esconde os cards das outras categorias */
+        /* Esconde e mostra os cards conforme a aba clicada */
         .product-card { display: none; }
-        /* Mostra os cards da categoria ativa */
         .product-card.show { display: block; }
+        
+        /* Força a seção de contato a ocupar as 4 colunas e centralizar no meio da grade */
+        .product-card.contato-wrapper { grid-column: 1 / -1; }
 
-        /* Card individual do produto */
+        /* Estilo do Card individual do produto */
         .card {
             background: var(--fundo-card);
             border: 2px solid #222;
@@ -145,14 +147,13 @@
             transition: 0.4s;
         }
 
-        /* Efeito ao passar o mouse no produto */
         .card:hover {
             transform: scale(1.05);
             border-color: var(--vermelho);
             box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
         }
 
-        /* Estilo das imagens/GIFs (Quadrados 1024x1024) */
+        /* GIFs dos Produtos (1024x1024) */
         .product-gif {
             width: 100%;
             aspect-ratio: 1/1;
@@ -161,7 +162,7 @@
             background-color: #fff;
         }
 
-        /* Estilo dos preços grandes */
+        /* Preços */
         .price {
             display: block;
             font-size: 35px;
@@ -169,8 +170,8 @@
             margin-bottom: 25px;
         }
 
-        /* Botão Vermelho de Compra */
-        .btn-buy {
+        /* Botão Vermelho Padrão */
+        .btn-style {
             background: var(--vermelho);
             color: #fff;
             text-decoration: none;
@@ -180,25 +181,25 @@
             font-weight: bold;
             margin-bottom: 12px;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: 18px;
             border: none;
+            cursor: pointer;
             transition: 0.3s;
         }
-        .btn-buy:hover { box-shadow: 0 0 25px var(--vermelho); }
 
         /* --- SEÇÃO DE CONTATO TOTALMENTE CENTRALIZADA --- */
         .contact-box-center {
-            grid-column: span 4;                     /* Faz a seção de contato usar a largura total */
+            width: 100%;                             /* Garante largura total */
             background: #000;
-            border: 5px solid var(--azul-escuro);    /* Borda azul escuro */
-            padding: 80px 20px;
+            border: 5px solid var(--azul-escuro-navy);
+            padding: 80px 0;                         /* Espaço interno vertical */
             border-radius: 40px;
-            display: flex;
-            flex-direction: column;                  /* Coloca itens um abaixo do outro */
+            display: flex;                           /* Ativa Flexbox */
+            flex-direction: column;                  /* Itens um embaixo do outro */
             align-items: center;                     /* Centraliza horizontalmente */
             justify-content: center;                 /* Centraliza verticalmente */
             text-align: center;                      /* Centraliza o texto */
-            margin: 20px auto;
+            margin: 0 auto;                          /* Centraliza o bloco na tela */
         }
 
         /* FOTO ESTILO FOLHA: Superior Direito e Inferior Esquerdo redondos */
@@ -207,32 +208,34 @@
             height: 450px;
             object-fit: cover;
             border: 8px solid var(--amarelo);
-            border-radius: 40px 250px 40px 250px;    /* Design assimétrico solicitado */
+            border-radius: 40px 250px 40px 250px;    /* Design assimétrico */
             margin-bottom: 30px;
-            box-shadow: 0 0 50px rgba(0, 0, 102, 0.5);
+            box-shadow: 0 0 50px rgba(0, 0, 80, 0.6);
         }
 
         /* Título e Texto do Contato */
         .contact-box-center h2 { color: var(--amarelo); font-size: 60px; margin: 10px 0; }
         .contact-box-center p { font-size: 26px; color: #eee; max-width: 900px; line-height: 1.6; margin-bottom: 40px; }
 
-        /* BOTÃO WHATSAPP VERDE (Dentro da seção de contato) */
+        /* BOTÃO WHATSAPP VERDE CENTRALIZADO NO CONTATO */
         .btn-wa-green {
-            background-color: var(--verde-whatsapp);
+            background-color: var(--verde-whatsapp); /* Cor verde oficial */
             color: #fff;
             padding: 25px 80px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 30px;
             font-weight: bold;
-            display: inline-flex;
+            display: inline-flex;                    /* Alinha ícone e texto */
             align-items: center;
+            justify-content: center;
             gap: 20px;
             transition: 0.3s;
+            border: none;
         }
         .btn-wa-green:hover { transform: scale(1.1); box-shadow: 0 0 40px var(--verde-whatsapp); }
 
-        /* Rodapé da Loja */
+        /* Rodapé */
         footer {
             background: #0a0a0a;
             padding: 60px 20px;
@@ -240,7 +243,6 @@
             margin-top: 100px;
         }
 
-        /* GIF de Rodapé grande para desktop */
         .footer-gif {
             width: 800px;
             border-radius: 20px;
@@ -248,24 +250,23 @@
             margin-bottom: 40px;
         }
 
-        /* Selo Mercado Pago */
         .mp-badge { width: 350px; filter: brightness(1.1); }
     </style>
 </head>
 <body>
 
-    <!-- Definição do link base para as imagens no GitHub -->
+    <!-- Link Base do GitHub -->
     <script>
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
     </script>
 
     <!-- Header (Logo) -->
     <header>
-        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" alt="Logo RF" class="logo-img">
+        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" alt="Logo" class="logo-img">
         <h1 style="color: var(--verde-neon); margin: 10px 0 0 0; font-size: 30px;">RF-SHOCK FLYER</h1>
     </header>
 
-    <!-- Banner Principal -->
+    <!-- Banner de Entrada -->
     <div class="banner-hero">
         <h2>🚀 VITRINE VIP - PRODUTOS À PRONTA ENTREGA 🚀</h2>
     </div>
@@ -277,14 +278,14 @@
         <button class="tab-btn" onclick="switchTab('eletronicos', this)">Eletrônicos</button>
         <button class="tab-btn" onclick="switchTab('pecas', this)">Peças & Hélices</button>
         <button class="tab-btn" onclick="switchTab('smart', this)">Smartwatches</button>
-        <!-- ABA DE CONTATO COM ESTILO ESPECIAL -->
+        <!-- ABA CONTATO VENDEDOR (AZUL ESCURO COM AMARELO) -->
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
-    <!-- Container onde ficam os produtos e o contato -->
+    <!-- Área de Exibição -->
     <div class="container" id="gridLoja">
         
-        <!-- Script para gerar 15 produtos automáticos por aba -->
+        <!-- Script para gerar 75 produtos automáticos -->
         <script>
             const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
             const gridLoja = document.getElementById('gridLoja');
@@ -297,11 +298,11 @@
                     let card = `
                     <div class="product-card ${cat} ${activeClass}">
                         <div class="card">
-                            <img src="${URL_BASE}p${n}_${cat}.gif" class="product-gif" alt="Produto">
+                            <img src="${URL_BASE}p${n}_${cat}.gif" class="product-gif" alt="GIF">
                             <h3>Produto ${n} - ${cat.toUpperCase()}</h3>
                             <span class="price">R$ 450,00</span>
-                            <a href="LINK_MP" target="_blank" class="btn-buy">🛒 COMPRAR NO MERCADO PAGO</a>
-                            <a href="https://wa.me/5532920006774" target="_blank" class="btn-buy" style="background:#25d366; font-size:12px; padding:10px;">
+                            <a href="LINK_MP" target="_blank" class="btn-style">🛒 COMPRAR NO MERCADO PAGO</a>
+                            <a href="https://wa.me/5532920006774" target="_blank" class="btn-style" style="background:#25d366; font-size:12px; padding:10px;">
                                 <i class="fab fa-whatsapp"></i> SUPORTE WHATSAPP
                             </a>
                         </div>
@@ -311,23 +312,23 @@
             });
         </script>
 
-        <!-- CONTEÚDO CENTRALIZADO DA ABA CONTATO VENDEDOR -->
-        <div class="product-card contato">
+        <!-- ABA CONTATO VENDEDOR - TOTALMENTE CENTRALIZADA -->
+        <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
-                <!-- Imagem no TOPO com bordas assimétricas vinda do GitHub -->
+                <!-- Foto em formato de folha -->
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" class="photo-leaf" alt="Vendedor">
                 
-                <!-- Título Centralizado em Amarelo -->
+                <!-- Título em Amarelo -->
                 <h2>RODOLFO FRANCO</h2>
                 
-                <!-- Texto de Descrição Centralizado -->
-                <p>Olá! Sou Rodolfo Franco, responsável pela RF-Shock Flyer. <br>
-                Trabalho para oferecer o melhor do Aeromodelismo com envio imediato. <br>
-                Se precisar de suporte técnico ou ajuda com sua compra, fale comigo agora!</p>
+                <!-- Texto Centralizado -->
+                <p>Olá, seja bem-vindo! Sou o Rodolfo Franco, proprietário da RF-Shock Flyer. <br>
+                Especialista em Aeromodolismo, estou à disposição para ajudar com dúvidas <br>
+                técnicas, pedidos e formas de pagamento. Clique abaixo e fale direto comigo!</p>
                 
-                <!-- BOTÃO WHATSAPP VERDE CENTRALIZADO -->
+                <!-- Botão WhatsApp Verde -->
                 <a href="https://wa.me/5532920006774" target="_blank" class="btn-wa-green">
-                    <i class="fab fa-whatsapp"></i> CONVERSAR NO WHATSAPP
+                    <i class="fab fa-whatsapp"></i> CHAMAR NO WHATSAPP AGORA
                 </a>
             </div>
         </div>
@@ -336,23 +337,24 @@
 
     <!-- Rodapé -->
     <footer>
-        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Promoção" class="footer-gif">
+        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Destaque" class="footer-gif">
         <p style="color: var(--amarelo); font-size: 24px; margin-bottom: 20px;">PAGAMENTO 100% SEGURO</p>
-        <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" class="mp-badge">
-        <p style="font-size: 18px; margin-top: 30px; color: #888;">RF-Shock Flyer © 2024 | Modo Desktop 1280px</p>
+        <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" class="mp-logo">
+        <p style="font-size: 18px; margin-top: 30px; color: #888;">RF-Shock Flyer © 2024 | Versão Desktop Premium</p>
     </footer>
 
-    <!-- Lógica JavaScript para o funcionamento das Abas -->
+    <!-- Lógica de funcionamento das abas -->
     <script>
         function switchTab(categoryId, element) {
             const cards = document.querySelectorAll('.product-card');
             const buttons = document.querySelectorAll('.tab-btn');
 
-            // Troca a classe ativa nos botões para mudar a cor
+            // Limpa o estado ativo dos botões
             buttons.forEach(btn => btn.classList.remove('active'));
+            // Define o botão clicado como ativo
             element.classList.add('active');
 
-            // Mostra apenas os produtos ou a seção da categoria clicada
+            // Filtra o que será mostrado
             cards.forEach(card => {
                 if (card.classList.contains(categoryId)) {
                     card.classList.add('show');
@@ -361,7 +363,7 @@
                 }
             });
 
-            // Sobe a tela para o início da loja suavemente
+            // Sobe para o topo da lista suavemente
             window.scrollTo({ top: 400, behavior: 'smooth' });
         }
     </script>

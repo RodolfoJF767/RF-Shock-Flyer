@@ -1,275 +1,267 @@
-<!-- Define o tipo de documento como HTML5 moderno -->
+<!-- Define o documento como HTML5 -->
 <!DOCTYPE html>
-<!-- Inicia o HTML e define o idioma como Português do Brasil -->
+<!-- Define o idioma como Português do Brasil -->
 <html lang="pt-br">
 <head>
-    <!-- Define a codificação de caracteres para evitar erros de acentos -->
+    <!-- Define a codificação para evitar erros de acentos -->
     <meta charset="UTF-8">
     
     <!-- FORÇA O MODO DESKTOP: Simula uma tela de computador com 1280px de largura no celular -->
     <meta name="viewport" content="width=1280, initial-scale=1">
     
-    <!-- Título da página que aparece na aba do navegador -->
+    <!-- Título da aba do navegador -->
     <title>RF-Shock Flyer | Loja Oficial</title>
     
-    <!-- Link para o Favicon vindo direto do seu GitHub -->
+    <!-- Favicon vindo direto do seu GitHub -->
     <link rel="icon" href="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/favicon.ico" type="image/x-icon">
     
-    <!-- Importa a biblioteca de ícones FontAwesome (WhatsApp e Carrinho) -->
+    <!-- Importa biblioteca de ícones FontAwesome (WhatsApp e Carrinho) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Início da estilização visual (CSS) -->
+    <!-- Início dos estilos CSS -->
     <style>
-        /* Variáveis de cores para o tema Neon da loja */
+        /* Variáveis de cores para o tema Neon */
         :root {
             --vermelho: #ff0000;         /* Cor padrão dos botões de compra */
-            --verde-neon: #00ff00;       /* Cor de preços e bordas neon */
-            --amarelo: #ffff00;          /* Títulos e letras na aba azul */
-            --azul-escuro: #000050;      /* Azul Escuro Marinho para a aba de contato */
-            --verde-wa: #25d366;         /* Verde oficial do WhatsApp */
+            --verde-neon: #00ff00;       /* O VERDE FLUORESCENTE das abas e agora do botão de contato */
+            --amarelo: #ffff00;          /* Amarelo Neon para títulos e letras da aba azul */
+            --azul-escuro-marinho: #000050; /* Azul Escuro Marinho para a aba de contato */
             --preto: #000000;            /* Fundo total do site */
             --fundo-card: #0d0d0d;       /* Fundo interno das caixas de produtos */
         }
 
-        /* Configurações do corpo da página */
+        /* Estilos gerais do corpo da página */
         body {
-            font-family: 'Arial Black', sans-serif; /* Fonte grossa de impacto */
-            background-color: var(--preto);          /* Fundo preto */
-            color: #ffffff;                          /* Letras em branco */
-            margin: 0;                               /* Sem margens */
-            padding: 0;                              /* Sem preenchimento */
-            text-align: center;                      /* Centraliza tudo */
-            min-width: 1280px;                       /* Trava a largura mínima em 1280px */
+            font-family: 'Arial Black', sans-serif; 
+            background-color: var(--preto);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-width: 1280px;            /* Fixa a largura mínima em 1280px */
         }
 
         /* Cabeçalho (Header) */
         header {
-            background: #000;                        /* Fundo preto */
-            padding: 20px;                           /* Espaço interno */
-            border-bottom: 3px solid var(--vermelho);/* Linha vermelha no fundo */
+            background: #000;
+            padding: 20px;
+            border-bottom: 3px solid var(--vermelho);
         }
 
-        /* Imagem da Logomarca no topo */
+        /* Logo no topo */
         .logo-img {
-            width: 150px;                            /* Tamanho grande de desktop */
-            filter: drop-shadow(0 0 10px var(--verde-neon)); /* Brilho neon verde */
+            width: 150px;
+            filter: drop-shadow(0 0 10px var(--verde-neon));
         }
 
-        /* Banner Hero largo estilo PC */
+        /* Banner Hero largo estilo Computador */
         .banner-hero {
-            width: 1280px;                           /* Largura fixa desktop */
-            height: 350px;                           /* Altura fixa */
-            margin: 0 auto;                          /* Centraliza o banner */
-            background-image: url('https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/banner.gif'); /* Banner GitHub */
-            background-size: cover;                  /* Imagem preenche o bloco */
-            background-position: center;             /* Centraliza a foto */
-            display: flex;                           /* Alinhamento flexível */
-            align-items: center;                     /* Centraliza texto verticalmente */
-            justify-content: center;                 /* Centraliza texto horizontalmente */
-            border-bottom: 5px solid var(--amarelo); /* Linha amarela no fundo */
+            width: 1280px;
+            height: 350px;
+            margin: 0 auto;
+            background-image: url('https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/banner.gif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 5px solid var(--amarelo);
         }
 
-        /* Texto de impacto dentro do banner */
+        /* Texto dentro do banner */
         .banner-hero h2 {
-            background: rgba(0, 0, 0, 0.8);          /* Fundo preto transparente */
-            padding: 20px 40px;                      /* Espaço do texto */
-            color: var(--amarelo);                   /* Texto amarelo */
-            font-size: 40px;                         /* Fonte grande */
-            border: 3px solid var(--verde-neon);     /* Borda neon verde */
-            text-transform: uppercase;               /* Letras maiúsculas */
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 40px;
+            color: var(--amarelo);
+            font-size: 40px;
+            border: 3px solid var(--verde-neon);
+            text-transform: uppercase;
         }
 
-        /* Barra de Navegação de Categorias (Fixada no topo) */
+        /* Menu de Abas Fixado no topo */
         .tabs-nav {
-            display: flex;                           /* Coloca botões um ao lado do outro */
-            justify-content: center;                 /* Centraliza as abas */
-            background: #111;                        /* Fundo cinza escuro */
-            padding: 20px;                           /* Espaçamento das abas */
-            position: sticky;                        /* Gruda no topo ao rolar a página */
-            top: 0;                                  /* Distância do topo */
-            z-index: 1000;                           /* Fica acima de tudo */
-            gap: 15px;                               /* Espaço entre botões */
+            display: flex;
+            justify-content: center;
+            background: #111;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            gap: 15px;
         }
 
-        /* Estilo dos botões das abas normais (Verdes) */
+        /* Estilo dos botões das abas normais (Verde Neon) */
         .tab-btn {
-            background: none;                        /* Sem fundo */
-            border: 2px solid var(--verde-neon);     /* Borda verde neon */
-            color: var(--verde-neon);                /* Letra verde neon */
-            padding: 12px 25px;                      /* Tamanho interno */
-            font-weight: bold;                       /* Negrito */
-            text-transform: uppercase;               /* Maiúsculo */
-            cursor: pointer;                         /* Mãozinha de clique */
-            font-size: 16px;                         /* Tamanho desktop */
-            transition: 0.3s;                        /* Suaviza a troca de cor */
+            background: none;
+            border: 2px solid var(--verde-neon);
+            color: var(--verde-neon);
+            padding: 12px 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
-        /* Efeito de aba selecionada (Verde) */
+        /* Efeito de aba selecionada ou passar mouse */
         .tab-btn.active, .tab-btn:hover {
-            background: var(--verde-neon);           /* Fundo fica verde */
-            color: #000;                             /* Letra fica preta */
-            box-shadow: 0 0 20px var(--verde-neon);  /* Brilho verde */
+            background: var(--verde-neon);
+            color: #000;
+            box-shadow: 0 0 20px var(--verde-neon);
         }
 
-        /* ESTILO EXCLUSIVO: Aba "Contato Vendedor" (Azul Escuro com letras Amarelas) */
+        /* ABA CONTATO VENDEDOR: FUNDO AZUL ESCURO E LETRAS AMARELO NEON */
         .tab-contact {
-            background-color: var(--azul-escuro) !important;
+            background-color: var(--azul-escuro-marinho) !important;
             color: var(--amarelo) !important;
             border: 2px solid var(--amarelo) !important;
         }
         .tab-contact.active, .tab-contact:hover {
-            background-color: #000080 !important;   /* Azul mais claro no clique */
+            background-color: #000080 !important;
             box-shadow: 0 0 25px var(--amarelo) !important;
         }
 
-        /* Grade de Produtos (Fixa 4 colunas como no computador) */
+        /* Grade de Produtos (4 por linha) */
         .container {
-            display: grid;                           /* Ativa sistema de grade */
-            grid-template-columns: repeat(4, 1fr);   /* FORÇA 4 COLUNAS SEMPRE */
-            gap: 30px;                               /* Espaço entre os cards */
-            width: 1240px;                           /* Largura da grade */
-            margin: 40px auto;                       /* Centraliza na tela */
-            padding: 20px;                           /* Espaçamento lateral */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 30px;
+            width: 1240px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
         /* Esconde todos os cards por padrão */
         .product-card { display: none !important; }
-        /* Mostra apenas a aba ativa */
+        /* Mostra apenas os da aba selecionada */
         .product-card.show { display: block !important; }
 
         /* Card individual do produto */
         .card {
-            background: var(--fundo-card);           /* Fundo preto interno */
-            border: 2px solid #222;                  /* Borda fina */
-            border-radius: 20px;                     /* Pontas arredondadas */
-            padding: 20px;                           /* Espaço interno */
-            transition: 0.4s;                        /* Suaviza animação */
+            background: var(--fundo-card);
+            border: 2px solid #222;
+            border-radius: 20px;
+            padding: 20px;
+            transition: 0.4s;
         }
 
-        /* Efeito de destaque no produto */
         .card:hover {
-            transform: scale(1.05);                  /* Aumenta 5% de tamanho */
-            border-color: var(--vermelho);           /* Fica vermelho */
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); /* Brilho vermelho */
+            transform: scale(1.05);
+            border-color: var(--vermelho);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
         }
 
-        /* GIFs dos Produtos (1024x1024) */
         .product-gif {
-            width: 100%;                             /* Ocupa largura total */
-            aspect-ratio: 1/1;                       /* Quadrado perfeito */
-            object-fit: cover;                       /* Corta sobras sem esticar */
-            border-radius: 15px;                     /* Pontas curvas */
-            background-color: #fff;                  /* Fundo branco */
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 15px;
+            background-color: #fff;
         }
 
-        /* Estilo dos preços */
         .price {
-            display: block;                          /* Uma linha própria */
-            font-size: 35px;                         /* Preço gigante */
-            color: var(--verde-neon);                /* Verde vibrante */
-            margin-bottom: 25px;                     /* Espaço abaixo */
+            display: block;
+            font-size: 35px;
+            color: var(--verde-neon);
+            margin-bottom: 25px;
         }
 
-        /* Botão de Compra Vermelho */
-        .btn-red {
-            background: var(--vermelho);             /* Cor vermelha */
-            color: #fff;                             /* Letra branca */
-            text-decoration: none;                   /* Sem sublinhado */
-            display: block;                          /* Botão largo */
-            padding: 18px;                           /* Altura interna */
-            border-radius: 12px;                     /* Pontas arredondadas */
-            font-weight: bold;                       /* Negrito */
-            margin-bottom: 12px;                     /* Espaço abaixo */
-            text-transform: uppercase;               /* Maiúsculas */
-            font-size: 16px;
+        /* Botão Vermelho de Compra */
+        .btn-style {
+            background: var(--vermelho);
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-size: 18px;
             border: none;
             cursor: pointer;
         }
 
         /* --- SEÇÃO DE CONTATO: CENTRALIZAÇÃO TOTAL --- */
         .contato-wrapper.show {
-            grid-column: 1 / 5;                      /* Faz a seção ocupar as 4 colunas da grade */
-            display: flex !important;                /* Ativa Flexbox para centralização */
-            justify-content: center;                 /* Centraliza horizontalmente */
-            align-items: center;                     /* Centraliza verticalmente */
-            width: 100%;                             /* Largura total */
-            padding: 60px 0;                         /* Espaço vertical */
+            grid-column: 1 / 5;                      /* Ocupa as 4 colunas da grade para centralizar no grid */
+            display: flex !important;                /* Ativa Flexbox */
+            justify-content: center;                 /* Centraliza horizontal */
+            align-items: center;                     /* Centraliza vertical */
+            width: 100%;
+            padding: 60px 0;
         }
 
         .contact-box-center {
             width: 1000px;                           /* Largura do quadro de contato */
-            background: #000;                        /* Fundo preto */
-            border: 5px solid var(--azul-escuro);    /* Borda azul marinho */
-            padding: 60px;                           /* Espaçamento interno */
-            border-radius: 40px;                     /* Cantos bem curvos */
-            display: flex;                           /* Itens em coluna */
+            background: #000;
+            border: 5px solid var(--azul-escuro-marinho);
+            padding: 60px;
+            border-radius: 40px;
+            display: flex;
             flex-direction: column;
-            align-items: center;                     /* Centraliza tudo no meio */
-            text-align: center;                      /* Centraliza o texto */
+            align-items: center;                     /* Centraliza imagem e título no meio */
+            text-align: center;
         }
 
-        /* FOTO ESTILO FOLHA: Superior Direito e Inferior Esquerdo arredondados */
+        /* FOTO ESTILO FOLHA: Superior Direito e Inferior Esquerdo redondos */
         .photo-leaf {
-            width: 450px;                            /* Foto grande */
-            height: 450px;                           /* Quadrada */
-            object-fit: cover;                       /* Não estica a imagem */
-            border: 8px solid var(--amarelo);        /* Borda amarela neon */
-            border-radius: 40px 250px 40px 250px;    /* O segredo do design assimétrico */
-            margin-bottom: 30px;                     /* Espaço abaixo da foto */
-            box-shadow: 0 0 50px rgba(0, 0, 80, 0.7); /* Glow azul no fundo */
+            width: 450px;
+            height: 450px;
+            object-fit: cover;
+            border: 8px solid var(--amarelo);
+            border-radius: 40px 250px 40px 250px;    /* Design assimétrico */
+            margin-bottom: 30px;
+            box-shadow: 0 0 50px rgba(0, 0, 80, 0.7);
         }
 
-        /* Título do Contato */
         .contact-box-center h2 { color: var(--amarelo); font-size: 60px; margin: 10px 0; }
-        /* Texto do Contato */
         .contact-box-center p { font-size: 26px; color: #eee; max-width: 850px; line-height: 1.6; margin-bottom: 40px; }
 
-        /* BOTÃO WHATSAPP: VERDE COM LETRAS PRETAS */
-        .btn-wa-final {
-            background-color: var(--verde-wa);       /* Fundo Verde oficial WhatsApp */
-            color: #000000;                          /* Letras pretas conforme pedido */
+        /* BOTÃO WHATSAPP: VERDE NEON COM LETRAS PRETAS */
+        .btn-wa-neon {
+            background-color: var(--verde-neon);     /* O MESMO VERDE DAS ABAS */
+            color: #000000;                          /* LETRAS PRETAS CONFORME PEDIDO */
             padding: 25px 80px;                      /* Botão bem grande */
-            border-radius: 60px;                     /* Redondo estilo pílula */
+            border-radius: 60px;                     /* Estilo pílula */
             text-decoration: none;                   /* Sem sublinhado */
             font-size: 30px;                         /* Letra gigante */
-            font-weight: 900;                        /* Super negrito */
-            display: inline-flex;                    /* Alinha ícone e texto */
+            font-weight: 900;                        /* Super Negrito */
+            display: inline-flex;                    /* Ícone + Texto lado a lado */
             align-items: center;
             justify-content: center;
-            gap: 20px;                               /* Espaço entre ícone e texto */
-            transition: 0.3s;                        /* Suaviza animação */
-            text-transform: uppercase;               /* Maiúsculo */
+            gap: 20px;
+            transition: 0.3s;
+            text-transform: uppercase;
         }
-        .btn-wa-final:hover { transform: scale(1.1); box-shadow: 0 0 40px var(--verde-wa); }
+        .btn-wa-neon:hover { transform: scale(1.1); box-shadow: 0 0 50px var(--verde-neon); }
 
         /* Rodapé */
         footer {
-            background: #0a0a0a;                     /* Fundo cinza escuro */
-            padding: 60px 20px;                      /* Espaço grande */
-            border-top: 4px solid var(--vermelho);   /* Linha vermelha no topo */
-            margin-top: 100px;                       /* Distância da loja */
+            background: #0a0a0a;
+            padding: 60px 20px;
+            border-top: 4px solid var(--vermelho);
+            margin-top: 100px;
         }
 
-        /* GIF de Rodapé grande para desktop */
         .footer-gif {
-            width: 800px;                            /* Tamanho grande */
-            border-radius: 20px;                     /* Arredondado */
-            border: 3px solid var(--verde-neon);     /* Borda neon */
-            margin-bottom: 40px;                     /* Espaço abaixo */
+            width: 800px;
+            border-radius: 20px;
+            border: 3px solid var(--verde-neon);
+            margin-bottom: 40px;
         }
 
-        /* Selo Mercado Pago */
-        .mp-badge { width: 350px; filter: brightness(1.2); }
+        .mp-badge { width: 350px; }
     </style>
 </head>
 <body>
 
-    <!-- Link Base do seu GitHub -->
+    <!-- Link Base das Imagens no GitHub -->
     <script>
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
     </script>
 
-    <!-- Cabeçalho (Logo) -->
+    <!-- Header (Logo) -->
     <header>
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" alt="Logo RF" class="logo-img">
         <h1 style="color: var(--verde-neon); margin: 10px 0 0 0; font-size: 30px;">RF-SHOCK FLYER</h1>
@@ -287,11 +279,11 @@
         <button class="tab-btn" onclick="switchTab('eletronicos', this)">Eletrônicos</button>
         <button class="tab-btn" onclick="switchTab('pecas', this)">Peças & Hélices</button>
         <button class="tab-btn" onclick="switchTab('smart', this)">Smartwatches</button>
-        <!-- ABA CONTATO VENDEDOR ESPECIAL -->
+        <!-- ABA CONTATO EM AZUL ESCURO E AMARELO -->
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
-    <!-- Área da Loja -->
+    <!-- Área Principal da Loja -->
     <div class="container" id="gridLoja">
         
         <!-- Script para carregar os 75 produtos automaticamente -->
@@ -302,7 +294,7 @@
             categorias.forEach(cat => {
                 for(let i = 1; i <= 15; i++) {
                     let n = i < 10 ? '0' + i : i;
-                    let activeClass = cat === 'aero' ? 'show' : ''; // Inicia mostrando aeromodelos
+                    let activeClass = cat === 'aero' ? 'show' : '';
 
                     let card = `
                     <div class="product-card ${cat} ${activeClass}">
@@ -310,8 +302,8 @@
                             <img src="${URL_BASE}p${n}_${cat}.gif" class="product-gif" alt="Produto">
                             <h3>Produto ${n} - ${cat.toUpperCase()}</h3>
                             <span class="price">R$ 490,00</span>
-                            <a href="SEU_LINK_MP" target="_blank" class="btn-red">🛒 COMPRAR NO MERCADO PAGO</a>
-                            <a href="https://wa.me/5532920006774" target="_blank" class="btn-red" style="background:#25d366; font-size:12px; padding:10px;">
+                            <a href="LINK_MP" target="_blank" class="btn-style">🛒 COMPRAR NO MERCADO PAGO</a>
+                            <a href="https://wa.me/5532920006774" target="_blank" class="btn-style" style="background:#25d366; font-size:12px; padding:10px;">
                                 <i class="fab fa-whatsapp"></i> SUPORTE WHATSAPP
                             </a>
                         </div>
@@ -321,22 +313,22 @@
             });
         </script>
 
-        <!-- ABA CONTATO VENDEDOR: TOTALMENTE CENTRALIZADA E EXCLUSIVA -->
+        <!-- ABA CONTATO VENDEDOR: TOTALMENTE CENTRALIZADA -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
-                <!-- Foto Arredondada Assimétrica (Estilo Folha) -->
+                <!-- Foto em folha vinda do GitHub -->
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" class="photo-leaf" alt="Vendedor">
                 
                 <!-- Título em Amarelo -->
                 <h2>RODOLFO FRANCO</h2>
                 
-                <!-- Descrição Centralizada -->
+                <!-- Texto Centralizado -->
                 <p>Olá, seja bem-vindo! Sou o Rodolfo Franco, proprietário da RF-Shock Flyer. <br>
-                Trabalho com Aeromodolismo profissional e tecnologia de ponta. <br>
+                Especialista em Aeromodolismo profissional e tecnologia de ponta. <br>
                 Estou à disposição para tirar todas as suas dúvidas. Fale comigo agora!</p>
                 
-                <!-- BOTÃO WHATSAPP: VERDE COM LETRAS PRETAS -->
-                <a href="https://wa.me/5532920006774" target="_blank" class="btn-wa-final">
+                <!-- BOTÃO WHATSAPP: VERDE NEON COM LETRAS PRETAS -->
+                <a href="https://wa.me/5532920006774" target="_blank" class="btn-wa-neon">
                     <i class="fab fa-whatsapp" style="font-size: 35px;"></i> CHAMAR NO WHATSAPP
                 </a>
             </div>
@@ -346,33 +338,28 @@
 
     <!-- Rodapé -->
     <footer>
-        <!-- GIF de destaque no rodapé (GitHub) -->
-        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Promoção" class="footer-gif">
-        
+        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Destaque" class="footer-gif">
         <p style="color: var(--amarelo); font-size: 24px; margin-bottom: 20px;">PAGAMENTO 100% SEGURO</p>
-        <!-- Logo do Mercado Pago -->
-        <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" class="mp-badge">
-        
+        <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" class="mp-logo">
         <p style="font-size: 18px; margin-top: 30px; color: #888;">RF-Shock Flyer © 2024 | Versão Desktop Premium</p>
     </footer>
 
     <!-- Lógica JavaScript das Abas -->
     <script>
         function switchTab(categoryId, element) {
-            // Pega todos os cards e botões
-            const allCards = document.querySelectorAll('.product-card');
+            const allItems = document.querySelectorAll('.product-card');
             const allButtons = document.querySelectorAll('.tab-btn');
 
-            // 1. Limpa o visual de ativo de todos os botões
+            // 1. Limpa o visual de ativo dos botões
             allButtons.forEach(btn => btn.classList.remove('active'));
-            // 2. Coloca cor de ativo no botão clicado
+            // 2. Define o botão clicado como ativo
             element.classList.add('active');
 
-            // 3. Esconde tudo e mostra apenas a categoria certa
-            allCards.forEach(card => {
-                card.classList.remove('show'); // Esconde todos
-                if (card.classList.contains(categoryId)) {
-                    card.classList.add('show'); // Mostra o escolhido
+            // 3. Esconde todos os cards e mostra apenas a categoria certa
+            allItems.forEach(item => {
+                item.classList.remove('show'); 
+                if (item.classList.contains(categoryId)) {
+                    item.classList.add('show');
                 }
             });
 
@@ -382,5 +369,4 @@
     </script>
 
 </body>
-<!-- Fim do Código HTML -->
 </html>

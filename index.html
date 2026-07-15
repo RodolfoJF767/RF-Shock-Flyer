@@ -1,230 +1,247 @@
-<!-- Declaração de documento HTML5 -->
+<!-- Início do documento HTML5 -->
 <!DOCTYPE html>
-<!-- Início do HTML com definição de idioma Português do Brasil -->
+<!-- Define o idioma como Português do Brasil -->
 <html lang="pt-br">
+<!-- Início do cabeçalho de configurações -->
 <head>
-    <!-- Define a codificação de caracteres Universal -->
+    <!-- Define a codificação universal para evitar erros de acentos -->
     <meta charset="UTF-8">
     
-    <!-- ATENÇÃO: Esta linha abaixo é o segredo para abrir como no Computador -->
-    <!-- Em vez de "device-width", fixamos em 1280px para forçar o layout de PC -->
+    <!-- FORÇA O MODO DESKTOP: Define que o navegador deve simular uma tela de 1280px de largura -->
     <meta name="viewport" content="width=1280, initial-scale=1">
     
-    <!-- Título da página -->
+    <!-- Título da página que aparece no navegador -->
     <title>RF-Shock Flyer | Loja Oficial</title>
-    <!-- Link para o Favicon na sua pasta de imagens do projeto Cordova -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- Importação da biblioteca de ícones FontAwesome -->
+    
+    <!-- Favicon vindo da pasta de imagens (compatível com GitHub/Cordova) -->
+    <link rel="icon" id="favicon-link" href="img/favicon.ico" type="image/x-icon">
+    
+    <!-- Importa a biblioteca de ícones FontAwesome para botões sociais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- Início dos Estilos CSS -->
     <style>
-        /* Variáveis de cores neon */
+        /* Variáveis de cores para facilitar a manutenção do tema neon */
         :root {
-            --vermelho: #ff0000;
-            --verde-neon: #00ff00;
-            --amarelo: #ffff00;
-            --preto: #000000;
-            --fundo-card: #0d0d0d;
+            --vermelho: #ff0000;    /* Vermelho para botões de compra */
+            --verde-neon: #00ff00;  /* Verde vibrante para preços e bordas */
+            --amarelo: #ffff00;     /* Amarelo para títulos e destaques */
+            --preto: #000000;       /* Fundo total da página */
+            --fundo-card: #0d0d0d;  /* Fundo interno das caixas de produtos */
         }
 
-        /* Estilos gerais */
+        /* Configurações do corpo da página */
         body {
-            font-family: 'Arial Black', sans-serif;
-            background-color: var(--preto);
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            /* Fixamos a largura mínima para garantir que não quebre no celular */
-            min-width: 1280px; 
+            font-family: 'Arial Black', sans-serif; /* Fonte grossa de alto impacto */
+            background-color: var(--preto);          /* Fundo preto */
+            color: #ffffff;                          /* Texto branco */
+            margin: 0;                               /* Remove margens padrão */
+            padding: 0;                              /* Remove preenchimentos padrão */
+            text-align: center;                      /* Centraliza tudo */
+            min-width: 1280px;                       /* Garante que o layout não encolha menos que 1280px */
         }
 
-        /* Cabeçalho fixo em largura de desktop */
+        /* Cabeçalho da loja (Logo) */
         header {
-            background: #000;
-            padding: 30px;
-            border-bottom: 3px solid var(--vermelho);
-            width: 100%;
-            box-sizing: border-box;
+            background: #000;                        /* Fundo preto */
+            padding: 20px;                           /* Espaço interno */
+            border-bottom: 3px solid var(--vermelho);/* Linha vermelha grossa */
         }
 
+        /* Estilo da imagem da Logomarca */
         .logo-img {
-            width: 150px; /* Logo maior estilo desktop */
-            filter: drop-shadow(0 0 10px var(--verde-neon));
+            width: 150px;                            /* Tamanho da logo em modo desktop */
+            filter: drop-shadow(0 0 10px var(--verde-neon)); /* Brilho neon verde */
         }
 
-        /* Banner Hero Largo */
+        /* Banner Hero (Topo) */
         .banner-hero {
-            width: 1280px;
-            height: 350px;
-            margin: 0 auto;
-            background-image: url('img/banner.gif');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 5px solid var(--amarelo);
+            width: 1280px;                           /* Largura fixa de desktop */
+            height: 350px;                           /* Altura do banner */
+            margin: 0 auto;                          /* Centraliza o banner */
+            background-size: cover;                  /* Imagem preenche todo o espaço */
+            background-position: center;             /* Centraliza a imagem no meio */
+            display: flex;                           /* Ativa alinhamento flexível */
+            align-items: center;                     /* Centraliza texto verticalmente */
+            justify-content: center;                 /* Centraliza texto horizontalmente */
+            border-bottom: 5px solid var(--amarelo); /* Linha amarela no fundo */
         }
 
+        /* Estilo do título dentro do banner */
         .banner-hero h2 {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px 40px;
-            color: var(--amarelo);
-            font-size: 40px; /* Fonte grande de PC */
-            border: 3px solid var(--verde-neon);
-            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.8);          /* Fundo preto transparente */
+            padding: 20px 40px;                      /* Espaço do texto */
+            color: var(--amarelo);                   /* Texto amarelo */
+            font-size: 40px;                         /* Fonte grande para PC */
+            border: 3px solid var(--verde-neon);     /* Borda verde neon */
+            text-transform: uppercase;               /* Letras maiúsculas */
         }
 
-        /* Menu de Navegação por Abas (Estilo Barra Superior de PC) */
+        /* Barra de Abas / Categorias */
         .tabs-nav {
-            display: flex;
-            justify-content: center;
-            background: #111;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            gap: 15px;
-            width: 100%;
-            box-sizing: border-box;
+            display: flex;                           /* Botões em linha */
+            justify-content: center;                 /* Centraliza os botões */
+            background: #111;                        /* Fundo cinza escuro */
+            padding: 20px;                           /* Espaçamento das abas */
+            position: sticky;                        /* Gruda no topo ao rolar */
+            top: 0;                                  /* Distância do topo */
+            z-index: 1000;                           /* Fica acima dos produtos */
+            gap: 15px;                               /* Espaço entre botões */
         }
 
+        /* Botões das abas */
         .tab-btn {
-            background: none;
-            border: 2px solid var(--verde-neon);
-            color: var(--verde-neon);
-            padding: 12px 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
+            background: none;                        /* Sem fundo */
+            border: 2px solid var(--verde-neon);     /* Borda neon */
+            color: var(--verde-neon);                /* Letra neon */
+            padding: 12px 30px;                      /* Tamanho do botão */
+            font-weight: bold;                       /* Negrito */
+            text-transform: uppercase;               /* Maiúsculo */
+            cursor: pointer;                         /* Ícone de clique */
+            font-size: 16px;                         /* Fonte legível */
+            transition: 0.3s;                        /* Animação suave */
         }
 
+        /* Botão ativo ou com mouse em cima */
         .tab-btn.active, .tab-btn:hover {
-            background: var(--verde-neon);
-            color: #000;
-            box-shadow: 0 0 20px var(--verde-neon);
+            background: var(--verde-neon);           /* Fundo verde */
+            color: #000;                             /* Letra preta */
+            box-shadow: 0 0 20px var(--verde-neon);  /* Brilho ao redor */
         }
 
-        /* Grade de Produtos Fixa (4 produtos por linha como no PC) */
+        /* Grade de Produtos (4 por linha) */
         .container {
-            display: grid;
-            /* Força exatamente 4 colunas fixas */
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 30px;
-            width: 1240px; /* Largura total da grade */
-            margin: 40px auto;
-            padding: 20px;
+            display: grid;                           /* Ativa Grade */
+            grid-template-columns: repeat(4, 1fr);   /* FORÇA 4 COLUNAS SEMPRE */
+            gap: 30px;                               /* Espaço entre os cards */
+            width: 1240px;                           /* Largura da grade */
+            margin: 40px auto;                       /* Centraliza e dá margem */
+            padding: 20px;                           /* Espaço interno */
         }
 
-        .product-card { display: none; }
-        .product-card.show { display: block; }
+        /* Lógica de exibição das abas */
+        .product-card { display: none; }            /* Esconde tudo */
+        .product-card.show { display: block; }      /* Mostra categoria ativa */
 
-        /* Card do Produto */
+        /* Card individual do produto */
         .card {
-            background: var(--fundo-card);
-            border: 2px solid #222;
-            border-radius: 20px;
-            padding: 20px;
-            transition: 0.4s;
-            height: 100%; /* Garante altura igual na linha */
+            background: var(--fundo-card);           /* Fundo escuro interno */
+            border: 2px solid #222;                  /* Borda fina cinza */
+            border-radius: 20px;                     /* Cantos arredondados */
+            padding: 20px;                           /* Espaço interno */
+            transition: 0.4s;                        /* Suaviza animação */
         }
 
+        /* Efeito de destaque no card */
         .card:hover {
-            transform: scale(1.05);
-            border-color: var(--vermelho);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+            transform: scale(1.05);                  /* Aumenta de tamanho */
+            border-color: var(--vermelho);           /* Borda vermelha */
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); /* Brilho vermelho */
         }
 
-        /* GIF do Produto (1024x1024) */
+        /* Imagem GIF (1024x1024) */
         .product-gif {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 15px;
-            background-color: #fff;
+            width: 100%;                             /* Ocupa largura do card */
+            aspect-ratio: 1/1;                       /* Garante quadrado perfeito */
+            object-fit: cover;                       /* Não deforma a imagem */
+            border-radius: 15px;                     /* Arredonda bordas */
+            background-color: #fff;                  /* Fundo branco para transparências */
         }
 
+        /* Título do Produto */
         .card h3 {
-            color: var(--amarelo);
-            font-size: 22px;
-            margin: 20px 0;
-            height: 60px; /* Fixa altura do título */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: var(--amarelo);                   /* Amarelo chamativo */
+            font-size: 22px;                         /* Fonte grande */
+            margin: 20px 0;                          /* Espaçamento */
+            height: 50px;                            /* Altura fixa para alinhar */
+            overflow: hidden;                        /* Corta texto muito longo */
         }
 
+        /* Preço do Produto */
         .price {
-            display: block;
-            font-size: 35px;
-            color: var(--verde-neon);
-            margin-bottom: 25px;
+            display: block;                          /* Linha própria */
+            font-size: 35px;                         /* Preço gigante */
+            color: var(--verde-neon);                /* Verde neon */
+            margin-bottom: 25px;                     /* Espaço antes do botão */
         }
 
-        /* Botões */
+        /* Botão de Compra Mercado Pago */
         .btn-mp {
-            background: var(--vermelho);
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-size: 16px;
+            background: var(--vermelho);             /* Botão vermelho */
+            color: #fff;                             /* Texto branco */
+            text-decoration: none;                   /* Sem sublinhado */
+            display: block;                          /* Largura total */
+            padding: 18px;                           /* Altura do botão */
+            border-radius: 12px;                     /* Arredondado */
+            font-weight: bold;                       /* Negrito */
+            margin-bottom: 12px;                     /* Espaço entre botões */
+            text-transform: uppercase;               /* Maiúsculo */
         }
 
+        /* Botão Suporte WhatsApp */
         .btn-wa {
-            background: #25d366;
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 14px;
+            background: #25d366;                     /* Verde oficial Zap */
+            color: #fff;                             /* Texto branco */
+            text-decoration: none;                   /* Sem sublinhado */
+            display: block;                          /* Largura total */
+            padding: 12px;                           /* Altura menor */
+            border-radius: 12px;                     /* Arredondado */
+            font-size: 14px;                         /* Fonte menor */
         }
 
-        /* Rodapé de Desktop */
+        /* Rodapé */
         footer {
-            background: #0a0a0a;
-            padding: 60px 20px;
-            border-top: 4px solid var(--vermelho);
-            margin-top: 100px;
-            width: 100%;
-            box-sizing: border-box;
+            background: #0a0a0a;                     /* Fundo cinza escuro */
+            padding: 60px 20px;                      /* Espaçamento grande */
+            border-top: 4px solid var(--vermelho);   /* Linha vermelha no topo do rodapé */
+            margin-top: 100px;                       /* Espaço antes do rodapé */
         }
 
+        /* Imagem/GIF do Rodapé */
         .footer-gif {
-            width: 800px; /* GIF de rodapé grande para PC */
-            border-radius: 20px;
-            border: 3px solid var(--verde-neon);
-            margin-bottom: 40px;
+            width: 800px;                            /* Tamanho grande para desktop */
+            border-radius: 20px;                     /* Bordas arredondadas */
+            border: 3px solid var(--verde-neon);     /* Borda neon */
+            margin-bottom: 40px;                     /* Espaço abaixo */
         }
 
+        /* Logo Mercado Pago */
         .mp-logo {
-            width: 350px;
-            filter: brightness(1.2);
+            width: 350px;                            /* Tamanho do selo de pagamento */
+            filter: brightness(1.2);                 /* Mais brilho */
         }
     </style>
 </head>
 <body>
 
+    <!-- Bloco de scripts para gerenciar imagens e links -->
+    <script>
+        /* CONFIGURAÇÃO DO REPOSITÓRIO GITHUB */
+        /* Se for no CORDOVA use: 'img/' */
+        /* Se for no GOOGLE SITES use o link completo do GitHub Raw como o exemplo abaixo: */
+        const URL_BASE = 'img/'; 
+        
+        /* Aplica o caminho da logo e do banner dinamicamente */
+        window.onload = function() {
+            document.getElementById('img-logo').src = URL_BASE + 'logo.png';
+            document.getElementById('banner-top').style.backgroundImage = "url('" + URL_BASE + "banner.gif')";
+            document.getElementById('img-rodape').src = URL_BASE + 'rodape.gif';
+            document.getElementById('favicon-link').href = URL_BASE + 'favicon.ico';
+        };
+    </script>
+
     <!-- Cabeçalho -->
     <header>
-        <img src="img/logo.png" alt="Logo RF" class="logo-img">
-        <h1 style="color: var(--verde-neon); margin: 10px 0 0 0; font-size: 30px;">RF-SHOCK FLYER - DESKTOP STORE</h1>
+        <img id="img-logo" src="" alt="Logo" class="logo-img">
+        <h1 style="color: var(--verde-neon); margin: 10px 0 0 0; font-size: 30px;">RF-SHOCK FLYER</h1>
     </header>
 
     <!-- Banner Principal -->
-    <div class="banner-hero">
-        <h2>🚀 VITRINE VIP - PRODUTOS À PRONTA ENTREGA 🚀</h2>
+    <div id="banner-top" class="banner-hero">
+        <h2>🚀 PRONTA ENTREGA - ENVIO PARA TODO BRASIL 🚀</h2>
     </div>
 
-    <!-- Abas de Categorias -->
+    <!-- Menu de Abas -->
     <nav class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('aero', this)">Aeromodelos</button>
         <button class="tab-btn" onclick="switchTab('drones', this)">Drones</button>
@@ -233,33 +250,35 @@
         <button class="tab-btn" onclick="switchTab('smart', this)">Smartwatches</button>
     </nav>
 
-    <!-- Loja -->
+    <!-- Área de Produtos -->
     <div class="container" id="gridLoja">
         
+        <!-- Script que gera 75 produtos automaticamente -->
         <script>
-            // Categorias da Loja
             const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
             const gridLoja = document.getElementById('gridLoja');
 
-            // Gerador automático de 15 produtos por aba
             categorias.forEach(cat => {
                 for(let i = 1; i <= 15; i++) {
-                    let n = i < 10 ? '0' + i : i;
-                    let activeClass = cat === 'aero' ? 'show' : '';
+                    let n = i < 10 ? '0' + i : i; // Formata 01, 02, 03...
+                    let activeClass = cat === 'aero' ? 'show' : ''; // Só 'aero' começa visível
 
                     let card = `
                     <div class="product-card ${cat} ${activeClass}">
                         <div class="card">
-                            <img src="img/p${n}_${cat}.gif" class="product-gif" alt="GIF Produto">
+                            <!-- Imagem dinâmica buscando da URL_BASE + nome do arquivo -->
+                            <img src="${URL_BASE}p${n}_${cat}.gif" class="product-gif" alt="Produto">
                             <h3>Produto ${n} - ${cat.toUpperCase()}</h3>
-                            <span class="price">R$ 499,00</span>
-                            <a href="LINK_MERCADO_PAGO" class="btn-mp">🛒 COMPRAR NO MERCADO PAGO</a>
-                            <a href="https://wa.me/5532920006774?text=Interesse+no+p${n}_${cat}" class="btn-wa">
+                            <span class="price">R$ 350,00</span>
+                            <!-- Link de checkout Mercado Pago -->
+                            <a href="SEU_LINK_MERCADO_PAGO" class="btn-mp">🛒 COMPRAR PELO MERCADO PAGO</a>
+                            <!-- Link WhatsApp -->
+                            <a href="https://wa.me/5532920006774?text=Tenho+interesse+no+p${n}_${cat}" class="btn-wa">
                                 <i class="fab fa-whatsapp"></i> SUPORTE TÉCNICO
                             </a>
                         </div>
                     </div>`;
-                    gridLoja.innerHTML += card;
+                    gridLoja.innerHTML += card; // Adiciona o produto na grade
                 }
             });
         </script>
@@ -268,26 +287,29 @@
 
     <!-- Rodapé -->
     <footer>
-        <!-- Seu GIF de rodapé -->
-        <img src="img/rodape.gif" alt="Animação Rodapé" class="footer-gif">
+        <!-- Imagem GIF animada do rodapé -->
+        <img id="img-rodape" src="" alt="Destaque" class="footer-gif">
         
-        <p style="color: var(--amarelo); font-size: 24px; margin-bottom: 20px;">PAGAMENTO 100% SEGURO</p>
+        <p style="color: var(--amarelo); font-size: 24px; margin-bottom: 20px;">FORMAS DE PAGAMENTO ACEITAS:</p>
+        <!-- Logo Mercado Pago -->
         <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" class="mp-logo">
         
-        <p style="font-size: 18px; margin-top: 30px; color: #888;">RF-Shock Flyer © 2024 | Versão Desktop Forçada</p>
+        <p style="font-size: 18px; margin-top: 30px; color: #888;">RF-Shock Flyer © 2024 | Versão Desktop Store</p>
     </footer>
 
-    <!-- Lógica das Abas -->
+    <!-- Lógica de funcionamento das abas -->
     <script>
         function switchTab(categoryId, element) {
+            // Seleciona todos os produtos e botões
             const cards = document.querySelectorAll('.product-card');
             const buttons = document.querySelectorAll('.tab-btn');
 
-            // Muda estado dos botões
+            // Remove o visual de "ativo" dos botões
             buttons.forEach(btn => btn.classList.remove('active'));
+            // Adiciona visual de "ativo" no que foi clicado
             element.classList.add('active');
 
-            // Filtra produtos
+            // Percorre os produtos para mostrar os da categoria ou esconder
             cards.forEach(card => {
                 if (card.classList.contains(categoryId)) {
                     card.classList.add('show');
@@ -296,10 +318,11 @@
                 }
             });
 
-            // Sobe para o topo da loja ao trocar de aba
+            // Sobe para o topo da lista de produtos suavemente ao trocar de aba
             window.scrollTo({ top: 400, behavior: 'smooth' });
         }
     </script>
 
 </body>
+<!-- Fim do HTML -->
 </html>

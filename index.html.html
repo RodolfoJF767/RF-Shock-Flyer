@@ -1,0 +1,323 @@
+<!-- Declaração de documento HTML5 -->
+<!DOCTYPE html>
+<!-- Início do HTML com definição de idioma Português do Brasil -->
+<html lang="pt-br">
+<!-- Início do cabeçalho de configurações -->
+<head>
+    <!-- Configuração de acentuação e caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Configuração para o site ser responsivo e ocupar a tela inteira do celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece no topo do navegador -->
+    <title>RF-Shock Flyer | Loja Oficial</title>
+    <!-- Link para o Favicon (ícone da aba) na sua pasta de imagens do projeto -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Importação da biblioteca de ícones FontAwesome para botões e redes sociais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Início da folha de estilos CSS -->
+    <style>
+        /* Criação de variáveis de cores neon para facilitar mudanças futuras */
+        :root {
+            --vermelho: #ff0000;    /* Cor para alertas e botões de compra */
+            --verde-neon: #00ff00;  /* Verde vibrante para preços e bordas */
+            --amarelo: #ffff00;     /* Amarelo para títulos e detalhes */
+            --preto: #000000;       /* Cor de fundo total */
+            --fundo-card: #0d0d0d;  /* Cor interna das caixas de produtos */
+        }
+
+        /* Estilos gerais para o corpo do site */
+        body {
+            font-family: 'Arial Black', sans-serif; /* Fonte grossa para visual impactante */
+            background-color: var(--preto);          /* Aplica o fundo preto */
+            color: #ffffff;                          /* Cor padrão do texto: branca */
+            margin: 0;                               /* Remove margens brancas da tela */
+            padding: 0;                              /* Remove preenchimentos extras */
+            text-align: center;                      /* Centraliza textos e elementos */
+        }
+
+        /* Estilo da barra superior (Header) */
+        header {
+            background: #000;                        /* Fundo preto */
+            padding: 20px;                           /* Espaço interno */
+            border-bottom: 3px solid var(--vermelho);/* Linha vermelha no fundo do topo */
+        }
+
+        /* Estilo da Logomarca */
+        .logo-img {
+            width: 120px;                            /* Largura da logo */
+            filter: drop-shadow(0 0 10px var(--verde-neon)); /* Brilho neon ao redor da logo */
+        }
+
+        /* Estilo do Banner animado do topo */
+        .banner-hero {
+            width: 100%;                             /* Largura total */
+            height: 250px;                           /* Altura fixa */
+            background-image: url('img/banner.gif'); /* Imagem vinda da sua pasta img */
+            background-size: cover;                  /* Ajusta imagem para preencher o bloco */
+            background-position: center;             /* Centraliza a imagem no meio */
+            display: flex;                           /* Ativa alinhamento flexível */
+            align-items: center;                     /* Centraliza conteúdo verticalmente */
+            justify-content: center;                 /* Centraliza conteúdo horizontalmente */
+            border-bottom: 5px solid var(--amarelo); /* Linha amarela grossa abaixo */
+        }
+
+        /* Texto de destaque dentro do banner */
+        .banner-hero h2 {
+            background: rgba(0, 0, 0, 0.7);          /* Fundo preto transparente para leitura */
+            padding: 15px;                           /* Espaçamento do texto */
+            color: var(--amarelo);                   /* Texto amarelo */
+            border: 2px solid var(--verde-neon);     /* Borda verde neon */
+            text-transform: uppercase;               /* Letras maiúsculas */
+        }
+
+        /* Menu de Navegação por Abas (Sticky = Gruda no topo) */
+        .tabs-nav {
+            display: flex;                           /* Botões um ao lado do outro */
+            overflow-x: auto;                        /* Ativa deslize lateral no celular */
+            background: #111;                        /* Fundo cinza escuro */
+            padding: 15px;                           /* Espaçamento */
+            position: sticky;                        /* Faz o menu parar no topo ao rolar */
+            top: 0;                                  /* Distância zero do topo */
+            z-index: 1000;                           /* Mantém acima dos produtos */
+            gap: 10px;                               /* Espaço entre botões */
+        }
+
+        /* Estilo individual dos botões das abas */
+        .tab-btn {
+            background: none;                        /* Sem cor de fundo */
+            border: 2px solid var(--verde-neon);     /* Borda verde neon */
+            color: var(--verde-neon);                /* Letra verde neon */
+            padding: 10px 20px;                      /* Tamanho do botão */
+            font-weight: bold;                       /* Texto em negrito */
+            text-transform: uppercase;               /* Maiúsculas */
+            cursor: pointer;                         /* Ícone de clique */
+            white-space: nowrap;                     /* Não deixa o texto quebrar linha */
+            transition: 0.3s;                        /* Transição suave de cores */
+        }
+
+        /* Estilo do botão quando clicado (Ativo) */
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--verde-neon);           /* Fundo fica verde */
+            color: #000;                             /* Letra fica preta */
+        }
+
+        /* Grade que organiza os produtos */
+        .container {
+            display: grid;                           /* Ativa sistema de grade */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas automáticas */
+            gap: 25px;                               /* Espaço entre os cards */
+            padding: 25px;                           /* Margem interna da loja */
+            max-width: 1400px;                       /* Largura máxima para computadores */
+            margin: auto;                            /* Centraliza a loja na tela */
+        }
+
+        /* Configuração de exibição dos produtos */
+        .product-card { display: none; }            /* Esconde todos por padrão */
+        .product-card.show { display: block; }      /* Mostra apenas os da aba ativa */
+
+        /* Estilo do Card (caixa do produto) */
+        .card {
+            background: var(--fundo-card);           /* Fundo escuro */
+            border: 2px solid #222;                  /* Borda discreta */
+            border-radius: 20px;                     /* Curva nas pontas */
+            padding: 15px;                           /* Espaço interno */
+            transition: 0.4s;                        /* Velocidade da animação */
+        }
+
+        /* Efeito de brilho e aumento ao passar o mouse */
+        .card:hover {
+            transform: translateY(-10px);            /* Sobe o card levemente */
+            border-color: var(--vermelho);           /* Borda muda para vermelho */
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); /* Sombra vermelha brilhante */
+        }
+
+        /* Estilo das imagens/GIFs (Quadrado 1024x1024) */
+        .product-gif {
+            width: 100%;                             /* Ocupa largura total do card */
+            aspect-ratio: 1/1;                       /* Mantém formato quadrado perfeito */
+            object-fit: cover;                       /* Corta sobras sem deformar a imagem */
+            border-radius: 15px;                     /* Curva nas pontas da imagem */
+            background-color: #fff;                  /* Fundo branco para GIFs transparentes */
+        }
+
+        /* Estilo do título do produto */
+        .card h3 {
+            color: var(--amarelo);                   /* Letra amarela */
+            font-size: 18px;                         /* Tamanho da fonte */
+            margin: 15px 0;                          /* Espaço em cima e embaixo */
+        }
+
+        /* Estilo do preço */
+        .price {
+            display: block;                          /* Ocupa uma linha inteira */
+            font-size: 28px;                         /* Preço grande */
+            color: var(--verde-neon);                /* Cor verde neon */
+            margin-bottom: 15px;                     /* Espaço abaixo */
+        }
+
+        /* Botão exclusivo do Mercado Pago */
+        .btn-mp {
+            background: var(--vermelho);             /* Cor vermelha */
+            color: #fff;                             /* Texto branco */
+            text-decoration: none;                   /* Remove sublinhado */
+            display: block;                          /* Botão largo */
+            padding: 15px;                           /* Altura do botão */
+            border-radius: 10px;                     /* Pontas arredondadas */
+            font-weight: bold;                       /* Negrito */
+            margin-bottom: 8px;                      /* Espaço para o botão de baixo */
+            text-transform: uppercase;               /* Maiúsculas */
+        }
+
+        /* Botão do WhatsApp */
+        .btn-wa {
+            background: #25d366;                     /* Cor oficial do Zap */
+            color: #fff;                             /* Texto branco */
+            text-decoration: none;                   /* Sem sublinhado */
+            display: block;                          /* Botão largo */
+            padding: 10px;                           /* Altura menor */
+            border-radius: 10px;                     /* Arredondado */
+            font-size: 13px;                         /* Fonte menor */
+        }
+
+        /* Estilo do Rodapé */
+        footer {
+            background: #0a0a0a;                     /* Fundo preto */
+            padding: 40px 20px;                      /* Espaçamento interno */
+            border-top: 3px solid var(--vermelho);   /* Linha vermelha no topo */
+            margin-top: 50px;                        /* Espaço antes de começar o rodapé */
+        }
+
+        /* Estilo do GIF do Rodapé */
+        .footer-gif {
+            width: 100%;                             /* Ocupa largura total */
+            max-width: 500px;                        /* Limita tamanho em telas grandes */
+            border-radius: 15px;                     /* Pontas arredondadas */
+            border: 2px solid var(--verde-neon);     /* Borda neon */
+            margin-bottom: 20px;                     /* Espaço abaixo */
+        }
+
+        /* Estilo da imagem de pagamentos */
+        .mp-logo {
+            width: 280px;                            /* Largura da logo Mercado Pago */
+            filter: brightness(1.1);                 /* Aumenta um pouco o brilho */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho com Logo -->
+    <header>
+        <!-- Busca logo.png dentro da pasta img -->
+        <img src="img/logo.png" alt="Logo" class="logo-img">
+        <h1 style="color: var(--verde-neon); margin: 5px 0 0 0; font-size: 20px;">RF-SHOCK FLYER</h1>
+    </header>
+
+    <!-- Banner Hero com GIF -->
+    <div class="banner-hero">
+        <h2>🚀 PRONTA ENTREGA NO BRASIL 🚀</h2>
+    </div>
+
+    <!-- Navegação por Abas (Categorias) -->
+    <nav class="tabs-nav">
+        <!-- Botões que acionam a troca de aba via JavaScript -->
+        <button class="tab-btn active" onclick="switchTab('aero', this)">Aeromodelos</button>
+        <button class="tab-btn" onclick="switchTab('drones', this)">Drones</button>
+        <button class="tab-btn" onclick="switchTab('eletronicos', this)">Eletrônicos</button>
+        <button class="tab-btn" onclick="switchTab('pecas', this)">Peças & Hélices</button>
+        <button class="tab-btn" onclick="switchTab('smart', this)">Smartwatches</button>
+    </nav>
+
+    <!-- Container da Loja -->
+    <div class="container" id="gridLoja">
+        
+        <!-- Script para gerar automaticamente 75 produtos (15 por categoria) -->
+        <script>
+            // Definição das categorias
+            const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
+            // Local onde os produtos serão inseridos
+            const gridLoja = document.getElementById('gridLoja');
+
+            // Percorre cada categoria
+            categorias.forEach(cat => {
+                // Para cada categoria, gera 15 produtos
+                for(let i = 1; i <= 15; i++) {
+                    // Adiciona o zero à esquerda nos números menores que 10 (01, 02...)
+                    let n = i < 10 ? '0' + i : i;
+                    // Define que apenas a categoria 'aero' começa visível
+                    let activeClass = cat === 'aero' ? 'show' : '';
+
+                    // Estrutura HTML do Produto
+                    let card = `
+                    <div class="product-card ${cat} ${activeClass}">
+                        <div class="card">
+                            <!-- Imagem GIF dinâmica: ex img/p01_aero.gif -->
+                            <img src="img/p${n}_${cat}.gif" class="product-gif" alt="Produto">
+                            <h3>Produto ${n} - ${cat.toUpperCase()}</h3>
+                            <span class="price">R$ 299,00</span>
+                            <!-- Link do Mercado Pago (Substitua SEU_LINK pelo real) -->
+                            <a href="SEU_LINK_MERCADO_PAGO" class="btn-mp">🛒 COMPRAR PELO MERCADO PAGO</a>
+                            <!-- Link do WhatsApp para suporte -->
+                            <a href="https://wa.me/5532920006774?text=Olá! Tenho interesse no Produto ${n} da categoria ${cat}" class="btn-wa">
+                                <i class="fab fa-whatsapp"></i> DÚVIDAS NO WHATSAPP
+                            </a>
+                        </div>
+                    </div>`;
+                    // Insere o card dentro da grade
+                    gridLoja.innerHTML += card;
+                }
+            });
+        </script>
+
+    </div> <!-- Fim da Grade de Produtos -->
+
+    <!-- Início do Rodapé -->
+    <footer>
+        <!-- Seu GIF animado personalizado do rodapé -->
+        <img src="img/rodape.gif" alt="Promoção" class="footer-gif">
+        
+        <p style="color: var(--amarelo); margin-bottom: 10px;">FORMAS DE PAGAMENTO ACEITAS:</p>
+        <!-- Logo do Mercado Pago -->
+        <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" class="mp-logo">
+        
+        <p style="font-size: 14px; margin-top: 20px;">Sua compra processada com segurança pelo Mercado Pago.</p>
+        <p style="color: #444; font-size: 10px; margin-top: 30px;">RF-Shock Flyer © 2024 | Juiz de Fora - MG</p>
+    </footer>
+
+    <!-- Script de controle das Abas -->
+    <script>
+        /**
+         * Função para mudar de categoria (Aba)
+         * @param {string} categoryId - Nome da categoria selecionada
+         * @param {object} element - O botão que foi clicado
+         */
+        function switchTab(categoryId, element) {
+            // Seleciona todos os cards de produtos
+            const cards = document.querySelectorAll('.product-card');
+            // Seleciona todos os botões de abas
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            // 1. Remove a classe 'active' de todos os botões
+            buttons.forEach(btn => btn.classList.remove('active'));
+            // 2. Adiciona a classe 'active' no botão que você clicou agora
+            element.classList.add('active');
+
+            // 3. Filtra os produtos
+            cards.forEach(card => {
+                // Se o card pertence à categoria clicada, ele aparece
+                if (card.classList.contains(categoryId)) {
+                    card.classList.add('show');
+                } else {
+                    // Se não pertence, ele é escondido
+                    card.classList.remove('show');
+                }
+            });
+
+            // 4. Rola a tela para o início da grade de produtos suavemente
+            window.scrollTo({ top: 380, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+<!-- Fim do documento -->
+</html>

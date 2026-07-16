@@ -1,32 +1,31 @@
-<!-- Define o documento como HTML5 moderno -->
+<!-- Define o documento como HTML5 -->
 <!DOCTYPE html>
-<!-- Define o idioma oficial como Português do Brasil -->
 <html lang="pt-br">
 <head>
-    <!-- Define a codificação universal para evitar erros de acentos -->
     <meta charset="UTF-8">
-    <!-- FORÇA O MODO DESKTOP: Simula uma tela de computador com 1280px de largura no celular -->
-    <meta name="viewport" content="width=1280, initial-scale=1">
-    <!-- Título da página -->
+    
+    <!-- CORREÇÃO DO ZOOM: Removido o initial-scale para o celular carregar a tela cheia de 1280px automaticamente -->
+    <meta name="viewport" content="width=1280">
+    
     <title>RF-Shock Flyer | Loja Oficial</title>
-    <!-- Link para o Favicon vindo do seu GitHub imagens -->
+    
+    <!-- Link para o Favicon no seu GitHub -->
     <link rel="icon" href="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/favicon.ico" type="image/x-icon">
-    <!-- Importa biblioteca de ícones FontAwesome (WhatsApp, Carrinho, Lixeira, Voltar) -->
+    <!-- Importa biblioteca de ícones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Estilização Visual (CSS) -->
     <style>
-        /* Variáveis de cores para o tema Neon/Glow da loja */
+        /* Variáveis de cores Neon */
         :root {
-            --vermelho: #ff0000;         /* Botões de compra */
-            --verde-neon: #00ff00;       /* Preços, abas e WhatsApp */
-            --amarelo: #ffff00;          /* Títulos e letras na aba azul */
-            --azul-escuro-navy: #000050; /* Azul Escuro Marinho para a aba de contato */
-            --preto: #000000;            /* Fundo principal do site */
-            --fundo-card: #0d0d0d;       /* Fundo interno das caixas de produtos */
+            --vermelho: #ff0000;         
+            --verde-neon: #00ff00;       
+            --amarelo: #ffff00;          
+            --azul-escuro-navy: #000050; 
+            --preto: #000000;            
+            --fundo-card: #0d0d0d;       
         }
 
-        /* Configurações básicas do corpo do site */
+        /* Estilo geral do corpo */
         body {
             font-family: 'Arial Black', sans-serif; 
             background-color: var(--preto);
@@ -34,11 +33,11 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            min-width: 1280px;            /* Trava a largura em 1280px */
-            padding-bottom: 200px;        /* Espaço para o botão do carrinho no pé */
+            min-width: 1280px; /* Força a largura de computador */
+            padding-bottom: 200px;
         }
 
-        /* Cabeçalho superior (Logo) */
+        /* Cabeçalho */
         header {
             background: #000;
             padding: 20px;
@@ -50,7 +49,7 @@
             filter: drop-shadow(0 0 10px var(--verde-neon));
         }
 
-        /* Banner Hero Animado */
+        /* Banner Hero */
         .banner-hero {
             width: 1280px;
             height: 300px;
@@ -73,7 +72,7 @@
             text-transform: uppercase;
         }
 
-        /* Menu de Abas (Navegação Fixa) */
+        /* Menu de Abas Fixado */
         .tabs-nav {
             display: flex;
             justify-content: center;
@@ -103,14 +102,14 @@
             box-shadow: 0 0 20px var(--verde-neon);
         }
 
-        /* ABA CONTATO ESPECIAL (Azul Marinho) */
+        /* Aba Contato Especial */
         .tab-contact {
             background-color: var(--azul-escuro-navy) !important;
             color: var(--amarelo) !important;
             border: 2px solid var(--amarelo) !important;
         }
 
-        /* Grade de Produtos */
+        /* Grade de Produtos (4 Colunas) */
         .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -128,9 +127,9 @@
             background: var(--fundo-card);
             border: 2px solid #222;
             border-radius: 20px;
-            padding: 12px;
+            padding: 15px;
             transition: 0.4s;
-            cursor: pointer; /* Indica que é clicável */
+            cursor: pointer;
         }
 
         .card:hover {
@@ -138,17 +137,19 @@
             box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
         }
 
+        /* IMAGEM QUADRADA COM PONTAS REDONDAS */
         .product-gif {
             width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 12px;
-            background-color: #fff;
+            aspect-ratio: 1 / 1;      /* Força ser quadrada */
+            object-fit: cover;        /* Preenche o quadrado sem esticar */
+            border-radius: 30px;      /* Pontas bem arredondadas */
+            background-color: #fff;   /* Fundo branco para transparências */
+            border: 1px solid #333;
         }
 
-        .card h3 { color: var(--amarelo); font-size: 17px; margin: 10px 0 2px 0; height: 40px; }
-        .card .description { font-size: 12px; color: #aaa; margin-bottom: 10px; height: 35px; overflow: hidden; }
-        .price { display: block; font-size: 26px; color: var(--verde-neon); margin-bottom: 15px; }
+        .card h3 { color: var(--amarelo); font-size: 18px; margin: 12px 0 5px 0; height: 40px; overflow: hidden; }
+        .card .description { font-size: 13px; color: #aaa; margin-bottom: 10px; height: 35px; overflow: hidden; }
+        .price { display: block; font-size: 28px; color: var(--verde-neon); margin-bottom: 15px; }
 
         /* Estilo dos Botões */
         .btn-style {
@@ -168,24 +169,24 @@
             margin-bottom: 5px;
         }
 
-        /* --- TELA CHEIA DO PRODUTO (MODAL DETALHES) --- */
+        /* --- TELA CHEIA DO PRODUTO --- */
         #product-detail-view {
-            display: none; /* Começa escondido */
+            display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: #000;
-            z-index: 5000; /* Fica acima de tudo */
+            background: rgba(0,0,0,0.98);
+            z-index: 5000;
             overflow-y: auto;
             padding: 50px 0;
         }
 
         .detail-content {
-            width: 1000px;
+            width: 900px;
             margin: auto;
             background: #0d0d0d;
             border: 3px solid var(--verde-neon);
-            border-radius: 30px;
-            padding: 40px;
+            border-radius: 40px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -195,22 +196,22 @@
         .btn-close-detail {
             position: absolute;
             top: 20px; right: 30px;
-            font-size: 50px; color: var(--vermelho);
+            font-size: 60px; color: var(--vermelho);
             cursor: pointer;
         }
 
         .detail-img {
-            width: 600px; height: 600px;
+            width: 500px; height: 500px;
             object-fit: contain;
             background: #fff;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            border: 5px solid var(--verde-neon);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            border: 4px solid var(--verde-neon);
         }
 
-        .detail-title { font-size: 45px; color: var(--amarelo); margin: 10px 0; }
-        .detail-desc { font-size: 24px; color: #ccc; max-width: 800px; margin-bottom: 20px; }
-        .detail-price { font-size: 50px; color: var(--verde-neon); font-weight: bold; margin-bottom: 30px; }
+        .detail-title { font-size: 40px; color: var(--amarelo); margin-bottom: 10px; }
+        .detail-desc { font-size: 22px; color: #ccc; max-width: 700px; margin-bottom: 20px; }
+        .detail-price { font-size: 50px; color: var(--verde-neon); font-weight: bold; margin-bottom: 40px; }
 
         /* --- SEÇÃO DE CONTATO: CENTRALIZADA --- */
         .contato-wrapper.show {
@@ -235,35 +236,60 @@
 
         .contact-info-text { font-size: 36px !important; color: #eee; line-height: 1.4; margin-bottom: 50px; font-weight: bold; }
 
+        /* Botão WhatsApp Verde Neon com Letras Pretas */
+        .btn-wa-neon-black {
+            background-color: var(--verde-neon);
+            color: #000000 !important; 
+            padding: 25px 80px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            text-transform: uppercase;
+        }
+
         /* --- CARRINHO GIGANTE NA ESQUERDA --- */
         #cart-icon {
-            position: fixed; bottom: 30px; left: 30px;
+            position: fixed; bottom: 40px; left: 40px;
             background: var(--verde-neon); color: #000;
-            width: 140px; height: 140px; border-radius: 50%;
+            width: 150px; height: 150px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 70px; cursor: pointer; z-index: 2500;
-            box-shadow: 0 0 50px var(--verde-neon); border: 6px solid #000;
+            font-size: 80px; cursor: pointer; z-index: 2500;
+            box-shadow: 0 0 50px var(--verde-neon); border: 8px solid #000;
         }
 
         #cart-count {
             position: absolute; top: 5px; right: 5px;
             background: var(--vermelho); color: #fff;
-            width: 45px; height: 45px; border-radius: 50%;
-            font-size: 22px; font-weight: 900;
+            width: 50px; height: 50px; border-radius: 50%;
+            font-size: 24px; font-weight: 900;
             display: flex; align-items: center; justify-content: center; border: 3px solid #000;
         }
 
-        /* Modal Carrinho */
+        /* Janela Modal do Carrinho */
         #cart-modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 3000; justify-content: center; align-items: center;
+            display: none; position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.96); z-index: 6000;
+            justify-content: center; align-items: center;
         }
 
-        .cart-content { background: #111; width: 700px; border: 4px solid var(--verde-neon); border-radius: 20px; padding: 40px; }
+        .cart-content {
+            background: #111; width: 700px;
+            border: 4px solid var(--verde-neon);
+            border-radius: 30px; padding: 40px;
+        }
 
         .alerta-pagamento { background: #ff0000; color: #fff; padding: 20px; border-radius: 10px; font-size: 20px; font-weight: bold; margin-bottom: 25px; border: 2px solid var(--amarelo); }
 
-        footer { background: #0a0a0a; padding: 40px 20px; border-top: 4px solid var(--vermelho); margin-top: 80px; }
+        footer {
+            background: #0a0a0a; padding: 40px 20px;
+            border-top: 4px solid var(--vermelho); margin-top: 80px;
+        }
+
         .footer-gif { width: 244px; border-radius: 20px; border: 3px solid var(--verde-neon); margin-bottom: 30px; }
     </style>
 </head>
@@ -271,11 +297,10 @@
 
     <script>
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
-        const LINK_MERCADO_PAGO_CARRINHO = "https://link.mercadopago.com.br/rfshockflyer"; 
         let carrinho = [];
 
         const descricoes = {
-            'aero': 'Aeromodelo de alta performance para manobras e diversão.',
+            'aero': 'Aeromodelo de alta performance para manobras 3D.',
             'drones': 'Drone FPV com estabilização e câmera HD.',
             'eletronicos': 'Produtos eletrônicos testados e garantidos.',
             'pecas': 'Peças de reposição resistentes e originais.',
@@ -289,9 +314,10 @@
     </header>
 
     <div class="banner-hero">
-        <h2>LOJA DE AEROMODELISMO & PRODUTOS EM GERAL!!!</h2>
+        <h2>🚀 VITRINE EXCLUSIVA - ENVIO PARA TODO O BRASIL 🚀</h2>
     </div>
 
+    <!-- Navegação -->
     <nav class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('aero', this)">Aeromodelos</button>
         <button class="tab-btn" onclick="switchTab('drones', this)">Drones</button>
@@ -301,7 +327,7 @@
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
-    <!-- Container da Loja -->
+    <!-- Área de Produtos -->
     <div class="container" id="gridLoja">
         <script>
             const gridLoja = document.getElementById('gridLoja');
@@ -312,17 +338,17 @@
                     let n = i < 10 ? '0' + i : i;
                     let activeClass = cat === 'aero' ? 'show' : '';
                     let preco = 150 + (i * 10); 
-                    let nome = `Produto ${n} - ${cat.toUpperCase()}`;
+                    let nomeItem = `Produto ${n} - ${cat.toUpperCase()}`;
 
                     let card = `
                     <div class="product-card ${cat} ${activeClass}">
-                        <div class="card" onclick="abrirDetalhes('${nome}', '${descricoes[cat]}', ${preco}, '${URL_BASE}p${n}_${cat}.gif')">
+                        <div class="card" onclick="abrirDetalhes('${nomeItem}', '${descricoes[cat]}', ${preco}, '${URL_BASE}p${n}_${cat}.gif')">
                             <img src="${URL_BASE}p${n}_${cat}.gif" class="product-gif" alt="Produto">
-                            <h3>${nome}</h3>
+                            <h3>${nomeItem}</h3>
                             <p class="description">${descricoes[cat]}</p>
                             <span class="price">R$ ${preco},00</span>
                             <div class="btn-box" onclick="event.stopPropagation()">
-                                <button class="btn-style" onclick="addNoCarrinho('${nome}', ${preco})">🛒 ADD AO CARRINHO</button>
+                                <button class="btn-style" onclick="addNoCarrinho('${nomeItem}', ${preco})">🛒 ADD AO CARRINHO</button>
                                 <a href="https://wa.me/5532920006774" target="_blank" class="btn-style" style="background:#25d366; line-height:45px;">💬 DÚVIDAS</a>
                             </div>
                         </div>
@@ -332,6 +358,7 @@
             });
         </script>
 
+        <!-- ABA CONTATO VENDEDOR -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf" alt="Vendedor">
@@ -346,7 +373,7 @@
         </div>
     </div>
 
-    <!-- TELA CHEIA DO PRODUTO (DETALHE) -->
+    <!-- TELA CHEIA DO PRODUTO (MODAL) -->
     <div id="product-detail-view">
         <div class="detail-content">
             <span class="btn-close-detail" onclick="fecharDetalhes()">&times;</span>
@@ -356,9 +383,9 @@
             <span id="det-price" class="detail-price"></span>
             
             <div style="width: 500px;">
-                <a href="https://link.mercadopago.com.br/rfshockflyer" target="_blank" class="btn-style" style="height:70px; line-height:70px; font-size:20px;">🛒 PAGAR AGORA NO MERCADO PAGO</a>
+                <a href="https://link.mercadopago.com.br/rfshockflyer" target="_blank" class="btn-style" style="height:70px; line-height:70px; font-size:20px;">🛒 PAGAR NO MERCADO PAGO</a>
                 <button id="det-add-btn" class="btn-style" style="background:#444; height:60px; line-height:60px; font-size:18px;">➕ ADICIONAR AO CARRINHO</button>
-                <button class="btn-style" style="background:#555; height:50px; line-height:50px;" onclick="fecharDetalhes()">⬅️ VOLTAR PARA A LOJA</button>
+                <button class="btn-style" style="background:#333; height:50px; line-height:50px;" onclick="fecharDetalhes()">⬅️ VOLTAR PARA A LOJA</button>
             </div>
         </div>
     </div>
@@ -369,10 +396,10 @@
         <div id="cart-count">0</div>
     </div>
 
-    <!-- Modal Carrinho -->
+    <!-- Janela Modal do Carrinho -->
     <div id="cart-modal">
         <div class="cart-content">
-            <h2 style="color: var(--verde-neon)">CARRINHO</h2>
+            <h2 style="color: var(--verde-neon)">CARRINHO DE COMPRAS</h2>
             <div class="alerta-pagamento">⚠️ Atenção: Digite o valor do total de sua compra no campo do Mercado Pago para finalizar sua compra!!!</div>
             <div id="cart-items-list" style="max-height: 300px; overflow-y: auto; text-align: left; margin-bottom: 20px;"></div>
             <h3 style="font-size: 32px; border-top: 1px solid #333; padding-top: 15px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
@@ -387,7 +414,6 @@
         <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" style="width: 200px;">
     </footer>
 
-    <!-- Scripts de Lógica -->
     <script>
         // Lógica de Abas
         function switchTab(categoryId, element) {
@@ -402,35 +428,32 @@
             window.scrollTo({ top: 400, behavior: 'smooth' });
         }
 
-        // --- FUNÇÃO PARA ABRIR EM TELA CHEIA ---
+        // Função para Abrir Detalhes em Tela Cheia
         function abrirDetalhes(nome, desc, preco, img) {
             document.getElementById('det-title').innerText = nome;
             document.getElementById('det-desc').innerText = desc;
             document.getElementById('det-price').innerText = `R$ ${preco},00`;
             document.getElementById('det-img').src = img;
             document.getElementById('det-add-btn').onclick = function() { addNoCarrinho(nome, preco); };
-
             document.getElementById('product-detail-view').style.display = 'block';
 
-            // O SEGREDO DO BOTÃO VOLTAR: Adiciona um estado ao histórico do navegador
+            // Cria um estado no histórico para o botão voltar do celular funcionar
             window.history.pushState({view: 'detalhe'}, '');
         }
 
-        // --- FUNÇÃO PARA FECHAR TELA CHEIA ---
         function fecharDetalhes() {
             document.getElementById('product-detail-view').style.display = 'none';
         }
 
-        // --- ESCUTA O BOTÃO VOLTAR DO CELULAR ---
+        // Detecta o botão voltar do celular (seta do Android)
         window.onpopstate = function(event) {
-            // Se o usuário apertar voltar e a tela cheia estiver aberta, fecha ela
             fecharDetalhes();
         };
 
         function addNoCarrinho(nome, preco) {
             carrinho.push({nome, preco});
             atualizarCarrinho();
-            alert(nome + " adicionado!");
+            alert(nome + " adicionado ao carrinho!");
         }
 
         function atualizarCarrinho() {

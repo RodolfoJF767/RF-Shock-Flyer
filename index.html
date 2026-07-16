@@ -60,27 +60,21 @@
             filter: drop-shadow(0 0 10px var(--verde-neon));
         }
 
-        /* Estilo dos Banners de Hero (Topo) */
-        .banner-hero {
-            width: 1240px; 
-            height: 150px; 
+        /* ESTILO DO BANNER ÚNICO (GIF) */
+        .banner-unico-container {
+            width: 1240px;
             margin: 20px auto;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/banner.gif');
-            background-size: cover; 
-            background-position: center;
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            border: 4px solid var(--verde-neon); 
+            border: 5px solid var(--verde-neon);
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+            overflow: hidden;
+            line-height: 0;
         }
 
-        .banner-hero h2 {
-            color: var(--amarelo); 
-            font-size: 35px; 
-            text-transform: uppercase;
-            margin: 0;
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Menu de Abas Fixado */
@@ -238,12 +232,9 @@
         <h1 style="color: var(--verde-neon); margin: 0; font-size: 30px;">🙏 RF-SHOCK FLYER 🙏</h1>
     </header>
 
-    <div class="banner-hero">
-        <h2>🇧🇷 PRODUTOS À PRONTA ENTREGA NO BRASIL 🇧🇷</h2>
-    </div>
-    
-    <div class="banner-hero">
-        <h2>🇨🇳 PRODUTOS SOB ENCOMENDA NA CHINA 🇨🇳</h2>
+    <!-- BANNER ÚNICO NO LUGAR DOS TÍTULOS ANTERIORES -->
+    <div class="banner-unico-container">
+        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/refs/heads/main/imagens/banner.gif" alt="Banner Oficial" class="banner-img">
     </div>
 
     <nav class="tabs-nav">
@@ -285,7 +276,7 @@
             });
         </script>
 
-        <!-- ABA CONTATO VENDEDOR (REFORMULADA) -->
+        <!-- ABA CONTATO VENDEDOR -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf" alt="Vendedor">

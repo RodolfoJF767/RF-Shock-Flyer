@@ -1,4 +1,3 @@
-<!-- Define o documento como HTML5 moderno -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,19 +16,19 @@
             --amarelo: #ffff00;          
             --rosa-neon: #ff00ff;        
             --laranja-neon: #ff8c00;     
+            --azul-celeste: #00bfff;     
             --azul-escuro-navy: #000050; 
             --preto: #000000;            
             --fundo-card: #0d0d0d;       
-            --azul-voltar: #00bfff;
         }
 
         body {
-            font-family: 'Arial Black', sans-serif;
+            font-family: 'Arial Black', sans-serif; 
             background-color: var(--preto);
             color: #ffffff;
             margin: 0; padding: 0;
             text-align: center;
-            min-width: 1280px;
+            min-width: 1280px;            
             padding-bottom: 220px;
         }
 
@@ -57,10 +56,8 @@
         .banner-img { width: 100%; height: auto; display: block; }
 
         .tabs-nav {
-            display: flex; justify-content: center;
-            background: #111; padding: 20px;
-            position: sticky; top: 0; z-index: 900;
-            gap: 15px;
+            display: flex; justify-content: center; background: #111; padding: 20px;
+            position: sticky; top: 0; z-index: 900; gap: 15px;
         }
 
         .tab-btn {
@@ -76,11 +73,8 @@
         .tab-contact { background-color: var(--azul-escuro-navy) !important; color: var(--amarelo) !important; border: 2px solid var(--amarelo) !important; }
 
         .container {
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 20px;
-            width: 1240px; margin: 30px auto;
-            padding: 10px;
+            display: grid; grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; width: 1240px; margin: 30px auto; padding: 10px;
         }
 
         .product-card { display: none; }
@@ -98,8 +92,8 @@
             border-radius: 30px; background-color: #fff; border: 1px solid #333;
         }
 
-        .card h3 { color: var(--amarelo); font-size: 18px; margin: 12px 0 5px 0; min-height: 40px;}
-        .card .description { font-size: 14px; color: #fff; margin-bottom: 10px; min-height: 35px;}
+        .card h3 { color: var(--amarelo); font-size: 18px; margin: 12px 0 5px 0; height: 40px; overflow: hidden; }
+        .card .description { font-size: 14px; color: #fff; margin-bottom: 10px; height: 40px; overflow: hidden; line-height: 1.2; }
         .price { display: block; font-size: 28px; color: var(--verde-neon); margin-bottom: 15px; }
 
         .btn-style {
@@ -110,35 +104,33 @@
 
         .btn-pay { background-color: var(--rosa-neon); color: #000; } 
         .btn-add { background-color: var(--laranja-neon); color: #000; } 
-        .btn-back { background-color: var(--azul-voltar); color: #000; }
+        .btn-back-shop { background-color: var(--azul-celeste); color: #000; }
 
-        /* Rodapé Texto 40px */
-        footer { 
-            background: #0a0a0a; padding: 60px 20px; 
-            border-top: 4px solid var(--vermelho); margin-top: 40px; 
-        }
+        /* Contato Wrapper */
+        .contato-wrapper.show { grid-column: 1 / 5; display: flex !important; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 50px 0; }
+        .contact-box-center { width: 1100px; background: #0d0d0d; border: 5px solid var(--azul-escuro-navy); padding: 60px; border-radius: 40px; text-align: center; }
+        .photo-leaf { width: 450px; height: 450px; object-fit: cover; border: 8px solid var(--amarelo); border-radius: 40px 220px 40px 220px; margin-bottom: 30px; }
+        .pink-title { color: var(--rosa-neon); font-size: 70px; margin: 0; text-transform: uppercase; }
+        .yellow-name { color: var(--amarelo); font-size: 80px; margin: 5px 0 20px 0; text-transform: uppercase; }
+        .contact-info-text { font-size: 36px !important; color: #ffffff; text-align: center; max-width: 1000px; line-height: 1.4; margin-bottom: 50px; font-weight: bold; }
+        .btn-wa-neon-black { background-color: var(--verde-neon); color: #000; padding: 25px 80px; border-radius: 60px; text-decoration: none; font-size: 30px; font-weight: 900; display: inline-flex; align-items: center; gap: 20px; text-transform: uppercase; border: none; cursor: pointer;}
+
+        /* Rodapé 40px */
+        footer { background: #0a0a0a; padding: 60px 20px; border-top: 4px solid var(--vermelho); margin-top: 40px; }
         footer p { font-size: 40px; font-weight: bold; color: #ffffff; text-transform: uppercase; }
-        .footer-gif { width: 300px; border-radius: 20px; border: 3px solid var(--verde-neon); }
+        .footer-gif { width: 300px; border-radius: 20px; border: 3px solid var(--verde-neon); margin-bottom: 10px; }
 
         /* Modal Detalhes */
-        #product-detail-view {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98); z-index: 5000; overflow-y: auto; padding: 50px 0;
-        }
-        .detail-content {
-            width: 1000px; margin: auto; background: #0d0d0d; border: 3px solid var(--verde-neon);
-            border-radius: 40px; padding: 50px; display: flex; flex-direction: column; align-items: center; position: relative;
-        }
-        .detail-img { width: 500px; height: 500px; object-fit: contain; background: #fff; border-radius: 30px; border: 4px solid var(--verde-neon); margin-bottom: 30px;}
+        #product-detail-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 5000; overflow-y: auto; padding: 50px 0; }
+        .detail-content { width: 1000px; margin: auto; background: #0d0d0d; border: 3px solid var(--verde-neon); border-radius: 40px; padding: 50px; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .detail-img { width: 500px; height: 500px; object-fit: contain; background: #fff; border-radius: 30px; border: 4px solid var(--verde-neon); margin-bottom: 30px; }
+        .detail-title { font-size: 40px; color: var(--amarelo); margin-bottom: 15px; }
+        .detail-desc { font-size: 28px; color: #ffffff; font-weight: bold; max-width: 800px; margin-bottom: 30px; }
+        .detail-price { font-size: 55px; color: var(--verde-neon); font-weight: bold; margin-bottom: 40px; }
 
         /* Carrinho */
-        #cart-icon {
-            position: fixed; bottom: 30px; left: 30px; background: var(--verde-neon); color: #000;
-            width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 70px; cursor: pointer; z-index: 2500; box-shadow: 0 0 50px var(--verde-neon); border: 6px solid #000;
-        }
+        #cart-icon { position: fixed; bottom: 30px; left: 30px; background: var(--verde-neon); color: #000; width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 70px; cursor: pointer; z-index: 2500; box-shadow: 0 0 50px var(--verde-neon); border: 6px solid #000; }
         #cart-count { position: absolute; top: 5px; right: 5px; background: var(--vermelho); color: #fff; width: 45px; height: 45px; border-radius: 50%; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; border: 3px solid #000; }
-
         #cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 6000; justify-content: center; align-items: center; }
         .cart-content { background: #111; width: 700px; border: 4px solid var(--verde-neon); border-radius: 30px; padding: 40px; }
     </style>
@@ -146,12 +138,12 @@
 <body>
 
     <header>
-        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" class="logo-img">
+        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" alt="Logo" class="logo-img">
         <h1 style="color: var(--verde-neon); margin: 0; font-size: 30px;">🙏 RF-SHOCK FLYER 🙏</h1>
     </header>
 
     <div class="banner-unico-container">
-        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/banner.gif" class="banner-img">
+        <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/banner.gif" alt="Banner Oficial" class="banner-img">
     </div>
 
     <nav class="tabs-nav">
@@ -164,50 +156,52 @@
     </nav>
 
     <div class="container" id="gridLoja">
-        <!-- Aba Contato -->
-        <div class="product-card contato contato-wrapper" style="grid-column: 1 / 5;">
-            <div style="background: #0d0d0d; border: 5px solid var(--azul-escuro-navy); padding: 60px; border-radius: 40px; width: 1000px; margin: auto;">
-                <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" style="width:300px; border-radius:40px; margin-bottom: 20px;">
-                <h1 style="color:var(--rosa-neon); font-size:60px;">RF-Shock Flyer</h1>
-                <h2 style="color:var(--amarelo); font-size:40px;">RODOLFO FRANCO</h2>
-                <p style="font-size:24px;">📌 Clique abaixo para entrar em contato ou participar do nosso grupo! 📌</p>
-                <button onclick="window.open('https://chat.whatsapp.com/BVoHSuGT69T3qj1MaGOBTn?s=cl&p=a&ilr=1&amv=2', '_system');" class="btn-wa-neon-black" style="padding: 20px 50px; background: var(--verde-neon); color:#000; font-weight:bold; font-size:25px; border-radius:50px; border:none; cursor:pointer;">
-                    <i class="fab fa-whatsapp"></i> CHAMAR NO WHATSAPP
+        <!-- Aba Contato Restaurada -->
+        <div class="product-card contato contato-wrapper">
+            <div class="contact-box-center">
+                <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf">
+                <h1 class="pink-title">RF-Shock Flyer</h1>
+                <h2 class="yellow-name">RODOLFO FRANCO</h2>
+                <p class="contact-info-text">
+                    📌 Aqui você encontra "PRODUTOS" a "PRONTA ENTREGA" com "ESTOQUE" no "BRASIL" com "PRAZO de ENTREGA" de "2 SEMANAS" mais ou menos após o "ENVIO" pelos "CORREIOS" & "PRODUTOS SOB ENCOMENDA" com "PRAZO de ENTREGA" de "1 MÊS" mais ou menos pois meus "FORNECEDORES" são da "CHINA"!!! 📌
+                </p>
+                <button onclick="window.open('https://chat.whatsapp.com/BVoHSuGT69T3qj1MaGOBTn?s=cl&p=a&ilr=1&amv=2', '_system');" class="btn-wa-neon-black">
+                    <i class="fab fa-whatsapp" style="font-size: 35px; margin-right: 15px;"></i> CHAMAR NO WHATSAPP AGORA
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Detalhes com Botão Voltar -->
+    <!-- Tela Detalhes com Botão Voltar -->
     <div id="product-detail-view">
         <div class="detail-content">
             <span style="position:absolute; top:20px; right:40px; font-size:60px; cursor:pointer; color:red;" onclick="fecharDetalhes()">&times;</span>
             <img id="det-img" src="" class="detail-img">
-            <h2 id="det-title" style="color:var(--amarelo); font-size:40px;"></h2>
-            <p id="det-desc" style="font-size:22px; color:#fff; max-width:800px;"></p>
-            <span id="det-price" style="font-size:50px; color:var(--verde-neon); font-weight:bold;"></span>
-            <div style="width: 500px; margin-top:20px;">
-                <button id="det-pay-btn" class="btn-style btn-pay" style="height:70px; font-size:20px;">🛒 COMPRAR AGORA</button>
-                <button id="det-add-btn" class="btn-style btn-add" style="height:60px; font-size:18px;">➕ ADD AO CARRINHO</button>
-                <button class="btn-style btn-back" style="height:60px; font-size:18px; margin-top:10px;" onclick="fecharDetalhes()">⬅️ VOLTAR PARA A LOJA</button>
+            <h2 id="det-title" class="detail-title"></h2>
+            <p id="det-desc" class="detail-desc"></p>
+            <span id="det-price" class="detail-price"></span>
+            <div style="width: 550px; display: flex; flex-direction: column; gap: 10px;">
+                <button id="det-pay-btn" class="btn-style btn-pay" style="height:75px; font-size:20px;">🛒 PAGAR NO MERCADO PAGO</button>
+                <button id="det-add-btn" class="btn-style btn-add" style="height:65px; font-size:18px;">➕ ADICIONAR AO CARRINHO</button>
+                <button class="btn-style btn-back-shop" style="height:60px; font-size:18px;" onclick="fecharDetalhes()">⬅️ VOLTAR PARA A LOJA</button>
             </div>
         </div>
     </div>
 
-    <!-- Carrinho -->
+    <!-- Modal Carrinho -->
+    <div id="cart-modal">
+        <div class="cart-content">
+            <h2 style="color: var(--verde-neon)">CARRINHO</h2>
+            <div id="cart-items-list" style="text-align:left; margin-bottom:20px; font-size:18px;"></div>
+            <h3 style="font-size:30px;">TOTAL: <span id="cart-total" style="color:var(--verde-neon)">R$ 0,00</span></h3>
+            <button onclick="window.open('https://link.mercadopago.com.br/rfshockflyer', '_system');" class="btn-style btn-pay" style="height:75px; font-size:22px;">FINALIZAR COMPRA</button>
+            <button class="btn-style btn-back-shop" style="margin-top:10px;" onclick="toggleCart()">VOLTAR À LOJA</button>
+        </div>
+    </div>
+
     <div id="cart-icon" onclick="toggleCart()">
         <i class="fas fa-shopping-cart"></i>
         <div id="cart-count">0</div>
-    </div>
-
-    <div id="cart-modal">
-        <div class="cart-content">
-            <h2 style="color: var(--verde-neon)">CARRINHO DE COMPRAS</h2>
-            <div id="cart-items-list" style="text-align:left; margin-bottom:20px; max-height:300px; overflow-y:auto; font-size:18px;"></div>
-            <h3 style="font-size:30px;">TOTAL: <span id="cart-total" style="color:var(--verde-neon)">R$ 0,00</span></h3>
-            <button onclick="window.open('https://link.mercadopago.com.br/rfshockflyer', '_system');" class="btn-style btn-pay" style="height:70px; font-size:22px;">FINALIZAR NO MERCADO PAGO</button>
-            <button class="btn-style btn-back" style="height:60px; font-size:18px; margin-top:10px;" onclick="toggleCart()">VOLTAR À LOJA</button>
-        </div>
     </div>
 
     <footer>
@@ -221,57 +215,52 @@
     </footer>
 
     <script>
-        // --- BANCO DE DADOS MANUAL (Onde você muda tudo) ---
         const produtosLoja = [
-            // AEROMODELOS
+            // 8 AEROMODELOS
             { id: 1, cat: 'aero', nome: 'Shock Flyer GILES - Red Bull', preco: 555, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/refs/heads/main/imagens/AeroGilesRedBullUSD.png', desc: 'Aeromodelo Shock Flyer (GILES) Pintura: Red Bull Bandeira do USD.' },
-            { id: 2, cat: 'aero', nome: 'Aero Shock 02', preco: 260, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_aero.gif', desc: 'Ideal para manobras 3D em espaços pequenos.' },
-            { id: 3, cat: 'aero', nome: 'Aero Shock 03', preco: 270, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_aero.gif', desc: 'Pintura exclusiva e corte a laser preciso.' },
-            { id: 4, cat: 'aero', nome: 'Aero Shock 04', preco: 280, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_aero.gif', desc: 'Estrutura reforçada em fibra de carbono.' },
-            { id: 5, cat: 'aero', nome: 'Aero Shock 05', preco: 290, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_aero.gif', desc: 'Modelo leve para voos indoor e outdoor.' },
-            { id: 6, cat: 'aero', nome: 'Aero Shock 06', preco: 300, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_aero.gif', desc: 'Completo para montar e voar.' },
-            { id: 7, cat: 'aero', nome: 'Aero Shock 07', preco: 310, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_aero.gif', desc: 'Pintura Neon para melhor visibilidade.' },
-            { id: 8, cat: 'aero', nome: 'Aero Shock 08', preco: 320, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_aero.gif', desc: 'Aero Profissional para competições.' },
-
-            // DRONES
-            { id: 9, cat: 'drones', nome: 'Drone FPV 01', preco: 850, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_drones.gif', desc: 'Drone FPV com câmera HD 4K.' },
-            { id: 10, cat: 'drones', nome: 'Drone FPV 02', preco: 860, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_drones.gif', desc: 'Estabilização de voo por GPS.' },
-            { id: 11, cat: 'drones', nome: 'Drone FPV 03', preco: 870, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_drones.gif', desc: 'Transmissão de vídeo em tempo real.' },
-            { id: 12, cat: 'drones', nome: 'Drone FPV 04', preco: 880, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_drones.gif', desc: 'Motores Brushless de alta potência.' },
-            { id: 13, cat: 'drones', nome: 'Drone FPV 05', preco: 890, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_drones.gif', desc: 'Bateria de longa duração.' },
-            { id: 14, cat: 'drones', nome: 'Drone FPV 06', preco: 900, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_drones.gif', desc: 'Controle remoto com tela inclusa.' },
-            { id: 15, cat: 'drones', nome: 'Drone FPV 07', preco: 910, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_drones.gif', desc: 'Hélices tri-pá para maior empuxo.' },
-            { id: 16, cat: 'drones', nome: 'Drone FPV 08', preco: 920, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_drones.gif', desc: 'Kit completo com óculos FPV.' },
-
-            // ELETRÔNICOS
-            { id: 17, cat: 'eletronicos', nome: 'Eletrônico 01', preco: 150, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_eletronicos.gif', desc: 'Receptor de 6 canais.' },
-            { id: 18, cat: 'eletronicos', nome: 'Eletrônico 02', preco: 160, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_eletronicos.gif', desc: 'Servo motor digital ultra rápido.' },
-            { id: 19, cat: 'eletronicos', nome: 'Eletrônico 03', preco: 170, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_eletronicos.gif', desc: 'ESC 30A com BEC incluso.' },
-            { id: 20, cat: 'eletronicos', nome: 'Eletrônico 04', preco: 180, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_eletronicos.gif', desc: 'Motor Brushless 2200kv.' },
-            { id: 21, cat: 'eletronicos', nome: 'Eletrônico 05', preco: 190, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_eletronicos.gif', desc: 'Carregador Lipo inteligente.' },
-            { id: 22, cat: 'eletronicos', nome: 'Eletrônico 06', preco: 200, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_eletronicos.gif', desc: 'Testador de bateria digital.' },
-            { id: 23, cat: 'eletronicos', nome: 'Eletrônico 07', preco: 210, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_eletronicos.gif', desc: 'Rádio Controle 2.4Ghz.' },
-            { id: 24, cat: 'eletronicos', nome: 'Eletrônico 08', preco: 220, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_eletronicos.gif', desc: 'Módulo de telemetria.' },
-
-            // PEÇAS
-            { id: 25, cat: 'pecas', nome: 'Peça/Acessório 01', preco: 45, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_pecas.gif', desc: 'Hélice 10x4.7 Slow Flyer.' },
-            { id: 26, cat: 'pecas', nome: 'Peça/Acessório 02', preco: 50, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_pecas.gif', desc: 'Linkagem completa em aço.' },
-            { id: 27, cat: 'pecas', nome: 'Peça/Acessório 03', preco: 55, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_pecas.gif', desc: 'Horn de Nylon reforçado.' },
-            { id: 28, cat: 'pecas', nome: 'Peça/Acessório 04', preco: 60, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_pecas.gif', desc: 'Extensão de servo 30cm.' },
-            { id: 29, cat: 'pecas', nome: 'Peça/Acessório 05', preco: 65, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_pecas.gif', desc: 'Trem de pouso em alumínio.' },
-            { id: 30, cat: 'pecas', nome: 'Peça/Acessório 06', preco: 70, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_pecas.gif', desc: 'Rodas ultra leves.' },
-            { id: 31, cat: 'pecas', nome: 'Peça/Acessório 07', preco: 75, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_pecas.gif', desc: 'Spinner de plástico.' },
-            { id: 32, cat: 'pecas', nome: 'Peça/Acessório 08', preco: 80, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_pecas.gif', desc: 'Parafuso de Nylon.' },
-
-            // ARQUIVOS
-            { id: 33, cat: 'smart', nome: 'Arquivo Impresso 01', preco: 25, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_smart.gif', desc: 'Suporte impresso em 3D.' },
-            { id: 34, cat: 'smart', nome: 'Arquivo Impresso 02', preco: 30, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_smart.gif', desc: 'Chassi para mini drone.' },
-            { id: 35, cat: 'smart', nome: 'Arquivo Impresso 03', preco: 35, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_smart.gif', desc: 'Protetor de hélice.' },
-            { id: 36, cat: 'smart', nome: 'Arquivo Impresso 04', preco: 40, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_smart.gif', desc: 'Suporte de câmera FPV.' },
-            { id: 37, cat: 'smart', nome: 'Arquivo Impresso 05', preco: 45, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_smart.gif', desc: 'Base para trem de pouso.' },
-            { id: 38, cat: 'smart', nome: 'Arquivo Impresso 06', preco: 50, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_smart.gif', desc: 'Spinner impresso.' },
-            { id: 39, cat: 'smart', nome: 'Arquivo Impresso 07', preco: 55, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_smart.gif', desc: 'Acessório decorativo.' },
-            { id: 40, cat: 'smart', nome: 'Arquivo Impresso 08', preco: 60, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_smart.gif', desc: 'Caixa protetora de RX.' }
+            { id: 2, cat: 'aero', nome: 'Aero Shock 02', preco: 260, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_aero.gif', desc: 'Ideal para manobras 3D.' },
+            { id: 3, cat: 'aero', nome: 'Aero Shock 03', preco: 270, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_aero.gif', desc: 'Pintura exclusiva.' },
+            { id: 4, cat: 'aero', nome: 'Aero Shock 04', preco: 280, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_aero.gif', desc: 'Estrutura reforçada.' },
+            { id: 5, cat: 'aero', nome: 'Aero Shock 05', preco: 290, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_aero.gif', desc: 'Modelo leve.' },
+            { id: 6, cat: 'aero', nome: 'Aero Shock 06', preco: 300, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_aero.gif', desc: 'Kit completo.' },
+            { id: 7, cat: 'aero', nome: 'Aero Shock 07', preco: 310, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_aero.gif', desc: 'Visibilidade Neon.' },
+            { id: 8, cat: 'aero', nome: 'Aero Shock 08', preco: 320, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_aero.gif', desc: 'Profissional.' },
+            // 8 DRONES
+            { id: 9, cat: 'drones', nome: 'Drone FPV 01', preco: 850, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_drones.gif', desc: 'Drone 4K.' },
+            { id: 10, cat: 'drones', nome: 'Drone FPV 02', preco: 860, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_drones.gif', desc: 'GPS integrado.' },
+            { id: 11, cat: 'drones', nome: 'Drone FPV 03', preco: 870, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_drones.gif', desc: 'Tempo real.' },
+            { id: 12, cat: 'drones', nome: 'Drone FPV 04', preco: 880, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_drones.gif', desc: 'Brushless.' },
+            { id: 13, cat: 'drones', nome: 'Drone FPV 05', preco: 890, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_drones.gif', desc: 'Longa duração.' },
+            { id: 14, cat: 'drones', nome: 'Drone FPV 06', preco: 900, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_drones.gif', desc: 'Tela inclusa.' },
+            { id: 15, cat: 'drones', nome: 'Drone FPV 07', preco: 910, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_drones.gif', desc: 'Hélices tri-pá.' },
+            { id: 16, cat: 'drones', nome: 'Drone FPV 08', preco: 920, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_drones.gif', desc: 'Kit Óculos.' },
+            // 8 ELETRÔNICOS
+            { id: 17, cat: 'eletronicos', nome: 'Eletrônico 01', preco: 150, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_eletronicos.gif', desc: '6 canais.' },
+            { id: 18, cat: 'eletronicos', nome: 'Eletrônico 02', preco: 160, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_eletronicos.gif', desc: 'Servo motor.' },
+            { id: 19, cat: 'eletronicos', nome: 'Eletrônico 03', preco: 170, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_eletronicos.gif', desc: 'ESC 30A.' },
+            { id: 20, cat: 'eletronicos', nome: 'Eletrônico 04', preco: 180, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_eletronicos.gif', desc: 'Motor 2200kv.' },
+            { id: 21, cat: 'eletronicos', nome: 'Eletrônico 05', preco: 190, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_eletronicos.gif', desc: 'Lipo Charger.' },
+            { id: 22, cat: 'eletronicos', nome: 'Eletrônico 06', preco: 200, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_eletronicos.gif', desc: 'Buzzer.' },
+            { id: 23, cat: 'eletronicos', nome: 'Eletrônico 07', preco: 210, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_eletronicos.gif', desc: 'TX/RX.' },
+            { id: 24, cat: 'eletronicos', nome: 'Eletrônico 08', preco: 220, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_eletronicos.gif', desc: 'Telemetria.' },
+            // 8 PEÇAS
+            { id: 25, cat: 'pecas', nome: 'Peça 01', preco: 45, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_pecas.gif', desc: 'Hélice.' },
+            { id: 26, cat: 'pecas', nome: 'Peça 02', preco: 50, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_pecas.gif', desc: 'Linkagem.' },
+            { id: 27, cat: 'pecas', nome: 'Peça 03', preco: 55, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_pecas.gif', desc: 'Horn.' },
+            { id: 28, cat: 'pecas', nome: 'Peça 04', preco: 60, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_pecas.gif', desc: 'Extensão.' },
+            { id: 29, cat: 'pecas', nome: 'Peça 05', preco: 65, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_pecas.gif', desc: 'Trem pouso.' },
+            { id: 30, cat: 'pecas', nome: 'Peça 06', preco: 70, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_pecas.gif', desc: 'Rodas.' },
+            { id: 31, cat: 'pecas', nome: 'Peça 07', preco: 75, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_pecas.gif', desc: 'Spinner.' },
+            { id: 32, cat: 'pecas', nome: 'Peça 08', preco: 80, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_pecas.gif', desc: 'Parafusos.' },
+            // 8 ARQUIVOS
+            { id: 33, cat: 'smart', nome: 'Arquivo 01', preco: 25, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p01_smart.gif', desc: '3D STL.' },
+            { id: 34, cat: 'smart', nome: 'Arquivo 02', preco: 30, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p02_smart.gif', desc: 'Mini drone.' },
+            { id: 35, cat: 'smart', nome: 'Arquivo 03', preco: 35, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p03_smart.gif', desc: 'Protetor.' },
+            { id: 36, cat: 'smart', nome: 'Arquivo 04', preco: 40, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p04_smart.gif', desc: 'Suporte.' },
+            { id: 37, cat: 'smart', nome: 'Arquivo 05', preco: 45, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p05_smart.gif', desc: 'Base.' },
+            { id: 38, cat: 'smart', nome: 'Arquivo 06', preco: 50, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p06_smart.gif', desc: 'Acessório.' },
+            { id: 39, cat: 'smart', nome: 'Arquivo 07', preco: 55, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p07_smart.gif', desc: 'Decoração.' },
+            { id: 40, cat: 'smart', nome: 'Arquivo 08', preco: 60, img: 'https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/p08_smart.gif', desc: 'Case RX.' }
         ];
 
         function carregarProdutos() {
@@ -286,8 +275,8 @@
                         <p class="description">${p.desc}</p>
                         <span class="price">R$ ${p.preco},00</span>
                         <div onclick="event.stopPropagation()">
-                            <button class="btn-style btn-pay" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">🛒 PAGAR AGORA</button>
-                            <button class="btn-style btn-add" onclick="adicionarCarrinho('${p.nome}', ${p.preco})">➕ ADD AO CARRINHO</button>
+                            <button class="btn-style btn-pay" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">🛒 PAGAR</button>
+                            <button class="btn-style btn-add" onclick="adicionarCarrinho('${p.nome}', ${p.preco})">➕ ADD</button>
                         </div>
                     </div>
                 `;
@@ -302,7 +291,6 @@
                 card.classList.remove('show');
                 if(card.classList.contains(cat)) card.classList.add('show');
             });
-            window.scrollTo({ top: 400, behavior: 'smooth' });
         }
 
         function abrirDetalhes(n, d, p, i) {
@@ -310,6 +298,7 @@
             document.getElementById('det-desc').innerText = d;
             document.getElementById('det-price').innerText = `R$ ${p},00`;
             document.getElementById('det-img').src = i;
+            document.getElementById('det-pay-btn').onclick = function() { window.open('https://mpago.la/1iP5Scn', '_system'); };
             document.getElementById('det-add-btn').onclick = function() { adicionarCarrinho(n, p); };
             document.getElementById('product-detail-view').style.display = 'block';
         }

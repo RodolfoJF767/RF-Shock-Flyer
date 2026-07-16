@@ -1,384 +1,406 @@
-<!-- Define o documento como HTML5 moderno -->
+<!-- Início do documento HTML5 -->
 <!DOCTYPE html>
-<!-- Define o idioma oficial como Português do Brasil -->
+<!-- Define o idioma da página como Português do Brasil -->
 <html lang="pt-br">
+<!-- Início do cabeçalho de configurações -->
 <head>
-    <!-- Define a codificação universal para evitar erros de acentos -->
+    <!-- Define a codificação universal para evitar erros de acentos e símbolos -->
     <meta charset="UTF-8">
-    <!-- FORÇA O MODO DESKTOP: Simula uma tela de computador com 1280px de largura no celular -->
+    <!-- FORÇA O MODO DESKTOP: Faz o navegador simular uma tela de 1280px de largura no celular -->
     <meta name="viewport" content="width=1280, initial-scale=1">
-    <!-- Título da página que aparece no navegador -->
+    <!-- Título que aparece no topo da aba do navegador -->
     <title>RF-Shock Flyer | Loja Oficial</title>
-    <!-- Link para o Favicon vindo do seu GitHub imagens -->
+    <!-- Link para o Favicon vindo direto do seu repositório GitHub imagens -->
     <link rel="icon" href="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/favicon.ico" type="image/x-icon">
-    <!-- Importa a biblioteca de ícones FontAwesome (WhatsApp, Carrinho, Lixeira) -->
+    <!-- Importa a biblioteca de ícones FontAwesome para usar ícones de WhatsApp, Carrinho e Lixeira -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Início da estilização visual (CSS) -->
+    <!-- Início da seção de estilos CSS -->
     <style>
-        /* Variáveis de cores para o tema Neon/Glow da loja */
+        /* Variáveis de cores para facilitar a manutenção do tema Neon/Glow */
         :root {
-            --vermelho: #ff0000;         
-            --verde-neon: #00ff00;       
-            --amarelo: #ffff00;          
-            --azul-escuro-navy: #000050; 
-            --preto: #000000;            
-            --fundo-card: #0d0d0d;       
+            --vermelho: #ff0000;         /* Cor padrão para botões e bordas de destaque */
+            --verde-neon: #00ff00;       /* Cor de preços, abas e destaque fluorescente */
+            --amarelo: #ffff00;          /* Cor de títulos e letras na aba de contato */
+            --azul-escuro-navy: #000050; /* Azul Marinho Escuro para o fundo da aba de contato */
+            --preto: #000000;            /* Cor de fundo principal de todo o site */
+            --fundo-card: #0d0d0d;       /* Cor interna das caixas (cards) de produtos */
         }
 
-        /* Configurações gerais do corpo do site */
+        /* Estilo geral do corpo do site */
         body {
-            font-family: 'Arial Black', sans-serif; 
-            background-color: var(--preto);
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            min-width: 1280px;            /* Trava a largura para modo Desktop */
-            padding-bottom: 180px;        /* Espaço para o botão do carrinho no pé */
+            font-family: 'Arial Black', sans-serif; /* Fonte grossa para ser bem chamativa */
+            background-color: var(--preto);          /* Aplica a cor de fundo preta */
+            color: #ffffff;                          /* Define a cor padrão dos textos como branco */
+            margin: 0;                               /* Remove as margens padrão do navegador */
+            padding: 0;                              /* Remove preenchimentos padrão */
+            text-align: center;                      /* Centraliza todos os textos e elementos */
+            min-width: 1280px;                       /* Trava a largura mínima para simular computador */
+            padding-bottom: 180px;                   /* Deixa espaço no fim para o botão do carrinho não cobrir nada */
         }
 
-        /* Cabeçalho superior (Logo) */
+        /* Barra do topo (Cabeçalho) */
         header {
-            background: #000;
-            padding: 20px;
-            border-bottom: 3px solid var(--vermelho);
+            background: #000;                        /* Fundo preto puro */
+            padding: 20px;                           /* Espaçamento interno */
+            border-bottom: 3px solid var(--vermelho);/* Linha vermelha grossa na parte de baixo */
         }
 
+        /* Imagem da Logomarca (logo.png) */
         .logo-img {
-            width: 250px;
-            filter: drop-shadow(0 0 10px var(--verde-neon));
+            width: 250px;                            /* Largura da logo configurada por você */
+            filter: drop-shadow(0 0 10px var(--verde-neon)); /* Adiciona um brilho verde neon ao redor da logo */
         }
 
-        /* Banner Hero Animado */
+        /* Estilo do Banner Principal (Hero) */
         .banner-hero {
-            width: 1280px;
-            height: 300px;
-            margin: 0 auto;
-            background-image: url('https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/banner.gif');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 5px solid var(--amarelo);
+            width: 1280px;                           /* Largura fixa de desktop */
+            height: 300px;                           /* Altura do banner do topo */
+            margin: 0 auto;                          /* Centraliza o banner horizontalmente */
+            background-size: cover;                  /* Faz a imagem cobrir todo o espaço do banner */
+            background-position: center;             /* Centraliza a imagem no meio do bloco */
+            display: flex;                           /* Ativa o alinhamento flexível */
+            align-items: center;                     /* Centraliza o texto verticalmente */
+            justify-content: center;                 /* Centraliza o texto horizontalmente */
+            border-bottom: 5px solid var(--amarelo); /* Linha amarela grossa no fundo do banner */
         }
 
+        /* Texto de destaque dentro do banner */
         .banner-hero h2 {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px 35px;
-            color: var(--amarelo);
-            font-size: 38px;
-            border: 3px solid var(--verde-neon);
-            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.8);          /* Fundo preto transparente para o texto ficar legível */
+            padding: 15px 35px;                      /* Espaçamento interno do texto */
+            color: var(--amarelo);                   /* Cor da letra amarela */
+            font-size: 38px;                         /* Tamanho da letra grande */
+            border: 3px solid var(--verde-neon);     /* Borda verde neon ao redor do título */
+            text-transform: uppercase;               /* Transforma o texto em letras maiúsculas */
         }
 
-        /* Menu de Abas (Navegação Fixa) */
+        /* Barra de Navegação das Categorias (Abas) */
         .tabs-nav {
-            display: flex;
-            justify-content: center;
-            background: #111;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 900;
-            gap: 15px;
+            display: flex;                           /* Coloca os botões um ao lado do outro */
+            justify-content: center;                 /* Centraliza o conjunto de botões */
+            background: #111;                        /* Fundo cinza bem escuro */
+            padding: 20px;                           /* Espaçamento das abas */
+            position: sticky;                        /* Faz o menu "grudar" no topo ao rolar a página */
+            top: 0;                                  /* Distância do topo para grudar */
+            z-index: 900;                            /* Garante que o menu fique na frente dos produtos */
+            gap: 15px;                               /* Espaço entre cada botão */
         }
 
+        /* Estilo dos botões normais das Abas (Verdes) */
         .tab-btn {
-            background: none;
-            border: 2px solid var(--verde-neon);
-            color: var(--verde-neon);
-            padding: 12px 22px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
+            background: none;                        /* Sem cor de fundo */
+            border: 2px solid var(--verde-neon);     /* Borda verde neon */
+            color: var(--verde-neon);                /* Texto verde neon */
+            padding: 12px 22px;                      /* Tamanho do botão */
+            font-weight: bold;                       /* Texto em negrito */
+            text-transform: uppercase;               /* Letras maiúsculas */
+            cursor: pointer;                         /* Mostra a "mãozinha" de clicar */
+            font-size: 16px;                         /* Tamanho da letra do menu */
+            transition: 0.3s;                        /* Faz a troca de cores ser suave */
         }
 
+        /* Efeito de aba ativa ou quando passa o mouse */
         .tab-btn.active, .tab-btn:hover {
-            background: var(--verde-neon);
-            color: #000;
-            box-shadow: 0 0 20px var(--verde-neon);
+            background: var(--verde-neon);           /* Fundo muda para verde */
+            color: #000;                             /* Letra muda para preto para dar contraste */
+            box-shadow: 0 0 20px var(--verde-neon);  /* Adiciona brilho ao redor do botão */
         }
 
-        /* ABA CONTATO: Azul Marinho com letras Amarelas */
+        /* ESTILO EXCLUSIVO DA ABA CONTATO: Azul Marinho e Letras Amarelas */
         .tab-contact {
-            background-color: var(--azul-escuro-navy) !important;
-            color: var(--amarelo) !important;
-            border: 2px solid var(--amarelo) !important;
+            background-color: var(--azul-escuro-navy) !important; /* Força o azul escuro */
+            color: var(--amarelo) !important;                    /* Força o amarelo nas letras */
+            border: 2px solid var(--amarelo) !important;         /* Borda amarela */
         }
 
-        /* Grade de Produtos (Fixa 4 colunas) */
+        /* Grade onde ficam os produtos (4 por linha) */
         .container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 20px;
-            width: 1240px;
-            margin: 30px auto;
-            padding: 10px;
+            display: grid;                                    /* Ativa o modo de grade (Grid) */
+            grid-template-columns: repeat(4, 1fr);            /* Divide em 4 colunas iguais */
+            gap: 20px;                                        /* Espaço entre cada card de produto */
+            width: 1240px;                                    /* Largura interna da grade */
+            margin: 30px auto;                                /* Margem em cima e centraliza na tela */
+            padding: 10px;                                    /* Preenchimento interno */
         }
 
-        .product-card { display: none !important; }
-        .product-card.show { display: block !important; }
+        /* Lógica para esconder e mostrar categorias */
+        .product-card { display: none !important; }           /* Esconde tudo por padrão */
+        .product-card.show { display: block !important; }     /* Mostra apenas a categoria selecionada */
 
-        /* Card individual do produto */
+        /* Estilo do Card (Caixa branca/preta do produto) */
         .card {
-            background: var(--fundo-card);
-            border: 2px solid #222;
-            border-radius: 20px;
-            padding: 12px;
-            transition: 0.4s;
-            display: flex;
-            flex-direction: column;
-            height: auto;
+            background: var(--fundo-card);                    /* Cor interna do card */
+            border: 2px solid #222;                           /* Borda discreta */
+            border-radius: 20px;                              /* Curva as pontas do card */
+            padding: 12px;                                    /* Espaço interno do produto */
+            transition: 0.4s;                                 /* Faz a animação de hover ser suave */
+            display: flex;                                    /* Ativa alinhamento flexível interno */
+            flex-direction: column;                           /* Coloca os itens um embaixo do outro */
+            height: auto;                                     /* Ajusta altura conforme conteúdo */
         }
 
+        /* Efeito ao passar o mouse no produto */
+        .card:hover {
+            transform: scale(1.03);                           /* Aumenta o tamanho levemente */
+            border-color: var(--vermelho);                    /* Borda muda para vermelho */
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);        /* Brilho vermelho neon */
+        }
+
+        /* Imagem/GIF do Produto (1024x1024) */
         .product-gif {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 12px;
-            background-color: #fff;
+            width: 100%;                                      /* Ocupa toda a largura do card */
+            aspect-ratio: 1/1;                                /* Mantém um quadrado perfeito */
+            object-fit: cover;                                /* Corta as sobras da imagem para não esticar */
+            border-radius: 12px;                              /* Arredonda as pontas da foto */
+            background-color: #fff;                           /* Fundo branco para imagens transparentes */
         }
 
-        /* Aproximação vertical dos textos */
+        /* Títulos, Descrições e Preços aproximados verticalmente */
         .card h3 { color: var(--amarelo); font-size: 17px; margin: 10px 0 2px 0; height: 40px; display: flex; align-items: center; justify-content: center; }
         .card .description { font-size: 12px; color: #aaa; margin: 0 0 8px 0; font-family: 'Segoe UI', sans-serif; height: 35px; overflow: hidden; }
         .price { display: block; font-size: 26px; color: var(--verde-neon); margin: 0 0 10px 0; }
 
+        /* Botões padrão da loja (Vermelhos) */
         .btn-style {
-            background: var(--vermelho);
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            height: 45px; 
-            line-height: 45px; 
-            border-radius: 8px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 11px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            margin-bottom: 5px;
+            background: var(--vermelho);                      /* Cor vermelha */
+            color: #fff;                                      /* Letra branca */
+            text-decoration: none;                            /* Remove sublinhado de link */
+            display: block;                                   /* Faz o botão ser uma caixa larga */
+            height: 45px;                                     /* Altura do botão */
+            line-height: 45px;                                /* Centraliza o texto no meio da altura */
+            border-radius: 8px;                               /* Curva as pontas */
+            font-weight: bold;                                /* Texto em negrito */
+            text-transform: uppercase;                        /* Letras maiúsculas */
+            font-size: 11px;                                  /* Tamanho da letra */
+            border: none;                                     /* Remove borda padrão */
+            cursor: pointer;                                  /* Ícone de clique */
+            width: 100%;                                      /* Ocupa largura total do card */
+            margin-bottom: 5px;                               /* Espaço entre botões */
+            transition: 0.3s;                                 /* Transição suave */
         }
 
         /* --- SEÇÃO DE CONTATO: CENTRALIZAÇÃO TOTAL --- */
         .contato-wrapper.show {
-            grid-column: 1 / 5;              
-            display: flex !important;        
-            flex-direction: column;
-            align-items: center;             
-            justify-content: center;         
-            width: 100%;
-            padding: 50px 0;
+            grid-column: 1 / 5;                               /* Faz o bloco de contato ocupar as 4 colunas */
+            display: flex !important;                         /* Ativa o flex para centralizar o quadro */
+            flex-direction: column;                           /* Itens um embaixo do outro */
+            align-items: center;                              /* Centraliza horizontalmente */
+            justify-content: center;                          /* Centraliza verticalmente */
+            width: 100%;                                      /* Largura total */
+            padding: 50px 0;                                  /* Espaço vertical */
         }
 
+        /* Quadro interno de contato */
         .contact-box-center {
-            width: 1100px;
-            background: #0d0d0d;
-            border: 5px solid var(--azul-escuro-navy);
-            padding: 60px;
-            border-radius: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            width: 1100px;                                    /* Largura do quadro azul */
+            background: #0d0d0d;                              /* Fundo preto interno */
+            border: 5px solid var(--azul-escuro-navy);        /* Borda azul marinho */
+            padding: 60px;                                    /* Espaçamento interno */
+            border-radius: 40px;                              /* Pontas bem redondas */
+            display: flex;                                    /* Alinha conteúdo dentro */
+            flex-direction: column;                           /* Um embaixo do outro */
+            align-items: center;                              /* Centraliza tudo no meio */
+            text-align: center;                               /* Centraliza os textos */
         }
 
-        /* FOTO ESTILO FOLHA */
+        /* FOTO DO VENDEDOR ESTILO FOLHA */
         .photo-leaf {
-            width: 450px;
-            height: 450px;
-            object-fit: cover;
-            border: 8px solid var(--amarelo);
-            border-radius: 40px 220px 40px 220px; 
-            margin-bottom: 30px;
-            box-shadow: 0 0 50px rgba(0, 0, 80, 0.8);
+            width: 450px;                                     /* Tamanho da foto */
+            height: 450px;                                    /* Quadrada */
+            object-fit: cover;                                /* Não estica a foto */
+            border: 8px solid var(--amarelo);                 /* Borda amarela neon */
+            border-radius: 40px 220px 40px 220px;             /* DESIGN FOLHA: Canto sup-dir e inf-esq redondos */
+            margin-bottom: 30px;                              /* Espaço abaixo da foto */
+            box-shadow: 0 0 50px rgba(0, 0, 80, 0.8);         /* Brilho azul no fundo da foto */
         }
 
+        /* Título e Texto do Contato */
         .contact-box-center h2 { color: var(--amarelo); font-size: 55px; margin: 10px 0; }
+        .contact-info-text { font-size: 36px !important; color: #eeeeee; max-width: 1000px; line-height: 1.4; margin-bottom: 50px; font-weight: bold; }
 
-        /* TEXTO INFORMATIVO - AUMENTADO PARA 36PX CONFORME PEDIDO */
-        .contact-info-text { 
-            font-size: 36px !important;      /* TEXTO AMPLIADO */
-            color: #eeeeee; 
-            max-width: 1000px; 
-            line-height: 1.4; 
-            margin-bottom: 50px;
-            font-weight: bold;
-        }
-
-        /* BOTÃO WHATSAPP NO CONTATO (Verde Neon com Letras Pretas) */
+        /* BOTÃO WHATSAPP NO CONTATO: Verde Neon e Letras Pretas */
         .btn-wa-neon-black {
-            background-color: var(--verde-neon);
-            color: #000000 !important; 
-            padding: 25px 80px;
-            border-radius: 60px;
-            text-decoration: none;
-            font-size: 30px;
-            font-weight: 900;
-            display: inline-flex;
-            align-items: center;
-            gap: 20px;
-            transition: 0.3s;
-            text-transform: uppercase;
+            background-color: var(--verde-neon);              /* Fundo verde das abas */
+            color: #000000 !important;                        /* Letras pretas solicitadas */
+            padding: 25px 80px;                               /* Botão bem grande */
+            border-radius: 60px;                              /* Formato de pílula */
+            text-decoration: none;                            /* Sem sublinhado */
+            font-size: 30px;                                  /* Letra gigante */
+            font-weight: 900;                                 /* Super negrito */
+            display: inline-flex;                             /* Alinha ícone e texto */
+            align-items: center;                              /* Centraliza itens */
+            gap: 20px;                                        /* Espaço entre ícone e texto */
+            transition: 0.3s;                                 /* Animação suave */
+            text-transform: uppercase;                        /* Maiúsculas */
         }
 
-        /* CARRINHO GIGANTE NA ESQUERDA */
+        /* --- BOTÃO GIGANTE DO CARRINHO (LADO ESQUERDO) --- */
         #cart-icon {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: var(--verde-neon);
-            color: #000;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            display: flex;
+            position: fixed;                                  /* Fica preso na tela mesmo rolando */
+            bottom: 30px;                                     /* Distância do fundo */
+            left: 30px;                                       /* FIXADO NO LADO ESQUERDO */
+            background: var(--verde-neon);                    /* Cor verde neon */
+            color: #000;                                      /* Ícone preto */
+            width: 140px;                                     /* Tamanho gigante */
+            height: 140px;                                    /* Tamanho gigante */
+            border-radius: 50%;                               /* Redondo */
+            display: flex;                                    /* Centraliza o ícone */
             align-items: center;
             justify-content: center;
-            font-size: 70px;
-            cursor: pointer;
-            z-index: 2500;
-            box-shadow: 0 0 50px var(--verde-neon);
-            border: 6px solid #000;
+            font-size: 70px;                                  /* Ícone de carrinho gigante */
+            cursor: pointer;                                  /* Ícone de clique */
+            z-index: 2500;                                    /* Fica na frente de tudo */
+            box-shadow: 0 0 50px var(--verde-neon);           /* Glow verde neon */
+            border: 6px solid #000;                           /* Borda preta no botão */
+            transition: 0.3s;
         }
 
+        /* Contador de itens no carrinho */
         #cart-count {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: var(--vermelho);
-            color: #fff;
-            width: 45px;
+            position: absolute;                               /* Fica em cima do botão */
+            top: 5px;                                         /* Posição superior */
+            right: 5px;                                       /* Posição direita */
+            background: var(--vermelho);                      /* Fundo vermelho */
+            color: #fff;                                      /* Letra branca */
+            width: 45px;                                      /* Tamanho da bolinha */
             height: 45px;
-            border-radius: 50%;
-            font-size: 22px;
-            font-weight: 900;
-            display: flex;
+            border-radius: 50%;                               /* Redonda */
+            font-size: 22px;                                  /* Letra grande */
+            font-weight: 900;                                 /* Negrito total */
+            display: flex;                                    /* Centraliza número */
             align-items: center;
             justify-content: center;
-            border: 3px solid #000;
+            border: 3px solid #000;                           /* Borda preta */
         }
 
-        /* Modal do Carrinho */
+        /* Modal (Janela) do Carrinho */
         #cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 3000;
-            justify-content: center;
+            display: none;                                    /* Começa escondido */
+            position: fixed;                                  /* Preso na tela */
+            top: 0; left: 0; width: 100%; height: 100%;       /* Ocupa a tela toda */
+            background: rgba(0,0,0,0.95);                     /* Fundo preto com transparência */
+            z-index: 3000;                                    /* Fica na frente do botão flutuante */
+            justify-content: center;                          /* Centraliza o conteúdo */
             align-items: center;
         }
 
+        /* Caixa interna do carrinho */
         .cart-content {
-            background: #111;
-            width: 550px;
-            border: 3px solid var(--verde-neon);
-            border-radius: 20px;
-            padding: 30px;
+            background: #111;                                 /* Fundo escuro */
+            width: 550px;                                     /* Largura da janela */
+            border: 3px solid var(--verde-neon);              /* Borda verde neon */
+            border-radius: 20px;                              /* Pontas redondas */
+            padding: 30px;                                    /* Espaçamento interno */
         }
 
-        /* Rodapé */
+        /* Rodapé Final */
         footer {
-            background: #0a0a0a;
-            padding: 40px 20px;
-            border-top: 4px solid var(--vermelho);
-            margin-top: 80px;
+            background: #0a0a0a;                              /* Fundo escuro */
+            padding: 40px 20px;                               /* Espaço grande */
+            border-top: 4px solid var(--vermelho);            /* Linha vermelha no topo */
+            margin-top: 80px;                                 /* Distância dos produtos */
         }
 
+        /* GIF Animado do Rodapé */
         .footer-gif {
-            width: 244px;
-            border-radius: 20px;
-            border: 3px solid var(--verde-neon);
-            margin-bottom: 30px;
+            width: 244px;                                     /* Tamanho configurado por você */
+            border-radius: 20px;                              /* Bordas redondas */
+            border: 3px solid var(--verde-neon);              /* Borda verde neon */
+            margin-bottom: 30px;                              /* Espaço abaixo */
         }
     </style>
 </head>
 <body>
 
-    <!-- Link Base do seu GitHub -->
+    <!-- SCRIPT DE BANCO DE DADOS E LÓGICA -->
     <script>
+        // Caminho padrão para todas as imagens no seu GitHub
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
-        let carrinho = [];
-
-        const descricoes = {
-            'aero': 'Aeromodelo de alta performance para manobras e diversão.',
-            'drones': 'Drone FPV com estabilização e câmera de alta definição.',
-            'eletronicos': 'Produtos eletrônicos testados com garantia de qualidade.',
-            'pecas': 'Peças de reposição resistentes para seu equipamento.',
-            'smart': 'Smartwatch de última geração com monitoramento completo.'
+        
+        // --- BANCO DE DADOS DA LOJA (AQUI VOCÊ EDITA OS LINKS) ---
+        // Você pode preencher os links do Mercado Pago e textos de WhatsApp aqui para cada produto.
+        const DADOS_LOJA = {
+            'aero': { desc: 'Aeromodelo Pro para manobras e diversão.', preco: 180, mp: 'LINK_MERCADO_PAGO_AQUI', zap: 'Quero+comprar+o+aeromodelo' },
+            'drones': { desc: 'Drone FPV com estabilização e câmera HD.', preco: 250, mp: 'LINK_MERCADO_PAGO_AQUI', zap: 'Quero+saber+mais+sobre+o+drone' },
+            'eletronicos': { desc: 'Produtos eletrônicos testados e garantidos.', preco: 90, mp: 'LINK_MERCADO_PAGO_AQUI', zap: 'Quero+comprar+eletronico' },
+            'pecas': { desc: 'Peças de reposição resistentes e originais.', preco: 45, mp: 'LINK_MERCADO_PAGO_AQUI', zap: 'Preciso+de+pecas' },
+            'smart': { desc: 'Smartwatch completo com monitor de saúde.', preco: 170, mp: 'LINK_MERCADO_PAGO_AQUI', zap: 'Quero+o+relogio' }
         };
+
+        // Inicia a lista do carrinho vazia
+        let carrinho = [];
     </script>
 
+    <!-- Cabeçalho Principal -->
     <header>
+        <!-- Carrega a logo.png do seu GitHub imagens -->
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" alt="Logo" class="logo-img">
         <h1 style="color: var(--verde-neon); margin: 0; font-size: 30px;">🙏 RF-SHOCK FLYER 🙏</h1>
     </header>
 
-    <div class="banner-hero">
+    <!-- Banner Animado vindo do GitHub -->
+    <div class="banner-hero" id="bannerTop" style="background-image: url('https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/banner.gif');">
         <h2>LOJA DE AEROMODELISMO & PRODUTOS EM GERAL!!!</h2>
     </div>
 
-    <!-- Abas -->
+    <!-- Navegação de Abas de Categorias -->
     <nav class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('aero', this)">Aeromodelos</button>
         <button class="tab-btn" onclick="switchTab('drones', this)">Drones</button>
         <button class="tab-btn" onclick="switchTab('eletronicos', this)">Eletrônicos</button>
         <button class="tab-btn" onclick="switchTab('pecas', this)">Peças & Hélices</button>
         <button class="tab-btn" onclick="switchTab('smart', this)">Smartwatches</button>
+        <!-- Aba especial de Contato -->
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
+    <!-- Grade de exibição da Loja -->
     <div class="container" id="gridLoja">
         <script>
-            const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
+            // Pega o elemento da grade no HTML
             const gridLoja = document.getElementById('gridLoja');
+            // Lista das categorias para gerar os cards
+            const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
 
+            // Loop para criar 15 produtos por aba automaticamente
             categorias.forEach(cat => {
                 for(let i = 1; i <= 15; i++) {
-                    let n = i < 10 ? '0' + i : i;
-                    let activeClass = cat === 'aero' ? 'show' : '';
-                    let preco = 150 + (i * 10); 
+                    let n = i < 10 ? '0' + i : i; // Adiciona o zero na frente (01, 02...)
+                    let activeClass = cat === 'aero' ? 'show' : ''; // Mostra apenas aero no começo
+                    let dados = DADOS_LOJA[cat]; // Pega os dados configurados lá no topo
 
+                    // Constrói o HTML do produto
                     let card = `
                     <div class="product-card ${cat} ${activeClass}">
                         <div class="card">
                             <img src="${URL_BASE}p${n}_${cat}.gif" class="product-gif" alt="Produto">
                             <h3>Produto ${n} - ${cat.toUpperCase()}</h3>
-                            <p class="description">${descricoes[cat]}</p>
-                            <span class="price">R$ ${preco},00</span>
+                            <p class="description">${dados.desc}</p>
+                            <span class="price">R$ ${dados.preco},00</span>
                             <div class="btn-box">
-                                <button class="btn-style" onclick="addNoCarrinho('Produto ${n}', ${preco})">🛒 ADICIONAR AO CARRINHO</button>
-                                <a href="https://wa.me/5532920006774" target="_blank" class="btn-style" style="background:#25d366; line-height:45px;">💬 DÚVIDAS</a>
+                                <!-- Botão que adiciona ao carrinho dinamicamente -->
+                                <button class="btn-style" onclick="addNoCarrinho('Prod ${n} ${cat}', ${dados.preco})">🛒 ADICIONAR AO CARRINHO</button>
+                                <!-- Link individual de dúvida por produto para o seu WhatsApp -->
+                                <a href="https://wa.me/5532920006774?text=${dados.zap}+${n}" target="_blank" class="btn-style" style="background:#25d366; line-height:45px;">💬 DÚVIDAS</a>
                             </div>
                         </div>
                     </div>`;
-                    gridLoja.innerHTML += card;
+                    gridLoja.innerHTML += card; // Adiciona o card na loja
                 }
             });
         </script>
 
-        <!-- ABA CONTATO VENDEDOR (Texto Ampliado conforme solicitado) -->
+        <!-- CONTEÚDO EXCLUSIVO DA ABA CONTATO VENDEDOR -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
-                <!-- Foto vinda do seu GitHub -->
+                <!-- Foto do vendedor usando o arquivo imagemcontatovendedor.png -->
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf" alt="Vendedor">
-                
                 <h2 style="color: var(--amarelo);">RODOLFO FRANCO</h2>
-                
-                <!-- TEXTO COM FONTE AUMENTADA -->
+                <!-- Texto explicativo com fonte grande de 36px -->
                 <p class="contact-info-text">
                     📌 Aqui você encontra "PRODUTOS" a "PRONTA ENTREGA" com "ESTOQUE" no "BRASIL" com "PRAZO de ENTREGA" de "2 SEMANAS" mais ou menos após o "ENVIO" pelos "CORREIOS" & "PRODUTOS SOB ENCOMENDA" com "PRAZO de ENTREGA" de "1 MÊS" mais ou menos pois meus "FORNECEDORES" são da "CHINA"!!! 📌
                 </p>
-                
                 <!-- Botão WhatsApp Verde Neon com Letras Pretas -->
                 <a href="https://wa.me/5532920006774" target="_blank" class="btn-wa-neon-black">
                     <i class="fab fa-whatsapp" style="font-size: 35px; margin-right: 15px;"></i> CHAMAR NO WHATSAPP AGORA
@@ -387,87 +409,111 @@
         </div>
     </div>
 
-    <!-- Carrinho Flutuante -->
+    <!-- BOTÃO FLUTUANTE GIGANTE DO CARRINHO -->
     <div id="cart-icon" onclick="toggleCart()">
         <i class="fas fa-shopping-cart"></i>
         <div id="cart-count">0</div>
     </div>
 
-    <!-- Modal Carrinho -->
+    <!-- JANELA MODAL DO CARRINHO -->
     <div id="cart-modal">
         <div class="cart-content">
-            <h2 style="color: var(--verde-neon)">CARRINHO</h2>
+            <h2 style="color: var(--verde-neon)">CARRINHO DE COMPRAS</h2>
+            <!-- Lista onde os itens adicionados vão aparecer -->
             <div id="cart-items-list" style="max-height: 400px; overflow-y: auto; text-align: left; margin-bottom: 20px;"></div>
+            <!-- Soma total dos valores -->
             <h3 style="font-size: 28px; border-top: 1px solid #333; padding-top: 15px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
+            <!-- Botão para finalizar mandando a lista para o WhatsApp -->
             <button class="btn-style" style="height: 70px; font-size: 20px; background: var(--verde-neon); color: #000;" onclick="finalizarPedido()">✅ FINALIZAR NO WHATSAPP</button>
-            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">VOLTAR</button>
+            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">VOLTAR PARA A LOJA</button>
         </div>
     </div>
 
+    <!-- Rodapé -->
     <footer>
+        <!-- GIF animado do rodapé (rodape.gif) -->
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Destaque" class="footer-gif">
         <p>PAGAMENTO SEGURO VIA MERCADO PAGO</p>
+        <!-- Logo do Mercado Pago -->
+        <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" style="width: 200px;">
     </footer>
 
+    <!-- Scripts de Lógica JavaScript -->
     <script>
+        // Função para mudar de aba/categoria
         function switchTab(categoryId, element) {
-            const allItems = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+            const allItems = document.querySelectorAll('.product-card'); // Seleciona todos os cards
+            const buttons = document.querySelectorAll('.tab-btn'); // Seleciona todos os botões do menu
+            
+            buttons.forEach(btn => btn.classList.remove('active')); // Remove o estado de ativo de todos os botões
+            element.classList.add('active'); // Adiciona estado de ativo no botão clicado
+
             allItems.forEach(item => {
-                item.classList.remove('show');
-                if (item.classList.contains(categoryId)) item.classList.add('show');
+                item.classList.remove('show'); // Esconde todos os cards
+                if (item.classList.contains(categoryId)) item.classList.add('show'); // Mostra apenas o da categoria
             });
-            window.scrollTo({ top: 400, behavior: 'smooth' });
+            window.scrollTo({ top: 400, behavior: 'smooth' }); // Rola a tela para o topo da loja suavemente
         }
 
+        // Função para adicionar item na lista do carrinho
         function addNoCarrinho(nome, preco) {
-            carrinho.push({nome, preco});
-            atualizarCarrinho();
-            const btn = event.target;
-            btn.innerHTML = "✅ ADICIONADO!";
-            setTimeout(() => { btn.innerHTML = "🛒 ADICIONAR AO CARRINHO"; }, 800);
+            carrinho.push({nome, preco}); // Adiciona o objeto produto no array
+            atualizarCarrinho(); // Atualiza a visualização da lista e contador
+            const btn = event.target; // Pega o botão que foi clicado
+            btn.innerHTML = "✅ ADICIONADO!"; // Muda o texto do botão temporariamente
+            setTimeout(() => { btn.innerHTML = "🛒 ADICIONAR AO CARRINHO"; }, 800); // Volta ao normal após 0.8 segundos
         }
 
+        // Função para atualizar os dados visuais do carrinho
         function atualizarCarrinho() {
-            const list = document.getElementById('cart-items-list');
-            const totalEl = document.getElementById('cart-total');
-            const countEl = document.getElementById('cart-count');
-            list.innerHTML = "";
-            let total = 0;
+            const list = document.getElementById('cart-items-list'); // Pega a lista do modal
+            const totalEl = document.getElementById('cart-total'); // Pega o campo de total
+            const countEl = document.getElementById('cart-count'); // Pega o número no botão flutuante
+            
+            list.innerHTML = ""; // Limpa a lista antes de reconstruir
+            let total = 0; // Inicia soma em zero
+            
             carrinho.forEach((item, index) => {
-                total += item.preco;
+                total += item.preco; // Soma o valor
+                // Cria a linha do produto com botão de excluir (lixeira)
                 list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:18px; border-bottom:1px solid #222; padding-bottom:8px;">
                     <span>${item.nome}</span>
                     <span>R$ ${item.preco},00 <i class="fas fa-trash" onclick="removerItem(${index})" style="color:red; margin-left:15px; cursor:pointer"></i></span>
                 </div>`;
             });
-            totalEl.innerText = `R$ ${total},00`;
-            countEl.innerText = carrinho.length;
+            
+            totalEl.innerText = `R$ ${total},00`; // Escreve o total somado
+            countEl.innerText = carrinho.length; // Escreve a quantidade de itens no botão flutuante
         }
 
+        // Função para remover um único item da lista
         function removerItem(index) {
-            carrinho.splice(index, 1);
-            atualizarCarrinho();
+            carrinho.splice(index, 1); // Remove do array pelo índice
+            atualizarCarrinho(); // Atualiza a tela
         }
 
+        // Função para abrir ou fechar a janela do carrinho
         function toggleCart() {
             const modal = document.getElementById('cart-modal');
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex'; // Alterna entre mostrar e esconder
         }
 
+        // Função para enviar o pedido completo para o WhatsApp
         function finalizarPedido() {
-            if (carrinho.length === 0) return alert("Carrinho vazio!");
-            let msg = "🚀 *PEDIDO RF SHOCK FLYER* 🚀\n\n";
+            if (carrinho.length === 0) return alert("Adicione produtos primeiro!"); // Validação de segurança
+            
+            let msg = "🚀 *NOVO PEDIDO - RF SHOCK FLYER* 🚀\n\n"; // Inicia o texto da mensagem
             let total = 0;
             carrinho.forEach(i => {
-                msg += `- ${i.nome}: R$ ${i.preco},00\n`;
+                msg += `- ${i.nome}: R$ ${i.preco},00\n`; // Adiciona cada item na mensagem
                 total += i.preco;
             });
-            msg += `\n*TOTAL: R$ ${total},00*\n\nMe envie o link do Mercado Pago para pagamento!`;
+            msg += `\n*TOTAL DO PEDIDO: R$ ${total},00*\n\nQuero o link de pagamento do Mercado Pago agora!`; // Finaliza a mensagem
+            
+            // Abre o WhatsApp com a mensagem pronta
             window.open(`https://wa.me/5532920006774?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
 </body>
+<!-- Fim do documento HTML -->
 </html>

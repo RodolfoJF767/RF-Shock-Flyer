@@ -1,6 +1,6 @@
 <!-- Define o documento como HTML5 moderno -->
 <!DOCTYPE html>
-<!-- Inicia o HTML e define o idioma oficial como Português do Brasil -->
+<!-- Define o idioma oficial como Português do Brasil -->
 <html lang="pt-br">
 <head>
     <!-- Define a codificação universal para evitar erros de acentos -->
@@ -81,14 +81,14 @@
             position: sticky;
             top: 0;
             z-index: 900;
-            gap: 15px;
+            gap: 12px;
         }
 
         .tab-btn {
             background: none;
             border: 2px solid var(--verde-neon);
             color: var(--verde-neon);
-            padding: 12px 25px;
+            padding: 10px 22px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
@@ -102,7 +102,7 @@
             box-shadow: 0 0 20px var(--verde-neon);
         }
 
-        /* ESTILO ABA CONTATO */
+        /* ABA CONTATO ESPECIAL */
         .tab-contact {
             background-color: var(--azul-marinho) !important;
             color: var(--amarelo) !important;
@@ -119,6 +119,7 @@
             padding: 10px;
         }
 
+        /* Esconde abas inativas */
         .product-card { display: none !important; }
         .product-card.show { display: block !important; }
 
@@ -193,12 +194,13 @@
         }
 
         /* --- SEÇÃO CONTATO: CENTRALIZAÇÃO TOTAL --- */
+        /* grid-column 1/5 garante que o bloco ocupe as 4 colunas e fique no meio */
         .contato-wrapper.show {
-            grid-column: 1 / 5;              /* Ocupa a largura total da grade */
+            grid-column: 1 / 5;              
             display: flex !important;        
             flex-direction: column;
-            align-items: center;             /* Centraliza horizontalmente */
-            justify-content: center;         /* Centraliza verticalmente */
+            align-items: center;             
+            justify-content: center;         
             width: 100%;
             padding: 50px 0;
         }
@@ -215,13 +217,13 @@
             text-align: center;
         }
 
-        /* FOTO DO VENDEDOR (Diferente da Logo) */
+        /* FOTO DO VENDEDOR PERSONALIZADA (ESTILO FOLHA) */
         .photo-leaf {
             width: 450px;
             height: 450px;
             object-fit: cover;
             border: 8px solid var(--amarelo);
-            /* Borda estilo folha: Canto Superior Direito e Inferior Esquerdo arredondados */
+            /* Design de folha solicitado */
             border-radius: 40px 220px 40px 220px; 
             margin-bottom: 30px;
             box-shadow: 0 0 50px rgba(0, 0, 80, 0.8);
@@ -230,7 +232,7 @@
         /* BOTÃO WHATSAPP NO CONTATO (Verde Neon com Letras Pretas) */
         .btn-wa-neon-black {
             background-color: var(--verde-neon);
-            color: #000000 !important; /* Letras pretas */
+            color: #000000 !important; 
             padding: 25px 80px;
             border-radius: 60px;
             text-decoration: none;
@@ -311,7 +313,7 @@
         }
 
         .footer-gif {
-            width: 123px; /* Tamanho original conforme seu código anterior */
+            width: 123px; 
             border-radius: 20px;
             border: 3px solid var(--verde-neon);
             margin-bottom: 30px;
@@ -322,7 +324,8 @@
 
     <script>
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
-        // AQUI VOCÊ MUDA A IMAGEM DO VENDEDOR (Pode ser outro link ou arquivo na pasta)
+        
+        // --- COLOQUE O LINK DA FOTO DO VENDEDOR AQUI ---
         const URL_FOTO_VENDEDOR = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png"; 
         
         let carrinho = [];
@@ -337,7 +340,7 @@
     </script>
 
     <header>
-        <!-- Logo do Topo -->
+        <!-- Logo do Topo (logo.png) -->
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" alt="Logo" class="logo-img">
         <h1 style="color: var(--verde-neon); margin: 0; font-size: 30px;">🙏 RF-SHOCK FLYER 🙏</h1>
     </header>
@@ -356,7 +359,7 @@
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
-    <!-- Área de Produtos -->
+    <!-- Grade de Produtos -->
     <div class="container" id="gridLoja">
         <script>
             const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
@@ -386,11 +389,11 @@
             });
         </script>
 
-        <!-- ABA CONTATO VENDEDOR (Centralizada com Imagem Independente) -->
+        <!-- ABA CONTATO VENDEDOR (Centralizada e Independente) -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
-                <!-- Foto do Vendedor (Diferente da Logo) -->
-                <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/logo.png" class="photo-leaf" alt="Vendedor">
+                <!-- Foto do Vendedor usando o arquivo imagemcontatovendedor.png -->
+                <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf" alt="Vendedor">
                 
                 <h2 style="color: var(--amarelo);">RODOLFO FRANCO</h2>
                 
@@ -404,7 +407,7 @@
         </div>
     </div>
 
-    <!-- Carrinho Flutuante na Esquerda -->
+    <!-- Carrinho -->
     <div id="cart-icon" onclick="toggleCart()">
         <i class="fas fa-shopping-cart"></i>
         <div id="cart-count">0</div>

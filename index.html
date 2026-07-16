@@ -1,57 +1,55 @@
 <!-- Define o documento como HTML5 -->
 <!DOCTYPE html>
-<!-- Define o idioma oficial como Português do Brasil -->
+<!-- Define o idioma como Português do Brasil -->
 <html lang="pt-br">
 <head>
-    <!-- Define a codificação universal para evitar erros de acentos -->
+    <!-- Define a codificação universal (evita erro em acentos) -->
     <meta charset="UTF-8">
-    <!-- FORÇA O MODO DESKTOP: Simula uma tela de computador com 1280px de largura no celular -->
+    <!-- FORÇA O MODO DESKTOP: Simula tela de 1280px no celular -->
     <meta name="viewport" content="width=1280, initial-scale=1">
-    <!-- Título da página que aparece no navegador -->
+    <!-- Título da aba do navegador -->
     <title>RF-Shock Flyer | Loja Oficial</title>
-    <!-- Link para o Favicon vindo do seu GitHub imagens -->
+    <!-- Link para o Favicon no seu GitHub -->
     <link rel="icon" href="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/favicon.ico" type="image/x-icon">
-    <!-- Importa a biblioteca de ícones FontAwesome (WhatsApp, Carrinho, Lixeira) -->
+    <!-- Importa ícones FontAwesome (Carrinho, Lixeira, WhatsApp) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Início da estilização visual (CSS) -->
     <style>
-        /* Variáveis de cores para o tema Neon/Glow da loja */
+        /* Variáveis de cores para o tema Neon */
         :root {
-            --vermelho: #ff0000;         /* Cor dos botões de compra e borda superior */
-            --verde-neon: #00ff00;       /* Cor de preços, abas e botão WhatsApp */
-            --amarelo: #ffff00;          /* Cor de títulos e letras na aba azul */
-            --azul-escuro-navy: #000050; /* Azul Escuro Marinho para a aba de contato */
-            --preto: #000000;            /* Fundo principal do site */
-            --fundo-card: #0d0d0d;       /* Fundo interno das caixas de produtos */
+            --vermelho: #ff0000;         /* Botões de compra */
+            --verde-neon: #00ff00;       /* Preços e abas */
+            --amarelo: #ffff00;          /* Títulos e letras na aba azul */
+            --azul-escuro-navy: #000050; /* Aba de contato */
+            --preto: #000000;            /* Fundo principal */
+            --fundo-card: #0d0d0d;       /* Fundo dos produtos */
         }
 
-        /* Configurações gerais do corpo do site */
+        /* Estilo geral do corpo */
         body {
-            font-family: 'Arial Black', sans-serif; /* Fonte grossa de impacto */
-            background-color: var(--preto);          /* Aplica fundo preto */
-            color: #ffffff;                          /* Texto padrão em branco */
-            margin: 0;                               /* Remove margens externas */
-            padding: 0;                              /* Remove preenchimentos */
-            text-align: center;                      /* Centraliza tudo */
-            min-width: 1280px;                       /* Trava a largura para modo Desktop */
-            padding-bottom: 180px;                   /* Espaço para o botão do carrinho no pé */
+            font-family: 'Arial Black', sans-serif; 
+            background-color: var(--preto);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-width: 1280px;            /* Fixa largura desktop */
+            padding-bottom: 180px;        /* Espaço para o botão do carrinho */
         }
 
-        /* Cabeçalho superior (Logo) */
+        /* Cabeçalho (Logo) */
         header {
             background: #000;
             padding: 20px;
-            border-bottom: 3px solid var(--vermelho); /* Linha vermelha no topo */
+            border-bottom: 3px solid var(--vermelho);
         }
 
-        /* Imagem da Logomarca (logo.png) */
         .logo-img {
             width: 250px;
-            filter: drop-shadow(0 0 10px var(--verde-neon)); /* Brilho neon na logo */
+            filter: drop-shadow(0 0 10px var(--verde-neon));
         }
 
-        /* Banner Hero Animado */
+        /* Banner Hero */
         .banner-hero {
             width: 1280px;
             height: 300px;
@@ -62,7 +60,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 5px solid var(--amarelo); /* Linha amarela no banner */
+            border-bottom: 5px solid var(--amarelo);
         }
 
         .banner-hero h2 {
@@ -74,7 +72,7 @@
             text-transform: uppercase;
         }
 
-        /* Barra de Abas (Navegação Fixa ao Rolar) */
+        /* Menu de Navegação */
         .tabs-nav {
             display: flex;
             justify-content: center;
@@ -86,7 +84,6 @@
             gap: 15px;
         }
 
-        /* Botões padrão das abas (Verdes) */
         .tab-btn {
             background: none;
             border: 2px solid var(--verde-neon);
@@ -105,14 +102,13 @@
             box-shadow: 0 0 20px var(--verde-neon);
         }
 
-        /* Aba Contato Especial */
         .tab-contact {
             background-color: var(--azul-escuro-navy) !important;
             color: var(--amarelo) !important;
             border: 2px solid var(--amarelo) !important;
         }
 
-        /* Grade de Produtos (Fixa 4 colunas) */
+        /* Grade de Produtos */
         .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -125,7 +121,7 @@
         .product-card { display: none !important; }
         .product-card.show { display: block !important; }
 
-        /* Card individual do produto */
+        /* Card do Produto */
         .card {
             background: var(--fundo-card);
             border: 2px solid #222;
@@ -143,7 +139,6 @@
             box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
         }
 
-        /* GIFs dos Produtos (1024x1024) */
         .product-gif {
             width: 100%;
             aspect-ratio: 1/1;
@@ -171,9 +166,10 @@
             cursor: pointer;
             width: 100%;
             margin-bottom: 5px;
+            transition: 0.3s;
         }
 
-        /* --- SEÇÃO DE CONTATO: CENTRALIZAÇÃO TOTAL --- */
+        /* --- SEÇÃO CONTATO: CENTRALIZADA --- */
         .contato-wrapper.show {
             grid-column: 1 / 5;              
             display: flex !important;        
@@ -206,7 +202,6 @@
             box-shadow: 0 0 50px rgba(0, 0, 80, 0.8);
         }
 
-        .contact-box-center h2 { color: var(--amarelo); font-size: 55px; margin: 10px 0; }
         .contact-info-text { font-size: 36px !important; color: #eeeeee; max-width: 1000px; line-height: 1.4; margin-bottom: 50px; font-weight: bold; }
 
         .btn-wa-neon-black {
@@ -220,11 +215,10 @@
             display: inline-flex;
             align-items: center;
             gap: 20px;
-            transition: 0.3s;
             text-transform: uppercase;
         }
 
-        /* CARRINHO FLUTUANTE NA ESQUERDA */
+        /* --- CARRINHO GIGANTE NA ESQUERDA --- */
         #cart-icon {
             position: fixed;
             bottom: 30px;
@@ -261,6 +255,7 @@
             border: 3px solid #000;
         }
 
+        /* Janela Modal do Carrinho */
         #cart-modal {
             display: none;
             position: fixed;
@@ -273,12 +268,13 @@
 
         .cart-content {
             background: #111;
-            width: 550px;
+            width: 600px;
             border: 3px solid var(--verde-neon);
             border-radius: 20px;
             padding: 30px;
         }
 
+        /* Rodapé */
         footer {
             background: #0a0a0a;
             padding: 40px 20px;
@@ -297,62 +293,51 @@
 <body>
 
     <script>
-        // Link Base do GitHub imagens
+        // Caminho das imagens no GitHub
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
         let carrinho = [];
 
         // ---------------------------------------------------------
-        // BANCO DE DADOS DE PRODUTOS (AQUI VOCÊ EDITA CADA ITEM)
+        // BANCO DE DADOS: AQUI VOCÊ COLOCA OS LINKS DE CADA PRODUTO
         // ---------------------------------------------------------
-        // n = Nome, d = Descrição, p = Preço (número), l = Link Mercado Pago
-        
+        // n = Nome | d = Descrição | p = Preço | mp = Link do Mercado Pago
         const BANCO_DADOS = {
             'aero': [
-                { n: 'Shock Flyer 3D', d: 'Melhor para manobras 3D.', p: 450, l: 'LINK_MP_1' },
-                { n: 'Avião Cessna', d: 'Treinador asa alta estável.', p: 380, l: 'LINK_MP_2' },
-                { n: 'Aero 03', d: 'Descrição do produto 03.', p: 400, l: 'LINK_MP_3' },
-                { n: 'Aero 04', d: 'Descrição do produto 04.', p: 400, l: 'LINK_MP_4' },
-                { n: 'Aero 05', d: 'Descrição do produto 05.', p: 400, l: 'LINK_MP_5' },
-                { n: 'Aero 06', d: 'Descrição do produto 06.', p: 400, l: 'LINK_MP_6' },
-                { n: 'Aero 07', d: 'Descrição do produto 07.', p: 400, l: 'LINK_MP_7' },
-                { n: 'Aero 08', d: 'Descrição do produto 08.', p: 400, l: 'LINK_MP_8' },
-                { n: 'Aero 09', d: 'Descrição do produto 09.', p: 400, l: 'LINK_MP_9' },
-                { n: 'Aero 10', d: 'Descrição do produto 10.', p: 400, l: 'LINK_MP_10' },
-                { n: 'Aero 11', d: 'Descrição do produto 11.', p: 400, l: 'LINK_MP_11' },
-                { n: 'Aero 12', d: 'Descrição do produto 12.', p: 400, l: 'LINK_MP_12' },
-                { n: 'Aero 13', d: 'Descrição do produto 13.', p: 400, l: 'LINK_MP_13' },
-                { n: 'Aero 14', d: 'Descrição do produto 14.', p: 400, l: 'LINK_MP_14' },
-                { n: 'Aero 15', d: 'Descrição do produto 15.', p: 400, l: 'LINK_MP_15' }
+                { n: 'Shock Flyer 01', d: 'Acrobacias 3D extremas.', p: 450, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 02', d: 'Voo estável e preciso.', p: 480, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 03', d: 'Modelo para iniciantes.', p: 350, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 04', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 05', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 06', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 07', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 08', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 09', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 10', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 11', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 12', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 13', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 14', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
+                { n: 'Shock Flyer 15', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' }
             ],
             'drones': [
-                { n: 'Drone E61', d: 'Mini drone com câmera.', p: 599, l: 'LINK_MP_1' },
-                { n: 'Drone 02', d: 'Descrição drone 02.', p: 600, l: 'LINK_MP_2' },
-                { n: 'Drone 03', d: 'Descrição drone 03.', p: 600, l: 'LINK_MP_3' },
-                { n: 'Drone 04', d: 'Descrição drone 04.', p: 600, l: 'LINK_MP_4' },
-                { n: 'Drone 05', d: 'Descrição drone 05.', p: 600, l: 'LINK_MP_5' },
-                { n: 'Drone 06', d: 'Descrição drone 06.', p: 600, l: 'LINK_MP_6' },
-                { n: 'Drone 07', d: 'Descrição drone 07.', p: 600, l: 'LINK_MP_7' },
-                { n: 'Drone 08', d: 'Descrição drone 08.', p: 600, l: 'LINK_MP_8' },
-                { n: 'Drone 09', d: 'Descrição drone 09.', p: 600, l: 'LINK_MP_9' },
-                { n: 'Drone 10', d: 'Descrição drone 10.', p: 600, l: 'LINK_MP_10' },
-                { n: 'Drone 11', d: 'Descrição drone 11.', p: 600, l: 'LINK_MP_11' },
-                { n: 'Drone 12', d: 'Descrição drone 12.', p: 600, l: 'LINK_MP_12' },
-                { n: 'Drone 13', d: 'Descrição drone 13.', p: 600, l: 'LINK_MP_13' },
-                { n: 'Drone 14', d: 'Descrição drone 14.', p: 600, l: 'LINK_MP_14' },
-                { n: 'Drone 15', d: 'Descrição drone 15.', p: 600, l: 'LINK_MP_15' }
+                { n: 'Drone FPV 01', d: 'Câmera 4K integrada.', p: 850, mp: 'LINK_MP_AQUI' },
+                // Repita para os outros 14 drones...
+                { n: 'Drone 02', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 03', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 04', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 05', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 06', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 07', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 08', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 09', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 10', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 11', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 12', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 13', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 14', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 15', d: 'Desc...', p: 900, mp: '#' }
             ],
             'eletronicos': [
-                { n: 'Radio TX', d: 'Controle de longo alcance.', p: 850, l: 'LINK_MP' },
-                // ... repita o padrão até completar 15 para as outras categorias
-                { n: 'Eletro 02', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 03', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 04', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 05', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 06', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 07', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 08', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 09', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 10', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 11', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 12', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 13', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 14', d: 'Desc...', p: 100, l: '#' }, { n: 'Eletro 15', d: 'Desc...', p: 100, l: '#' }
+                { n: 'Eletrônico 01', d: 'Alta durabilidade.', p: 150, mp: 'LINK_MP_AQUI' },
+                // Repita para os outros 14...
+                { n: 'Eletro 02', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 03', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 04', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 05', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 06', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 07', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 08', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 09', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 10', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 11', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 12', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 13', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 14', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 15', d: 'Desc...', p: 150, mp: '#' }
             ],
             'pecas': [
-                { n: 'Hélice 9x5', d: 'Hélice laranja GWS.', p: 15, l: 'LINK_MP' },
-                { n: 'Peça 02', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 03', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 04', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 05', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 06', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 07', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 08', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 09', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 10', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 11', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 12', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 13', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 14', d: 'Desc...', p: 20, l: '#' }, { n: 'Peça 15', d: 'Desc...', p: 20, l: '#' }
+                { n: 'Hélice Carbono', d: 'Leve e balanceada.', p: 45, mp: 'LINK_MP_AQUI' },
+                // Repita para os outros 14...
+                { n: 'Peça 02', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 03', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 04', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 05', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 06', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 07', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 08', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 09', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 10', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 11', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 12', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 13', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 14', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 15', d: 'Desc...', p: 50, mp: '#' }
             ],
             'smart': [
-                { n: 'X8 Pro Max', d: 'Relógio inteligente preto.', p: 170, l: 'LINK_MP' },
-                { n: 'Smart 02', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 03', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 04', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 05', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 06', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 07', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 08', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 09', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 10', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 11', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 12', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 13', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 14', d: 'Desc...', p: 150, l: '#' }, { n: 'Smart 15', d: 'Desc...', p: 150, l: '#' }
+                { n: 'Smartwatch X8', d: 'Monitor cardíaco e GPS.', p: 170, mp: 'LINK_MP_AQUI' },
+                // Repita para os outros 14...
+                { n: 'Smart 02', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 03', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 04', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 05', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 06', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 07', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 08', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 09', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 10', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 11', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 12', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 13', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 14', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 15', d: 'Desc...', p: 170, mp: '#' }
             ]
         };
     </script>
@@ -368,7 +353,7 @@
         <h2>LOJA DE AEROMODELISMO & PRODUTOS EM GERAL!!!</h2>
     </div>
 
-    <!-- Abas -->
+    <!-- Navegação -->
     <nav class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('aero', this)">Aeromodelos</button>
         <button class="tab-btn" onclick="switchTab('drones', this)">Drones</button>
@@ -378,30 +363,25 @@
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
-    <!-- Área de Produtos -->
+    <!-- Loja -->
     <div class="container" id="gridLoja">
         <script>
             const gridLoja = document.getElementById('gridLoja');
-            const listaCats = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
+            const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
 
-            listaCats.forEach(cat => {
-                // Percorre a lista de produtos configurada no Banco de Dados acima
-                BANCO_DADOS[cat].forEach((item, index) => {
-                    let nPost = index + 1;
-                    let num = nPost < 10 ? '0' + nPost : nPost;
-                    let activeClass = cat === 'aero' ? 'show' : '';
-
+            categorias.forEach(cat => {
+                BANCO_DADOS[cat].forEach((item, idx) => {
+                    let num = (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1);
                     let card = `
-                    <div class="product-card ${cat} ${activeClass}">
+                    <div class="product-card ${cat} ${cat === 'aero' ? 'show' : ''}">
                         <div class="card">
                             <img src="${URL_BASE}p${num}_${cat}.gif" class="product-gif" alt="Produto">
                             <h3>${item.n}</h3>
                             <p class="description">${item.d}</p>
                             <span class="price">R$ ${item.p},00</span>
-                            <div class="btn-box">
-                                <button class="btn-style" onclick="addNoCarrinho('${item.n}', ${item.p})">🛒 ADICIONAR AO CARRINHO</button>
-                                <a href="https://wa.me/5532920006774?text=Olá,+tenho+interesse+no+${item.n.replace(/ /g, '+')}" target="_blank" class="btn-style" style="background:#25d366; line-height:45px;">💬 DÚVIDAS</a>
-                            </div>
+                            <!-- BOTÃO DE PAGAMENTO DIRETO NO MERCADO PAGO -->
+                            <a href="${item.mp}" target="_blank" class="btn-style">🛒 PAGAR NO MERCADO PAGO</a>
+                            <button class="btn-style" style="background:#444;" onclick="addNoCarrinho('${item.n}', ${item.p}, '${item.mp}')">➕ ADD AO CARRINHO</button>
                         </div>
                     </div>`;
                     gridLoja.innerHTML += card;
@@ -409,7 +389,7 @@
             });
         </script>
 
-        <!-- ABA CONTATO VENDEDOR -->
+        <!-- ABA CONTATO -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf" alt="Vendedor">
@@ -418,13 +398,13 @@
                     📌 Aqui você encontra "PRODUTOS" a "PRONTA ENTREGA" com "ESTOQUE" no "BRASIL" com "PRAZO de ENTREGA" de "2 SEMANAS" mais ou menos após o "ENVIO" pelos "CORREIOS" & "PRODUTOS SOB ENCOMENDA" com "PRAZO de ENTREGA" de "1 MÊS" mais ou menos pois meus "FORNECEDORES" são da "CHINA"!!! 📌
                 </p>
                 <a href="https://wa.me/5532920006774" target="_blank" class="btn-wa-neon-black">
-                    <i class="fab fa-whatsapp" style="font-size: 35px; margin-right: 15px;"></i> CHAMAR NO WHATSAPP AGORA
+                    <i class="fab fa-whatsapp" style="font-size:35px; margin-right:15px;"></i> CHAMAR NO WHATSAPP AGORA
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Carrinho Flutuante -->
+    <!-- Carrinho Flutuante (Esquerda) -->
     <div id="cart-icon" onclick="toggleCart()">
         <i class="fas fa-shopping-cart"></i>
         <div id="cart-count">0</div>
@@ -433,18 +413,18 @@
     <!-- Modal Carrinho -->
     <div id="cart-modal">
         <div class="cart-content">
-            <h2 style="color: var(--verde-neon)">MEU CARRINHO</h2>
+            <h2 style="color: var(--verde-neon)">SEU CARRINHO</h2>
             <div id="cart-items-list" style="max-height: 400px; overflow-y: auto; text-align: left; margin-bottom: 20px;"></div>
             <h3 style="font-size: 28px; border-top: 1px solid #333; padding-top: 15px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
-            <button class="btn-style" style="height: 70px; font-size: 20px; background: var(--verde-neon); color: #000;" onclick="finalizarPedido()">✅ FINALIZAR NO WHATSAPP</button>
-            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">VOLTAR</button>
+            <p style="font-size:12px; color:#aaa;">Pague os itens individualmente clicando nos botões abaixo:</p>
+            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">FECHAR E VOLTAR</button>
         </div>
     </div>
 
     <footer>
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Destaque" class="footer-gif">
         <p>PAGAMENTO SEGURO VIA MERCADO PAGO</p>
-    </footer>
+    </header>
 
     <script>
         // Lógica de Abas
@@ -460,13 +440,11 @@
             window.scrollTo({ top: 400, behavior: 'smooth' });
         }
 
-        // Adicionar ao carrinho
-        function addNoCarrinho(nome, preco) {
-            carrinho.push({nome, preco});
+        // Adicionar ao Carrinho
+        function addNoCarrinho(nome, preco, link) {
+            carrinho.push({nome, preco, link});
             atualizarCarrinho();
-            const btn = event.target;
-            btn.innerHTML = "✅ ADICIONADO!";
-            setTimeout(() => { btn.innerHTML = "🛒 ADICIONAR AO CARRINHO"; }, 800);
+            alert(nome + " adicionado ao carrinho!");
         }
 
         // Atualizar lista visual do carrinho
@@ -478,9 +456,10 @@
             let total = 0;
             carrinho.forEach((item, index) => {
                 total += item.preco;
-                list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:18px; border-bottom:1px solid #222; padding-bottom:8px;">
+                list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:16px; border-bottom:1px solid #222; padding-bottom:8px;">
                     <span>${item.nome}</span>
-                    <span>R$ ${item.preco},00 <i class="fas fa-trash" onclick="removerItem(${index})" style="color:red; margin-left:15px; cursor:pointer"></i></span>
+                    <a href="${item.link}" target="_blank" style="color:var(--verde-neon); text-decoration:none; font-weight:bold;">[PAGAR R$ ${item.preco}]</a>
+                    <i class="fas fa-trash" onclick="removerItem(${index})" style="color:red; cursor:pointer"></i>
                 </div>`;
             });
             totalEl.innerText = `R$ ${total},00`;
@@ -495,19 +474,6 @@
         function toggleCart() {
             const modal = document.getElementById('cart-modal');
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        // Finalizar Pedido enviando lista para o WhatsApp
-        function finalizarPedido() {
-            if (carrinho.length === 0) return alert("Carrinho vazio!");
-            let msg = "🚀 *NOVO PEDIDO - RF SHOCK FLYER* 🚀\n\n";
-            let total = 0;
-            carrinho.forEach(i => {
-                msg += `- ${i.nome}: R$ ${i.preco},00\n`;
-                total += i.preco;
-            });
-            msg += `\n*TOTAL: R$ ${total},00*\n\nMe envie o link do Mercado Pago para pagamento!`;
-            window.open(`https://wa.me/5532920006774?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
 </body>

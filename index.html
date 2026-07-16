@@ -119,11 +119,11 @@
         .card .description { font-size: 16px; color: #fff; font-weight: bold; margin: 0 0 10px 0; height: 45px; overflow: hidden; line-height: 1.3; }
         .price { display: block; font-size: 30px; color: var(--verde-neon); margin-bottom: 15px; }
 
-        /* Estilo dos Botões - MANTIDO EXATAMENTE COMO VOCÊ PEDIU */
+        /* Estilo dos Botões - FONTE AUMENTADA CONFORME SOLICITADO */
         .btn-style {
             text-decoration: none; display: block; height: 45px; line-height: 45px;
             border-radius: 8px; font-weight: bold; text-transform: uppercase;
-            font-size: 11px; border: none; cursor: pointer; width: 100%; margin-bottom: 5px; transition: 0.3s;
+            font-size: 18px; border: none; cursor: pointer; width: 100%; margin-bottom: 5px; transition: 0.3s;
             text-align: center;
         }
 
@@ -256,8 +256,8 @@
                     <p class="description">Pintura: Red Bull Bandeira USD.</p>
                     <span class="price">R$ 555,00</span>
                     <div class="btn-box" onclick="event.stopPropagation()">
-                        <button class="btn-style btn-pay" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">🛒 PAGAR AGORA</button>
-                        <button class="btn-style btn-add" onclick="addNoCarrinho('Shock Flyer GILES - Red Bull', 555)">➕ ADD AO CARRINHO</button>
+                        <button class="btn-style btn-pay" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">COMPRAR</button>
+                        <button class="btn-style btn-add" onclick="addNoCarrinho('Shock Flyer GILES - Red Bull', 555)">ADICIONAR AO CARRINHO</button>
                     </div>
                 </div>
             </div>`;
@@ -280,8 +280,8 @@
                             <p class="description">${descricoes[cat]}</p>
                             <span class="price">R$ ${preco},00</span>
                             <div class="btn-box" onclick="event.stopPropagation()">
-                                <button class="btn-style btn-pay" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">🛒 PAGAR AGORA</button>
-                                <button class="btn-style btn-add" onclick="addNoCarrinho('${nomeItem}', ${preco})">➕ ADD AO CARRINHO</button>
+                                <button class="btn-style btn-pay" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">COMPRAR</button>
+                                <button class="btn-style btn-add" onclick="addNoCarrinho('${nomeItem}', ${preco})">ADICIONAR AO CARRINHO</button>
                             </div>
                         </div>
                     </div>`;
@@ -316,10 +316,9 @@
             <span id="det-price" class="detail-price"></span>
             
             <div style="width: 550px; display: flex; flex-direction: column; gap: 10px;">
-                <!-- BOTÕES COM TAMANHOS ORIGINAIS DO SEU CÓDIGO -->
-                <button id="det-pay-btn" class="btn-style btn-pay" style="height:75px; line-height:75px; font-size:20px;" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">🛒 PAGAR NO MERCADO PAGO</button>
-                <button id="det-add-btn" class="btn-style btn-add" style="height:65px; line-height:65px; font-size:18px;">➕ ADICIONAR AO CARRINHO</button>
-                <button class="btn-style btn-back-shop" onclick="fecharDetalhes()">⬅️ VOLTAR PARA A LOJA</button>
+                <button id="det-pay-btn" class="btn-style btn-pay" style="height:75px; line-height:75px; font-size:24px;" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">COMPRAR</button>
+                <button id="det-add-btn" class="btn-style btn-add" style="height:65px; line-height:65px; font-size:22px;">ADICIONAR AO CARRINHO</button>
+                <button class="btn-style btn-back-shop" onclick="fecharDetalhes()">VOLTAR</button>
             </div>
         </div>
     </div>
@@ -338,7 +337,7 @@
             <div id="cart-items-list" style="max-height: 300px; overflow-y: auto; text-align: center; margin-bottom: 20px;"></div>
             <h3 style="font-size: 32px; border-top: 1px solid #333; padding-top: 15px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
             <button onclick="window.open('https://link.mercadopago.com.br/rfshockflyer', '_system');" class="btn-style btn-pay" style="height: 80px; font-size: 24px; line-height: 80px;">✅ FINALIZAR COMPRA AGORA</button>
-            <button class="btn-style btn-back-shop" style="margin-top: 15px;" onclick="toggleCart()">VOLTAR À LOJA</button>
+            <button class="btn-style btn-back-shop" style="margin-top: 15px;" onclick="toggleCart()">VOLTAR</button>
         </div>
     </div>
 

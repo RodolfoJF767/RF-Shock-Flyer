@@ -1,31 +1,32 @@
-<!-- Define o documento como HTML5 -->
+<!-- Declaração do tipo de documento HTML5 -->
 <!DOCTYPE html>
-<!-- Define o idioma como Português do Brasil -->
+<!-- Início do HTML com idioma Português do Brasil -->
 <html lang="pt-br">
 <head>
-    <!-- Define a codificação universal (evita erro em acentos) -->
+    <!-- Configuração de caracteres para evitar erro em acentos -->
     <meta charset="UTF-8">
-    <!-- FORÇA O MODO DESKTOP: Simula tela de 1280px no celular -->
+    <!-- FORÇA O MODO DESKTOP: Simula uma tela de 1280px de largura no celular -->
     <meta name="viewport" content="width=1280, initial-scale=1">
     <!-- Título da aba do navegador -->
     <title>RF-Shock Flyer | Loja Oficial</title>
-    <!-- Link para o Favicon no seu GitHub -->
+    <!-- Link para o Favicon (ícone da aba) no GitHub -->
     <link rel="icon" href="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/favicon.ico" type="image/x-icon">
-    <!-- Importa ícones FontAwesome (Carrinho, Lixeira, WhatsApp) -->
+    <!-- Importação da biblioteca de ícones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- Início dos Estilos (CSS) -->
     <style>
         /* Variáveis de cores para o tema Neon */
         :root {
             --vermelho: #ff0000;         /* Botões de compra */
-            --verde-neon: #00ff00;       /* Preços e abas */
+            --verde-neon: #00ff00;       /* Preços, abas e WhatsApp */
             --amarelo: #ffff00;          /* Títulos e letras na aba azul */
-            --azul-escuro-navy: #000050; /* Aba de contato */
-            --preto: #000000;            /* Fundo principal */
-            --fundo-card: #0d0d0d;       /* Fundo dos produtos */
+            --azul-escuro-navy: #000050; /* Fundo da aba de contato */
+            --preto: #000000;            /* Fundo principal do site */
+            --fundo-card: #0d0d0d;       /* Fundo interno das caixas de produtos */
         }
 
-        /* Estilo geral do corpo */
+        /* Estilo geral do corpo do site */
         body {
             font-family: 'Arial Black', sans-serif; 
             background-color: var(--preto);
@@ -33,23 +34,24 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            min-width: 1280px;            /* Fixa largura desktop */
-            padding-bottom: 180px;        /* Espaço para o botão do carrinho */
+            min-width: 1280px;            /* Fixa a largura em 1280px */
+            padding-bottom: 180px;        /* Espaço para o botão do carrinho no rodapé */
         }
 
-        /* Cabeçalho (Logo) */
+        /* Cabeçalho superior (Logo) */
         header {
             background: #000;
             padding: 20px;
             border-bottom: 3px solid var(--vermelho);
         }
 
+        /* Estilo da imagem da Logomarca */
         .logo-img {
             width: 250px;
             filter: drop-shadow(0 0 10px var(--verde-neon));
         }
 
-        /* Banner Hero */
+        /* Banner de destaque animado */
         .banner-hero {
             width: 1280px;
             height: 300px;
@@ -63,6 +65,7 @@
             border-bottom: 5px solid var(--amarelo);
         }
 
+        /* Texto no Banner */
         .banner-hero h2 {
             background: rgba(0, 0, 0, 0.8);
             padding: 15px 35px;
@@ -72,7 +75,7 @@
             text-transform: uppercase;
         }
 
-        /* Menu de Navegação */
+        /* Barra de Abas (Navegação Fixa ao Rolar) */
         .tabs-nav {
             display: flex;
             justify-content: center;
@@ -84,6 +87,7 @@
             gap: 15px;
         }
 
+        /* Estilo dos botões das abas (Verdes) */
         .tab-btn {
             background: none;
             border: 2px solid var(--verde-neon);
@@ -102,13 +106,14 @@
             box-shadow: 0 0 20px var(--verde-neon);
         }
 
+        /* ABA CONTATO ESPECIAL (Azul Marinho com letras Amarelas) */
         .tab-contact {
             background-color: var(--azul-escuro-navy) !important;
             color: var(--amarelo) !important;
             border: 2px solid var(--amarelo) !important;
         }
 
-        /* Grade de Produtos */
+        /* Grade de Produtos (Fixa 4 colunas) */
         .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -118,10 +123,11 @@
             padding: 10px;
         }
 
+        /* Lógica para esconder e mostrar categorias */
         .product-card { display: none !important; }
         .product-card.show { display: block !important; }
 
-        /* Card do Produto */
+        /* Card individual do produto */
         .card {
             background: var(--fundo-card);
             border: 2px solid #222;
@@ -139,6 +145,7 @@
             box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
         }
 
+        /* GIFs dos Produtos (1024x1024) */
         .product-gif {
             width: 100%;
             aspect-ratio: 1/1;
@@ -147,10 +154,12 @@
             background-color: #fff;
         }
 
+        /* Textos aproximados verticalmente no card */
         .card h3 { color: var(--amarelo); font-size: 17px; margin: 10px 0 2px 0; height: 40px; display: flex; align-items: center; justify-content: center; }
         .card .description { font-size: 12px; color: #aaa; margin: 0 0 8px 0; font-family: 'Segoe UI', sans-serif; height: 35px; overflow: hidden; }
         .price { display: block; font-size: 26px; color: var(--verde-neon); margin: 0 0 10px 0; }
 
+        /* Estilo dos Botões Vermelhos e Verde do Whats nos cards */
         .btn-style {
             background: var(--vermelho);
             color: #fff;
@@ -166,10 +175,9 @@
             cursor: pointer;
             width: 100%;
             margin-bottom: 5px;
-            transition: 0.3s;
         }
 
-        /* --- SEÇÃO CONTATO: CENTRALIZADA --- */
+        /* --- SEÇÃO DE CONTATO: CENTRALIZAÇÃO TOTAL --- */
         .contato-wrapper.show {
             grid-column: 1 / 5;              
             display: flex !important;        
@@ -192,18 +200,30 @@
             text-align: center;
         }
 
+        /* FOTO DO VENDEDOR (ESTILO FOLHA) */
         .photo-leaf {
             width: 450px;
             height: 450px;
             object-fit: cover;
             border: 8px solid var(--amarelo);
-            border-radius: 40px 220px 40px 220px; 
+            border-radius: 40px 220px 40px 220px; /* Bordas assimétricas */
             margin-bottom: 30px;
             box-shadow: 0 0 50px rgba(0, 0, 80, 0.8);
         }
 
-        .contact-info-text { font-size: 36px !important; color: #eeeeee; max-width: 1000px; line-height: 1.4; margin-bottom: 50px; font-weight: bold; }
+        .contact-box-center h2 { color: var(--amarelo); font-size: 55px; margin: 10px 0; }
 
+        /* TEXTO INFORMATIVO EM 36PX (AUMENTADO) */
+        .contact-info-text { 
+            font-size: 36px !important;      
+            color: #eeeeee; 
+            max-width: 1000px; 
+            line-height: 1.4; 
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        /* BOTÃO WHATSAPP NO CONTATO (Verde Neon com Letras Pretas) */
         .btn-wa-neon-black {
             background-color: var(--verde-neon);
             color: #000000 !important; 
@@ -215,10 +235,11 @@
             display: inline-flex;
             align-items: center;
             gap: 20px;
+            transition: 0.3s;
             text-transform: uppercase;
         }
 
-        /* --- CARRINHO GIGANTE NA ESQUERDA --- */
+        /* --- BOTÃO GIGANTE DO CARRINHO (ESQUERDA) --- */
         #cart-icon {
             position: fixed;
             bottom: 30px;
@@ -274,7 +295,7 @@
             padding: 30px;
         }
 
-        /* Rodapé */
+        /* Rodapé final */
         footer {
             background: #0a0a0a;
             padding: 40px 20px;
@@ -292,53 +313,20 @@
 </head>
 <body>
 
+    <!-- Definição dos Links do GitHub e do Mercado Pago -->
     <script>
-        // Caminho das imagens no GitHub
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
+        const LINK_MERCADO_PAGO_GERAL = "https://mpago.la/1iP5Scn"; // O SEU LINK SOLICITADO
+        
         let carrinho = [];
 
-        // ---------------------------------------------------------
-        // BANCO DE DADOS: AQUI VOCÊ COLOCA OS LINKS DE CADA PRODUTO
-        // ---------------------------------------------------------
-        // n = Nome | d = Descrição | p = Preço | mp = Link do Mercado Pago
-        const BANCO_DADOS = {
-            'aero': [
-                { n: 'Shock Flyer 01', d: 'Acrobacias 3D extremas.', p: 450, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 02', d: 'Voo estável e preciso.', p: 480, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 03', d: 'Modelo para iniciantes.', p: 350, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 04', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 05', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 06', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 07', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 08', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 09', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 10', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 11', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 12', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 13', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 14', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' },
-                { n: 'Shock Flyer 15', d: 'Descrição do item.', p: 400, mp: 'SEU_LINK_MERCADO_PAGO_AQUI' }
-            ],
-            'drones': [
-                { n: 'Drone FPV 01', d: 'Câmera 4K integrada.', p: 850, mp: 'LINK_MP_AQUI' },
-                // Repita para os outros 14 drones...
-                { n: 'Drone 02', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 03', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 04', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 05', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 06', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 07', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 08', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 09', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 10', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 11', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 12', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 13', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 14', d: 'Desc...', p: 900, mp: '#' }, { n: 'Drone 15', d: 'Desc...', p: 900, mp: '#' }
-            ],
-            'eletronicos': [
-                { n: 'Eletrônico 01', d: 'Alta durabilidade.', p: 150, mp: 'LINK_MP_AQUI' },
-                // Repita para os outros 14...
-                { n: 'Eletro 02', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 03', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 04', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 05', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 06', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 07', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 08', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 09', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 10', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 11', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 12', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 13', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 14', d: 'Desc...', p: 150, mp: '#' }, { n: 'Eletro 15', d: 'Desc...', p: 150, mp: '#' }
-            ],
-            'pecas': [
-                { n: 'Hélice Carbono', d: 'Leve e balanceada.', p: 45, mp: 'LINK_MP_AQUI' },
-                // Repita para os outros 14...
-                { n: 'Peça 02', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 03', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 04', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 05', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 06', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 07', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 08', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 09', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 10', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 11', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 12', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 13', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 14', d: 'Desc...', p: 50, mp: '#' }, { n: 'Peça 15', d: 'Desc...', p: 50, mp: '#' }
-            ],
-            'smart': [
-                { n: 'Smartwatch X8', d: 'Monitor cardíaco e GPS.', p: 170, mp: 'LINK_MP_AQUI' },
-                // Repita para os outros 14...
-                { n: 'Smart 02', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 03', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 04', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 05', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 06', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 07', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 08', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 09', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 10', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 11', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 12', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 13', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 14', d: 'Desc...', p: 170, mp: '#' }, { n: 'Smart 15', d: 'Desc...', p: 170, mp: '#' }
-            ]
+        // Descrições padrão para cada categoria
+        const descricoes = {
+            'aero': 'Aeromodelo Pro para manobras e diversão.',
+            'drones': 'Drone FPV com estabilização e câmera HD.',
+            'eletronicos': 'Produtos eletrônicos testados e garantidos.',
+            'pecas': 'Peças de reposição resistentes e originais.',
+            'smart': 'Smartwatch completo com monitor de saúde.'
         };
     </script>
 
@@ -353,7 +341,7 @@
         <h2>LOJA DE AEROMODELISMO & PRODUTOS EM GERAL!!!</h2>
     </div>
 
-    <!-- Navegação -->
+    <!-- Menu de Navegação -->
     <nav class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('aero', this)">Aeromodelos</button>
         <button class="tab-btn" onclick="switchTab('drones', this)">Drones</button>
@@ -363,91 +351,114 @@
         <button class="tab-btn tab-contact" onclick="switchTab('contato', this)">Contato Vendedor</button>
     </nav>
 
-    <!-- Loja -->
+    <!-- Container da Loja -->
     <div class="container" id="gridLoja">
         <script>
             const gridLoja = document.getElementById('gridLoja');
             const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
 
+            // Loop para gerar os 75 produtos com o link único do Mercado Pago
             categorias.forEach(cat => {
-                BANCO_DADOS[cat].forEach((item, idx) => {
-                    let num = (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1);
+                for(let i = 1; i <= 15; i++) {
+                    let n = i < 10 ? '0' + i : i;
+                    let activeClass = cat === 'aero' ? 'show' : '';
+                    let preco = 150 + (i * 10); 
+
                     let card = `
-                    <div class="product-card ${cat} ${cat === 'aero' ? 'show' : ''}">
+                    <div class="product-card ${cat} ${activeClass}">
                         <div class="card">
-                            <img src="${URL_BASE}p${num}_${cat}.gif" class="product-gif" alt="Produto">
-                            <h3>${item.n}</h3>
-                            <p class="description">${item.d}</p>
-                            <span class="price">R$ ${item.p},00</span>
-                            <!-- BOTÃO DE PAGAMENTO DIRETO NO MERCADO PAGO -->
-                            <a href="${item.mp}" target="_blank" class="btn-style">🛒 PAGAR NO MERCADO PAGO</a>
-                            <button class="btn-style" style="background:#444;" onclick="addNoCarrinho('${item.n}', ${item.p}, '${item.mp}')">➕ ADD AO CARRINHO</button>
+                            <!-- Imagem GIF vinda do GitHub -->
+                            <img src="${URL_BASE}p${n}_${cat}.gif" class="product-gif" alt="Produto">
+                            <h3>Produto ${n} - ${cat.toUpperCase()}</h3>
+                            <p class="description">${descricoes[cat]}</p>
+                            <span class="price">R$ ${preco},00</span>
+                            <div class="btn-box">
+                                <!-- Botão de Pagamento com o link solicitado -->
+                                <a href="${LINK_MERCADO_PAGO_GERAL}" target="_blank" class="btn-style">🛒 PAGAR NO MERCADO PAGO</a>
+                                <!-- Botão de Adição ao Carrinho -->
+                                <button class="btn-style" style="background:#444;" onclick="addNoCarrinho('Prod ${n}', ${preco})">➕ ADD AO CARRINHO</button>
+                            </div>
                         </div>
                     </div>`;
                     gridLoja.innerHTML += card;
-                });
+                }
             });
         </script>
 
-        <!-- ABA CONTATO -->
+        <!-- ABA CONTATO VENDEDOR (TOTALMENTE CENTRALIZADA) -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
+                <!-- Foto do Vendedor Estilo Folha -->
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf" alt="Vendedor">
+                
                 <h2 style="color: var(--amarelo);">RODOLFO FRANCO</h2>
+                
+                <!-- Texto em 36px Negrito -->
                 <p class="contact-info-text">
                     📌 Aqui você encontra "PRODUTOS" a "PRONTA ENTREGA" com "ESTOQUE" no "BRASIL" com "PRAZO de ENTREGA" de "2 SEMANAS" mais ou menos após o "ENVIO" pelos "CORREIOS" & "PRODUTOS SOB ENCOMENDA" com "PRAZO de ENTREGA" de "1 MÊS" mais ou menos pois meus "FORNECEDORES" são da "CHINA"!!! 📌
                 </p>
+                
+                <!-- Botão WhatsApp Verde Neon com Letras Pretas -->
                 <a href="https://wa.me/5532920006774" target="_blank" class="btn-wa-neon-black">
-                    <i class="fab fa-whatsapp" style="font-size:35px; margin-right:15px;"></i> CHAMAR NO WHATSAPP AGORA
+                    <i class="fab fa-whatsapp" style="font-size: 35px; margin-right: 15px;"></i> CHAMAR NO WHATSAPP AGORA
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Carrinho Flutuante (Esquerda) -->
+    <!-- ÍCONE DO CARRINHO (ESQUERDA) -->
     <div id="cart-icon" onclick="toggleCart()">
         <i class="fas fa-shopping-cart"></i>
         <div id="cart-count">0</div>
     </div>
 
-    <!-- Modal Carrinho -->
+    <!-- JANELA DO CARRINHO -->
     <div id="cart-modal">
         <div class="cart-content">
-            <h2 style="color: var(--verde-neon)">SEU CARRINHO</h2>
+            <h2 style="color: var(--verde-neon)">CARRINHO</h2>
             <div id="cart-items-list" style="max-height: 400px; overflow-y: auto; text-align: left; margin-bottom: 20px;"></div>
             <h3 style="font-size: 28px; border-top: 1px solid #333; padding-top: 15px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
-            <p style="font-size:12px; color:#aaa;">Pague os itens individualmente clicando nos botões abaixo:</p>
-            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">FECHAR E VOLTAR</button>
+            <!-- Link do Mercado Pago também no botão do Carrinho -->
+            <a href="${LINK_MERCADO_PAGO_GERAL}" target="_blank" class="btn-style" style="height: 70px; font-size: 20px; background: var(--verde-neon); color: #000; line-height: 70px;">✅ PAGAR AGORA NO MERCADO PAGO</a>
+            <button class="btn-style" style="background: #444; margin-top: 10px;" onclick="toggleCart()">VOLTAR À LOJA</button>
         </div>
     </div>
 
     <footer>
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Destaque" class="footer-gif">
         <p>PAGAMENTO SEGURO VIA MERCADO PAGO</p>
-    </header>
+        <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" style="width: 200px;">
+    </footer>
 
+    <!-- Script de Lógica do Site -->
     <script>
-        // Lógica de Abas
+        // Função para mudar de Aba
         function switchTab(categoryId, element) {
             const allItems = document.querySelectorAll('.product-card');
             const buttons = document.querySelectorAll('.tab-btn');
+            
+            // Remove destaque dos botões
             buttons.forEach(btn => btn.classList.remove('active'));
+            // Adiciona destaque no botão clicado
             element.classList.add('active');
+
+            // Mostra itens da categoria e esconde os outros
             allItems.forEach(item => {
                 item.classList.remove('show');
                 if (item.classList.contains(categoryId)) item.classList.add('show');
             });
+            // Rola a tela para o topo suavemente
             window.scrollTo({ top: 400, behavior: 'smooth' });
         }
 
-        // Adicionar ao Carrinho
-        function addNoCarrinho(nome, preco, link) {
-            carrinho.push({nome, preco, link});
+        // Função Adicionar ao Carrinho
+        function addNoCarrinho(nome, preco) {
+            carrinho.push({nome, preco});
             atualizarCarrinho();
-            alert(nome + " adicionado ao carrinho!");
+            alert(nome + " foi para o carrinho!");
         }
 
-        // Atualizar lista visual do carrinho
+        // Atualizar lista visual do Carrinho
         function atualizarCarrinho() {
             const list = document.getElementById('cart-items-list');
             const totalEl = document.getElementById('cart-total');
@@ -456,21 +467,22 @@
             let total = 0;
             carrinho.forEach((item, index) => {
                 total += item.preco;
-                list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:16px; border-bottom:1px solid #222; padding-bottom:8px;">
+                list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:18px; border-bottom:1px solid #222; padding-bottom:8px;">
                     <span>${item.nome}</span>
-                    <a href="${item.link}" target="_blank" style="color:var(--verde-neon); text-decoration:none; font-weight:bold;">[PAGAR R$ ${item.preco}]</a>
-                    <i class="fas fa-trash" onclick="removerItem(${index})" style="color:red; cursor:pointer"></i>
+                    <span>R$ ${item.preco},00 <i class="fas fa-trash" onclick="removerItem(${index})" style="color:red; margin-left:15px; cursor:pointer"></i></span>
                 </div>`;
             });
             totalEl.innerText = `R$ ${total},00`;
             countEl.innerText = carrinho.length;
         }
 
+        // Remover item do carrinho
         function removerItem(index) {
             carrinho.splice(index, 1);
             atualizarCarrinho();
         }
 
+        // Abrir/Fechar Modal do Carrinho
         function toggleCart() {
             const modal = document.getElementById('cart-modal');
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';

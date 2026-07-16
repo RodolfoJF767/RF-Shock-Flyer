@@ -112,7 +112,7 @@
         .card .description { font-size: 16px; color: #fff; font-weight: bold; margin: 0 0 10px 0; height: 45px; overflow: hidden; line-height: 1.3; }
         .price { display: block; font-size: 30px; color: var(--verde-neon); margin-bottom: 15px; }
 
-        /* AJUSTE: FONTE MAIOR NOS BOTÕES */
+        /* FONTE MAIOR NOS BOTÕES DOS PRODUTOS */
         .btn-style {
             text-decoration: none; display: block; height: 50px; line-height: 50px;
             border-radius: 8px; font-weight: bold; text-transform: uppercase;
@@ -199,7 +199,6 @@
 <body>
 
     <script>
-        // URL BASE AJUSTADA PARA GARANTIR CARREGAMENTO
         const URL_BASE = "https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/";
         let carrinho = [];
 
@@ -235,8 +234,8 @@
             const gridLoja = document.getElementById('gridLoja');
             const categorias = ['aero', 'drones', 'eletronicos', 'pecas', 'smart'];
 
-            // 1º PRODUTO FIXO: SHOCK FLYER GILES
-            let itemGiles = `
+            // 1º PRODUTO FIXO: SHOCK FLYER GILES RED BULL
+            let itemGiles1 = `
             <div class="product-card aero show">
                 <div class="card" onclick="abrirDetalhes('Shock Flyer GILES - Red Bull', 'Aeromodelo Shock Flyer GILES Pintura: RED Bull Bandeira USD.', 555, '${URL_BASE}AeroGilesRedBullUSD.png')">
                     <img src="${URL_BASE}AeroGilesRedBullUSD.png" class="product-gif">
@@ -249,11 +248,27 @@
                     </div>
                 </div>
             </div>`;
-            gridLoja.innerHTML += itemGiles;
+
+            // 2º PRODUTO FIXO: SHOCK FLYER GILES BANDEIRA BRASIL
+            let itemGiles2 = `
+            <div class="product-card aero show">
+                <div class="card" onclick="abrirDetalhes('Shock Flyer GILES - Bandeira Brasil', 'Aeromodelo Shock Flyer GILES Pintura: Bandeira Brasil.', 777, '${URL_BASE}AeroGilesBandeiraBrasil.png')">
+                    <img src="${URL_BASE}AeroGilesBandeiraBrasil.png" class="product-gif">
+                    <h3>Shock Flyer GILES - Bandeira Brasil</h3>
+                    <p class="description">Pintura: Bandeira Brasil.</p>
+                    <span class="price">R$ 777,00</span>
+                    <div class="btn-box" onclick="event.stopPropagation()">
+                        <button class="btn-style btn-pay" onclick="window.open('https://mpago.la/1iP5Scn', '_system')">COMPRAR</button>
+                        <button class="btn-style btn-add" onclick="addNoCarrinho('Shock Flyer GILES - Bandeira Brasil', 777)">ADICIONAR AO CARRINHO</button>
+                    </div>
+                </div>
+            </div>`;
+            
+            gridLoja.innerHTML += itemGiles1 + itemGiles2;
 
             // GERAÇÃO DOS DEMAIS
             categorias.forEach(cat => {
-                let inicio = (cat === 'aero') ? 2 : 1;
+                let inicio = (cat === 'aero') ? 3 : 1; // Começa no 3 para Aeromodelo pois 1 e 2 são os fixos
                 for(let i = inicio; i <= 8; i++) {
                     let n = i < 10 ? '0' + i : i;
                     let activeClass = cat === 'aero' ? 'show' : '';

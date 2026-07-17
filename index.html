@@ -76,7 +76,14 @@
         }
 
         .tab-btn.active, .tab-btn:hover { background: var(--verde-neon); color: #000; box-shadow: 0 0 20px var(--verde-neon); }
-        .tab-contact { background-color: var(--azul-escuro-navy) !important; color: var(--amarelo) !important; border: 2px solid var(--amarelo) !important; }
+        
+        /* BOTÃO CONTATO: FUNDO AMARELO E LETRAS AZUL ESCURO */
+        .tab-contact { 
+            background-color: var(--amarelo) !important; 
+            color: var(--azul-escuro-navy) !important; 
+            border: 2px solid var(--azul-escuro-navy) !important; 
+            box-shadow: 0 0 15px var(--amarelo);
+        }
 
         .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: 1240px; margin: 30px auto; padding: 10px; }
         .product-card { display: none !important; }
@@ -97,7 +104,6 @@
 
         .product-gif { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 30px; background-color: #fff; border: 1px solid #333; }
         
-        /* AJUSTE TÍTULO DOS PRODUTOS */
         .card h3 { 
             color: var(--amarelo); 
             font-size: 18px; 
@@ -112,7 +118,6 @@
         .card .description { font-size: 16px; color: #fff; font-weight: bold; margin: 0 0 10px 0; height: 45px; overflow: hidden; line-height: 1.3; }
         .price { display: block; font-size: 30px; color: var(--verde-neon); margin-bottom: 15px; }
 
-        /* AJUSTE BOTÃO PARA NÃO SAIR TEXTO */
         .btn-style { 
             text-decoration: none; 
             display: flex; 
@@ -121,7 +126,7 @@
             min-height: 55px; 
             height: auto;
             border-radius: 8px; 
-            font-family: Arial, sans-serif; /* Fonte Arial para caber melhor */
+            font-family: Arial, sans-serif; 
             font-weight: bold; 
             text-transform: uppercase; 
             font-size: 16px; 
@@ -148,14 +153,13 @@
         .btn-back-shop { background-color: var(--azul-celeste); color: #000; height: 60px; font-size: 20px; }
 
         .contato-wrapper.show { grid-column: 1 / 5; display: flex !important; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 50px 0; }
-        .contact-box-center { width: 1100px; background: rgba(13, 13, 13, 0.8); border: 5px solid var(--azul-escuro-navy); padding: 60px; border-radius: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; backdrop-filter: blur(10px); }
+        .contact-box-center { width: 1100px; background: rgba(13, 13, 13, 0.8); border: 5px solid var(--amarelo); padding: 60px; border-radius: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; backdrop-filter: blur(10px); }
         .photo-leaf { width: 450px; height: 450px; object-fit: cover; border: 8px solid var(--amarelo); border-radius: 40px 220px 40px 220px; margin-bottom: 30px; }
         .pink-title { color: var(--rosa-neon); font-size: 70px; margin: 0; text-transform: uppercase; }
         .yellow-name { color: var(--amarelo); font-size: 80px; margin: 5px 0 20px 0; text-transform: uppercase; }
         .contact-info-text { font-size: 36px !important; color: #ffffff; text-align: center; max-width: 1000px; line-height: 1.4; margin-bottom: 50px; font-weight: bold; }
         .btn-wa-neon-black { background-color: var(--verde-neon); color: #000; padding: 25px 80px; border-radius: 60px; text-decoration: none; font-size: 30px; font-weight: 900; display: inline-flex; align-items: center; gap: 20px; text-transform: uppercase; border: none; cursor: pointer; justify-content: center; }
 
-        /* ESTILO DO CARRINHO (CONFORME SOLICITADO) */
         #cart-icon { position: fixed; bottom: 30px; left: 30px; background: var(--verde-neon); color: #000; width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 70px; cursor: pointer; z-index: 2500; box-shadow: 0 0 50px var(--verde-neon); border: 6px solid #000; transition: 0.3s; }
         #cart-count { position: absolute; top: 5px; right: 5px; background: var(--vermelho); color: #fff; width: 45px; height: 45px; border-radius: 50%; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; border: 3px solid #000; }
         #cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 6000; justify-content: center; align-items: center; }
@@ -165,7 +169,6 @@
         footer { background: linear-gradient(-45deg, #0a0a0a, #1a0a2e, #4b0082, #001f3f, #000000); background-size: 400% 400%; animation: gradientBG 10s ease infinite; padding: 60px 20px; border-top: 4px solid var(--vermelho); margin-top: 40px; }
         footer p { font-size: 40px; font-weight: bold; color: #ffffff; margin-top: 20px; text-transform: uppercase; }
         
-        /* ESTILO FOLHA NO RODAPÉ */
         .footer-gif { 
             width: 300px; 
             height: auto;
@@ -294,13 +297,12 @@
         </div>
     </div>
 
-    <!-- RODAPÉ 1: MERCADO PAGO -->
+    <!-- RODAPÉS -->
     <footer>
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodapemercadopago.png" alt="Mercado Pago" class="footer-gif">
         <p>PAGAMENTO SEGURO VIA MERCADO PAGO</p>
     </footer>
 
-    <!-- RODAPÉ 2: AGRADECIMENTO -->
     <footer>
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/refs/heads/main/imagens/imgagradecimento.gif" alt="Agradecimento" class="footer-gif">
         <p>🙏🌹 AGRADECIMENTO 🌹🙏</p>

@@ -82,7 +82,6 @@
         .product-card { display: none !important; }
         .product-card.show { display: block !important; }
 
-        /* AJUSTE DO CARD PARA MANTER ALINHAMENTO */
         .card { 
             background: var(--fundo-card); 
             border: 2px solid #222; 
@@ -92,18 +91,18 @@
             cursor: pointer; 
             display: flex; 
             flex-direction: column;
-            min-height: 520px; /* Garante que todos os cards tenham o mesmo tamanho */
+            min-height: 550px; /* Aumentado para acomodar os botões novos */
         }
         .card:hover { border-color: var(--vermelho); box-shadow: 0 0 25px rgba(255, 0, 0, 0.5); }
 
         .product-gif { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 30px; background-color: #fff; border: 1px solid #333; }
         
-        /* AJUSTE DO TÍTULO AMARRELO (DESEMBOLADO) */
+        /* AJUSTE TÍTULOS */
         .card h3 { 
             color: var(--amarelo); 
             font-size: 18px; 
             margin: 15px 0 10px 0; 
-            height: 60px; /* Aumentado para suportar 2 ou 3 linhas sem apertar */
+            height: 60px; 
             line-height: 1.2; 
             overflow: hidden; 
             display: flex;
@@ -111,7 +110,6 @@
             justify-content: center;
         }
 
-        /* AJUSTE DA DESCRIÇÃO */
         .card .description { 
             font-size: 16px; 
             color: #fff; 
@@ -124,7 +122,26 @@
 
         .price { display: block; font-size: 30px; color: var(--verde-neon); margin-bottom: 15px; }
 
-        .btn-style { text-decoration: none; display: block; height: 50px; line-height: 50px; border-radius: 8px; font-weight: bold; text-transform: uppercase; font-size: 20px; border: none; cursor: pointer; width: 100%; margin-bottom: 5px; transition: 0.3s; text-align: center; }
+        /* AJUSTE DOS BOTÕES PARA NÃO SAIR O TEXTO */
+        .btn-style { 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 55px; 
+            padding: 0 10px;
+            border-radius: 8px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            font-size: 17px; /* Diminuído levemente para o texto caber */
+            border: none; 
+            cursor: pointer; 
+            width: 100%; 
+            margin-bottom: 8px; 
+            transition: 0.3s; 
+            text-align: center;
+            line-height: 1.1; 
+        }
         .btn-pay { background-color: var(--rosa-neon); color: #000; } 
         .btn-add { background-color: var(--laranja-neon); color: #000; } 
 
@@ -135,12 +152,11 @@
         .detail-title { font-size: 40px; color: var(--amarelo); margin-bottom: 15px; }
         .detail-desc { font-size: 28px; color: #ffffff; font-weight: bold; max-width: 900px; margin-bottom: 30px; line-height: 1.4; }
         .detail-price { font-size: 55px; color: var(--verde-neon); font-weight: bold; margin-bottom: 40px; }
-        .btn-back-shop { background-color: var(--azul-celeste); color: #000; height: 60px; line-height: 60px; font-size: 20px; }
+        
+        .btn-back-shop { background-color: var(--azul-celeste); color: #000; height: 60px; font-size: 20px; }
 
         .contato-wrapper.show { grid-column: 1 / 5; display: flex !important; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 50px 0; }
         .contact-box-center { width: 1100px; background: rgba(13, 13, 13, 0.8); border: 5px solid var(--azul-escuro-navy); padding: 60px; border-radius: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; backdrop-filter: blur(10px); }
-        
-        /* ESTILO DA FOTO DO CONTATO */
         .photo-leaf { width: 450px; height: 450px; object-fit: cover; border: 8px solid var(--amarelo); border-radius: 40px 220px 40px 220px; margin-bottom: 30px; }
         
         .pink-title { color: var(--rosa-neon); font-size: 70px; margin: 0; text-transform: uppercase; }
@@ -157,7 +173,6 @@
         footer { background: linear-gradient(-45deg, #0a0a0a, #1a0a2e, #4b0082, #001f3f, #000000); background-size: 400% 400%; animation: gradientBG 10s ease infinite; padding: 60px 20px; border-top: 4px solid var(--vermelho); margin-top: 40px; }
         footer p { font-size: 40px; font-weight: bold; color: #ffffff; margin-top: 20px; text-transform: uppercase; }
         
-        /* AJUSTE DAS IMAGENS DO RODAPÉ (IGUAL AO CONTATO) */
         .footer-gif { 
             width: 300px; 
             height: auto; 
@@ -217,7 +232,7 @@
             <div class="product-card aero show">
                 <div class="card" onclick="abrirDetalhes('Aeromodelo Shock Flyer GILES - Red Bull', 'Aeromodelo Shock Flyer GILES Pintura: RED Bull Bandeira USD.', 555, '${URL_BASE}AeroGilesRedBullUSD.png')">
                     <img src="${URL_BASE}AeroGilesRedBullUSD.png" class="product-gif">
-                    <h3>Aeromodelo Shock Flyer GILES {Pintura Red Bull Bandeira USD}</h3>
+                    <h3>Aeromodelo Shock Flyer GILES {Red Bull Bandeira USD}</h3>
                     <p class="description">Pintura: Red Bull Bandeira USD.</p>
                     <span class="price">R$ 555,00</span>
                     <div class="btn-box" onclick="event.stopPropagation()">
@@ -229,14 +244,14 @@
 
             let itemGiles2 = `
             <div class="product-card aero show">
-                <div class="card" onclick="abrirDetalhes('Aeromodelo Shock Flyer GILES - Bandeira Brasil', 'Aeromodelo Shock Flyer GILES Pintura: Bandeira Brasil.', 777, '${URL_BASE}AeroGilesBandeiraBrasil.png')">
+                <div class="card" onclick="abrirDetalhes('Aeromodelo Shock Flyer GILES - Brasil', 'Aeromodelo Shock Flyer GILES Pintura: Bandeira Brasil.', 777, '${URL_BASE}AeroGilesBandeiraBrasil.png')">
                     <img src="${URL_BASE}AeroGilesBandeiraBrasil.png" class="product-gif">
                     <h3>Aeromodelo Shock Flyer GILES {Pintura Bandeira Brasil}</h3>
                     <p class="description">Pintura: Bandeira Brasil.</p>
                     <span class="price">R$ 777,00</span>
                     <div class="btn-box" onclick="event.stopPropagation()">
                         <button class="btn-style btn-pay" onclick="abrirLinkExterno('https://mpago.la/1iP5Scn')">COMPRAR</button>
-                        <button class="btn-style btn-add" onclick="addNoCarrinho('Aeromodelo Shock Flyer GILES - Bandeira Brasil', 777)">ADICIONAR AO CARRINHO</button>
+                        <button class="btn-style btn-add" onclick="addNoCarrinho('Aeromodelo Shock Flyer GILES - Brasil', 777)">ADICIONAR AO CARRINHO</button>
                     </div>
                 </div>
             </div>`;
@@ -270,7 +285,6 @@
             });
         </script>
 
-        <!-- CONTATO VENDEDOR -->
         <div class="product-card contato contato-wrapper">
             <div class="contact-box-center">
                 <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/imagemcontatovendedor.png" class="photo-leaf" alt="Vendedor">
@@ -286,7 +300,6 @@
         </div>
     </div>
 
-    <!-- MODAL DETALHES -->
     <div id="product-detail-view">
         <div class="detail-content">
             <span class="btn-close-detail" onclick="fecharDetalhes()">&times;</span>
@@ -296,14 +309,13 @@
             <span id="det-price" class="detail-price"></span>
             
             <div style="width: 550px; display: flex; flex-direction: column; gap: 10px;">
-                <button id="det-pay-btn" class="btn-style btn-pay" style="height:75px; line-height:75px; font-size:24px;" onclick="abrirLinkExterno('https://mpago.la/1iP5Scn')">COMPRAR</button>
-                <button id="det-add-btn" class="btn-style btn-add" style="height:65px; line-height:65px; font-size:22px;">ADICIONAR AO CARRINHO</button>
+                <button id="det-pay-btn" class="btn-style btn-pay" style="height:75px; font-size:24px;" onclick="abrirLinkExterno('https://mpago.la/1iP5Scn')">COMPRAR</button>
+                <button id="det-add-btn" class="btn-style btn-add" style="height:65px; font-size:22px;">ADICIONAR AO CARRINHO</button>
                 <button class="btn-style btn-back-shop" onclick="fecharDetalhes()">VOLTAR</button>
             </div>
         </div>
     </div>
 
-    <!-- CARRINHO -->
     <div id="cart-icon" onclick="toggleCart()">
         <i class="fas fa-shopping-cart"></i>
         <div id="cart-count">0</div>
@@ -315,18 +327,16 @@
             <div class="alerta-pagamento">⚠️ Atenção: Digite o valor do total de sua compra no campo do Mercado Pago para finalizar!!!</div>
             <div id="cart-items-list" style="max-height: 300px; overflow-y: auto; text-align: center; margin-bottom: 20px;"></div>
             <h3 style="font-size: 32px; border-top: 1px solid #333; padding-top: 15px;">TOTAL: <span id="cart-total" style="color: var(--verde-neon)">R$ 0,00</span></h3>
-            <button onclick="abrirLinkExterno('https://link.mercadopago.com.br/rfshockflyer');" class="btn-style btn-pay" style="height: 80px; font-size: 24px; line-height: 80px;">PAGAR AGORA</button>
+            <button onclick="abrirLinkExterno('https://link.mercadopago.com.br/rfshockflyer');" class="btn-style btn-pay" style="height: 80px; font-size: 24px;">PAGAR AGORA</button>
             <button class="btn-style btn-back-shop" style="margin-top: 15px;" onclick="toggleCart()">VOLTAR</button>
         </div>
     </div>
 
-    <!-- RODAPÉ 1 -->
     <footer>
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/main/imagens/rodape.gif" alt="Destaque" class="footer-gif">
         <p>PAGAMENTO SEGURO VIA MERCADO PAGO</p>
     </footer>
 
-    <!-- RODAPÉ 2 -->
     <footer>
         <img src="https://raw.githubusercontent.com/RodolfoJF767/RF-Shock-Flyer/refs/heads/main/imagens/imgagradecimento.gif" alt="Destaque" class="footer-gif">
         <p>🙏🌹 AGRADECIMENTO 🌹🙏</p>

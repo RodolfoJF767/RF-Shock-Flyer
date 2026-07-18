@@ -365,10 +365,11 @@
 
         function fecharDetalhes() { document.getElementById('product-detail-view').style.display = 'none'; }
 
+        /* FUNÇÃO ATUALIZADA COM FRASE PROFISSIONAL */
         function addNoCarrinho(nome, preco) {
             carrinho.push({nome, preco});
             atualizarCarrinho();
-            alert(nome + " adicionado!");
+            alert("RF-Shock Flyer: " + nome + " foi adicionado ao seu carrinho com sucesso!");
         }
 
         function atualizarCarrinho() {
